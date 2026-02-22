@@ -148,7 +148,7 @@ function generateLiquidityCards(data: ScrapedData): FeaturedOpportunity[] {
 
 function generateMultiplyCards(data: ScrapedData): FeaturedOpportunity[] {
   return data.multiply
-    .filter((s) => s.maxNetApy > 0)
+    .filter((s) => s.maxNetApy > 0 && s.supply !== "JLP")
     .sort((a, b) => b.maxNetApy - a.maxNetApy)
     .slice(0, 6)
     .map((strat) => {
