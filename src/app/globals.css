@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Kamino Brand Palette */
+  --color-background: #FCFCFC;        /* Paper - 30% */
+  --color-foreground: #000000;         /* Black - text */
+  --color-card: #C6F4FF;               /* Kamino Blue - 40% */
+  --color-card-hover: #B0ECFF;         /* Kamino Blue darker on hover */
+  --color-border: #D1D5DC;             /* Grey border */
+  --color-muted: #4A5565;              /* Medium grey - secondary text */
+  --color-accent: #001F46;             /* Dark navy - accent/links */
+  --color-accent-dim: rgba(198, 244, 255, 0.5); /* Kamino Blue translucent */
+  --color-kamino-blue: #C6F4FF;        /* Kamino Blue */
+  --color-liquidity-blue: #9CAED4;     /* Liquidity Blue - 10% */
+  --color-warning: #D97706;
+  --color-danger: #DC2626;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
