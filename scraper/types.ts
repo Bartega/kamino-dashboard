@@ -1,10 +1,11 @@
-export interface ScrapedLendVault {
-  name: string;
-  curator: string;
-  apy: number;
-  deposits: number;
-  profile: string;
-  collateralCount: number;
+export interface ScrapedBorrowAsset {
+  asset: string;
+  market: string;
+  totalSupply: number;
+  totalBorrow: number;
+  liqLtv: number;
+  supplyApy: number;
+  borrowApy: number;
 }
 
 export interface ScrapedLiquidityVault {
@@ -27,8 +28,8 @@ export interface ScrapedMultiplyStrategy {
 }
 
 export interface ScrapedStats {
-  lendMarketSize: number;
-  lendVaultDeposits: number;
+  borrowMarketSize: number;
+  borrowActiveBorrows: number;
   liquidityDeposits: number;
   liquidityFeesGenerated: number;
   multiplyDeposits: number;
@@ -39,7 +40,7 @@ export interface ScrapedData {
   timestamp: string;
   version: number;
   stats: ScrapedStats;
-  lend: ScrapedLendVault[];
+  borrow: ScrapedBorrowAsset[];
   liquidity: ScrapedLiquidityVault[];
   multiply: ScrapedMultiplyStrategy[];
 }

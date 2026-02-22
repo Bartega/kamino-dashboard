@@ -1,14 +1,19 @@
 import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { CATEGORIES, type OpportunityCategory } from "./featured";
+import {
+  CATEGORIES,
+  type FeaturedOpportunity,
+  type OpportunityCategory,
+} from "./featured";
 
-interface ScrapedLendVault {
-  name: string;
-  curator: string;
-  apy: number;
-  deposits: number;
-  profile: string;
-  collateralCount: number;
+interface ScrapedBorrowAsset {
+  asset: string;
+  market: string;
+  totalSupply: number;
+  totalBorrow: number;
+  liqLtv: number;
+  supplyApy: number;
+  borrowApy: number;
 }
 
 interface ScrapedLiquidityVault {
@@ -31,8 +36,8 @@ interface ScrapedMultiplyStrategy {
 }
 
 interface ScrapedStats {
-  lendMarketSize: number;
-  lendVaultDeposits: number;
+  borrowMarketSize: number;
+  borrowActiveBorrows: number;
   liquidityDeposits: number;
   liquidityFeesGenerated: number;
   multiplyDeposits: number;
@@ -43,7 +48,7 @@ interface ScrapedData {
   timestamp: string;
   version: number;
   stats: ScrapedStats;
-  lend: ScrapedLendVault[];
+  borrow: ScrapedBorrowAsset[];
   liquidity: ScrapedLiquidityVault[];
   multiply: ScrapedMultiplyStrategy[];
 }
@@ -64,272 +69,118 @@ function fmtPct(n: number): string {
   return `${n.toFixed(2)}%`;
 }
 
-function findLendVault(data: ScrapedData, fragment: string): ScrapedLendVault | undefined {
-  return data.lend.find((v) =>
-    v.name.toLowerCase().includes(fragment.toLowerCase())
-  );
+// --- Card generation functions ---
+
+function generateBorrowCards(data: ScrapedData): FeaturedOpportunity[] {
+  // 4 highest supply APY
+  const supplyCards = data.borrow
+    .filter((a) => a.supplyApy > 0)
+    .sort((a, b) => b.supplyApy - a.supplyApy)
+    .slice(0, 4)
+    .map((a) => ({
+      title: `Supply ${a.asset}`,
+      highlight: `${fmtPct(a.supplyApy)} supply APY`,
+      description: `Earn yield by supplying ${a.asset} to the ${a.market}. ${fmtUsd(a.totalSupply)} total supply with ${fmtUsd(a.totalBorrow)} in active borrows.`,
+      details: [
+        `Market: ${a.market}`,
+        `Total supply: ${fmtUsd(a.totalSupply)}`,
+        `Total borrow: ${fmtUsd(a.totalBorrow)}`,
+        ...(a.liqLtv > 0 ? [`Liquidation LTV: ${a.liqLtv}%`] : []),
+      ],
+      link: "https://kamino.com/borrow",
+    }));
+
+  // 2 lowest borrow APY (cheapest to borrow)
+  const borrowCards = data.borrow
+    .filter((a) => a.borrowApy > 0)
+    .sort((a, b) => a.borrowApy - b.borrowApy)
+    .slice(0, 2)
+    .map((a) => ({
+      title: `Borrow ${a.asset}`,
+      highlight: `${fmtPct(a.borrowApy)} borrow APY`,
+      description: `Borrow ${a.asset} from the ${a.market} at low rates. ${fmtUsd(a.totalSupply - a.totalBorrow)} available liquidity.`,
+      details: [
+        `Market: ${a.market}`,
+        `Available: ${fmtUsd(Math.max(0, a.totalSupply - a.totalBorrow))}`,
+        `Total supply: ${fmtUsd(a.totalSupply)}`,
+      ],
+      link: "https://kamino.com/borrow",
+    }));
+
+  return [...supplyCards, ...borrowCards];
 }
 
-function findLiqVault(data: ScrapedData, fragment: string): ScrapedLiquidityVault | undefined {
-  return data.liquidity.find((v) =>
-    v.pair.toLowerCase().includes(fragment.toLowerCase())
-  );
+function generateLiquidityCards(data: ScrapedData): FeaturedOpportunity[] {
+  const sorted = data.liquidity
+    .filter((v) => v.feesApy7d > 0)
+    .sort((a, b) => b.feesApy7d - a.feesApy7d)
+    .slice(0, 6);
+
+  // Track duplicates for disambiguation
+  const pairCounts = new Map<string, number>();
+  for (const v of sorted) {
+    pairCounts.set(v.pair, (pairCounts.get(v.pair) || 0) + 1);
+  }
+  const pairSeen = new Map<string, number>();
+
+  return sorted.map((vault) => {
+    let title = vault.pair;
+    const count = pairCounts.get(vault.pair) || 1;
+    if (count > 1) {
+      const idx = (pairSeen.get(vault.pair) || 0) + 1;
+      pairSeen.set(vault.pair, idx);
+      title = vault.dex ? `${vault.pair} (${vault.dex})` : `${vault.pair} #${idx}`;
+    }
+
+    return {
+      title,
+      highlight: `${fmtPct(vault.feesApy7d)} 7D fees APY`,
+      description: `Auto-rebalancing concentrated liquidity vault. ${fmtUsd(vault.volume7d)} in 7-day volume with ${fmtUsd(vault.tvl)} TVL.`,
+      details: [
+        `7D volume: ${fmtUsd(vault.volume7d)}`,
+        `TVL: ${fmtUsd(vault.tvl)}`,
+        ...(vault.dex ? [`DEX: ${vault.dex}`] : []),
+      ],
+      link: "https://kamino.com/liquidity",
+    };
+  });
 }
 
-function findMultiply(
-  data: ScrapedData,
-  supply: string,
-  borrowToken?: string
-): ScrapedMultiplyStrategy | undefined {
-  return data.multiply.find(
-    (s) =>
-      s.supply.toLowerCase() === supply.toLowerCase() &&
-      (!borrowToken || s.borrowToken.toLowerCase() === borrowToken.toLowerCase())
-  );
-}
-
-function bestMultiply(data: ScrapedData, supply: string): ScrapedMultiplyStrategy | undefined {
-  const matches = data.multiply.filter(
-    (s) => s.supply.toLowerCase() === supply.toLowerCase() && s.maxNetApy > 0
-  );
-  if (matches.length === 0) return undefined;
-  return matches.reduce((best, s) => (s.maxNetApy > best.maxNetApy ? s : best));
-}
-
-function sumSupplied(data: ScrapedData, market: string): number {
+function generateMultiplyCards(data: ScrapedData): FeaturedOpportunity[] {
   return data.multiply
-    .filter((s) => s.market === market)
-    .reduce((sum, s) => sum + s.supplied, 0);
+    .filter((s) => s.maxNetApy > 0)
+    .sort((a, b) => b.maxNetApy - a.maxNetApy)
+    .slice(0, 6)
+    .map((strat) => {
+      const title = strat.market
+        ? `${strat.supply}/${strat.borrowToken}`
+        : strat.supply;
+
+      return {
+        title,
+        highlight: `${fmtPct(strat.maxNetApy)} max net APY`,
+        description: `${strat.strategy} strategy on ${strat.market || "dedicated market"}. Up to ${strat.maxLeverage} leverage with ${fmtUsd(strat.liqAvailable)} liquidity available.`,
+        details: [
+          `Max leverage: ${strat.maxLeverage}`,
+          `Market: ${strat.market || "Dedicated"}`,
+          `Supplied: ${fmtUsd(strat.supplied)}`,
+        ],
+        link: "https://kamino.com/multiply",
+      };
+    });
 }
 
-// Merge scraped numbers into a single featured card
-function mergeLending(
-  data: ScrapedData,
-  title: string,
-  opp: { highlight: string; details?: string[] }
-): { highlight: string; details?: string[] } {
-  switch (title) {
-    case "PYUSD Lending": {
-      const vault = findLendVault(data, "PYUSD");
-      if (!vault) return opp;
-      return {
-        highlight: `${fmtPct(vault.apy)} lending APY`,
-        details: [
-          `${fmtUsd(vault.deposits)}+ deposited`,
-          `${fmtPct(vault.apy)} APY`,
-          opp.details?.[2] || "PayPal-backed stablecoin",
-        ],
-      };
-    }
-    case "Main Market": {
-      const size = data.stats.lendMarketSize;
-      if (!size) return opp;
-      return {
-        highlight: `${fmtUsd(size)} market size`,
-        details: opp.details,
-      };
-    }
-    case "Prime Market (Figure)": {
-      const supplied = sumSupplied(data, "Prime Market");
-      const best = data.multiply.find(
-        (s) => s.market === "Prime Market" && s.maxNetApy > 0
-      );
-      if (!supplied && !best) return opp;
-      return {
-        highlight: best ? `${fmtPct(best.maxNetApy)} max net APY` : opp.highlight,
-        details: [
-          supplied ? `Market size: ${fmtUsd(supplied)}` : opp.details?.[0] || "",
-          opp.details?.[1] || "Real-world asset collateral",
-          opp.details?.[2] || "Institutional-grade lending",
-        ],
-      };
-    }
-    case "Maple Market (syrupUSDC)": {
-      const syrup = data.multiply.filter(
-        (s) => s.supply.toLowerCase() === "syrupusdc"
-      );
-      const best = syrup.reduce(
-        (b, s) => (s.maxNetApy > b.maxNetApy ? s : b),
-        syrup[0]
-      );
-      const supplied = syrup.reduce((sum, s) => sum + s.supplied, 0);
-      if (!best) return opp;
-      return {
-        highlight: best.maxNetApy > 0 ? `${fmtPct(best.maxNetApy)} max net APY` : opp.highlight,
-        details: [
-          supplied ? `Market size: ${fmtUsd(supplied)}` : opp.details?.[0] || "",
-          opp.details?.[1] || "Institutional borrowers",
-          opp.details?.[2] || "Over-collateralised loans",
-        ],
-      };
-    }
+function buildCategoryDescription(data: ScrapedData, catId: string): string {
+  switch (catId) {
+    case "borrow":
+      return `Securely borrow against your assets or earn yield by supplying. ${fmtUsd(data.stats.borrowMarketSize)} total market size with ${fmtUsd(data.stats.borrowActiveBorrows)} in active borrows. Elevation mode (eMode) enables capital-efficient borrowing of correlated assets with up to 95% LTV.`;
+    case "liquidity":
+      return `Automated concentrated liquidity on Solana DEXs with ${fmtUsd(data.stats.liquidityDeposits)}+ TVL and ${fmtUsd(data.stats.liquidityFeesGenerated)}+ in cumulative fees generated. Auto-swap, auto-compound, and auto-rebalance handle everything.`;
+    case "multiply":
+      return `One-click leveraged exposure to yield-bearing assets. Uses K-Lend eMode and flash loans to open positions in a single transaction. ${fmtUsd(data.stats.multiplyDeposits)} in deposits and ${fmtUsd(data.stats.multiplyBorrows)} in active borrows.`;
     default:
-      return opp;
+      return "";
   }
-}
-
-function mergeLiquidity(
-  data: ScrapedData,
-  title: string,
-  opp: { highlight: string; details?: string[] }
-): { highlight: string; details?: string[] } {
-  switch (title) {
-    case "JitoSOL-SOL Drift Strategy": {
-      const vault = findLiqVault(data, "JITOSOL-SOL");
-      if (!vault) return opp;
-      const effective = vault.feesApy7d + 4.25; // hidden LST yield
-      return {
-        highlight: `~${Math.round(effective)}% effective APY`,
-        details: [
-          `Displayed: ${fmtPct(vault.feesApy7d)} APY`,
-          opp.details?.[1] || "Hidden LST yield: ~4.25%",
-          opp.details?.[2] || "100K monthly JTO incentives",
-          opp.details?.[3] || "$1M+ fees generated since inception",
-        ],
-      };
-    }
-    case "JUP-BONK": {
-      const vault = findLiqVault(data, "JUP-BONK");
-      if (!vault) return opp;
-      return {
-        highlight: `${fmtPct(vault.feesApy7d)} 7D APY`,
-        details: opp.details,
-      };
-    }
-    case "PYUSD-USDC": {
-      const vault = findLiqVault(data, "PYUSD-USDC");
-      if (!vault) return opp;
-      return {
-        highlight: `${fmtPct(vault.feesApy7d)} 7D APY`,
-        details: opp.details,
-      };
-    }
-    case "PST-USDC (Huma)": {
-      const vault = findLiqVault(data, "PST-USDC");
-      if (!vault) return opp;
-      const effective = vault.feesApy7d + 5; // native PST yield
-      return {
-        highlight: `~${Math.round(effective)}% effective APY`,
-        details: [
-          `Displayed: ${fmtPct(vault.feesApy7d)} APY`,
-          opp.details?.[1] || "Native PST yield: ~5%",
-          opp.details?.[2] || "Yield-bearing stablecoin",
-        ],
-      };
-    }
-    case "hyUSD-USDC": {
-      const vault = findLiqVault(data, "hyUSD-USDC");
-      if (!vault) return opp;
-      return {
-        highlight: `${fmtPct(vault.feesApy7d)} 7D APY`,
-        details: opp.details,
-      };
-    }
-    default:
-      return opp;
-  }
-}
-
-function mergeMultiply(
-  data: ScrapedData,
-  title: string,
-  opp: { highlight: string; details?: string[] }
-): { highlight: string; details?: string[] } {
-  switch (title) {
-    case "JLP Multiply": {
-      const best = bestMultiply(data, "JLP");
-      if (!best) return opp;
-      return {
-        highlight: `Up to ${fmtPct(best.maxNetApy)} Net APY`,
-        details: [
-          `Up to ${best.maxLeverage} leverage`,
-          opp.details?.[1] || "",
-          opp.details?.[2] || "Flash loan fee: 0.001%",
-        ],
-      };
-    }
-    case "JitoSOL Multiply": {
-      const strat = findMultiply(data, "JITOSOL", "SOL");
-      if (!strat) return opp;
-      return {
-        highlight: `${fmtPct(strat.maxNetApy)} Net APY`,
-        details: [
-          `Up to ${strat.maxLeverage} leverage (eMode)`,
-          opp.details?.[1] || "Correlated pair - no price liquidation risk",
-          opp.details?.[2] || "Risk: borrow rate exceeding staking yield",
-        ],
-      };
-    }
-    case "PYUSD Loop": {
-      const strat = findMultiply(data, "USDC", "PYUSD");
-      if (!strat) return opp;
-      return {
-        highlight: `Up to ${fmtPct(strat.maxNetApy)} leveraged yield`,
-        details: [
-          `Up to ${strat.maxLeverage} leverage`,
-          opp.details?.[1] || "Stable-stable pair",
-          opp.details?.[2] || "Lowest borrow rates on Solana",
-        ],
-      };
-    }
-    case "mSOL / bSOL Multiply": {
-      const msol = findMultiply(data, "MSOL", "SOL");
-      const bsol = findMultiply(data, "BSOL", "SOL");
-      const apys = [msol?.maxNetApy, bsol?.maxNetApy].filter(
-        (a): a is number => a !== undefined && a > 0
-      );
-      if (apys.length === 0) return opp;
-      const min = Math.min(...apys);
-      const max = Math.max(...apys);
-      return {
-        highlight: `${fmtPct(min)}-${fmtPct(max)} Net APY`,
-        details: [
-          `Up to ${msol?.maxLeverage || bsol?.maxLeverage || "7.7x"} leverage`,
-          opp.details?.[1] || "Multiple LST options",
-          opp.details?.[2] || "Correlated pair dynamics",
-        ],
-      };
-    }
-    default:
-      return opp;
-  }
-}
-
-function mergeCategoryDescription(
-  data: ScrapedData,
-  catId: string,
-  description: string
-): string {
-  if (catId === "lending") {
-    const size = data.stats.lendMarketSize;
-    const vaultCount = data.lend.length;
-    if (size) {
-      description = description.replace(
-        /\$[\d.]+[BM] in total market size/,
-        `${fmtUsd(size)} in total market size`
-      );
-    }
-    if (vaultCount) {
-      description = description.replace(
-        /\d+ isolated and shared markets/,
-        `${vaultCount} lending vaults and shared markets`
-      );
-    }
-  }
-  if (catId === "liquidity") {
-    const tvl = data.stats.liquidityDeposits;
-    const fees = data.stats.liquidityFeesGenerated;
-    if (tvl) {
-      description = description.replace(/\$\d+M\+ TVL/, `${fmtUsd(tvl)}+ TVL`);
-    }
-    if (fees) {
-      description = description.replace(
-        /\$\d+M\+ in cumulative fees generated/,
-        `${fmtUsd(fees)}+ in cumulative fees generated`
-      );
-    }
-  }
-  return description;
 }
 
 export function getCategories(): OpportunityCategory[] {
@@ -346,42 +197,24 @@ export function getCategories(): OpportunityCategory[] {
   const ageMs = Date.now() - new Date(data.timestamp).getTime();
   if (ageMs > MAX_AGE_MS) return CATEGORIES;
 
-  return CATEGORIES.map((cat) => {
-    const mergedDescription = mergeCategoryDescription(
-      data,
-      cat.id,
-      cat.description
-    );
-
-    const mergedOpps = cat.opportunities.map((opp) => {
-      let merged: { highlight: string; details?: string[] };
-
-      switch (cat.id) {
-        case "lending":
-          merged = mergeLending(data, opp.title, opp);
-          break;
-        case "liquidity":
-          merged = mergeLiquidity(data, opp.title, opp);
-          break;
-        case "multiply":
-          merged = mergeMultiply(data, opp.title, opp);
-          break;
-        default:
-          merged = opp;
-      }
-
-      return {
-        ...opp,
-        highlight: merged.highlight,
-        details: merged.details,
-      };
-    });
-
-    return {
-      ...cat,
-      description: mergedDescription,
-      opportunities: mergedOpps,
+  const generators: Record<string, (d: ScrapedData) => FeaturedOpportunity[]> =
+    {
+      borrow: generateBorrowCards,
+      liquidity: generateLiquidityCards,
+      multiply: generateMultiplyCards,
     };
+
+  return CATEGORIES.map((cat) => {
+    const gen = generators[cat.id];
+    const generated = gen ? gen(data) : [];
+    const opportunities =
+      generated.length > 0 ? generated : cat.opportunities;
+    const description =
+      generated.length > 0
+        ? buildCategoryDescription(data, cat.id) || cat.description
+        : cat.description;
+
+    return { ...cat, description, opportunities };
   });
 }
 

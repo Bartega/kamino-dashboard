@@ -55,6 +55,8 @@ export async function scrapeMultiply(page: Page): Promise<{
   const marketPatterns = [
     "Prime Market", "Main Market", "JLP Market", "Maple Market",
     "Jito Market", "OnRe Market", "Marinade Market", "Solstice Market",
+    "Sanctum Market", "Solblaze Market", "xxStocks Market",
+    "rstSOL Leverage Market",
   ];
 
   const strategies: ScrapedMultiplyStrategy[] = raw.rowData.map((row) => {

@@ -16,58 +16,82 @@ export interface OpportunityCategory {
 
 export const CATEGORIES: OpportunityCategory[] = [
   {
-    id: "lending",
-    title: "Lending & Borrowing",
+    id: "borrow",
+    title: "Borrow Markets",
     description:
-      "K-Lend powers 26 isolated and shared markets with $2.65B in total market size. Elevation mode (eMode) enables capital-efficient borrowing of correlated assets with up to 95% LTV. Soft liquidations and dynamic penalties protect positions.",
+      "Securely borrow against your assets or earn yield by supplying. $2.85B total market size with $1.06B in active borrows. Elevation mode (eMode) enables capital-efficient borrowing of correlated assets with up to 95% LTV.",
     opportunities: [
       {
-        title: "PYUSD Lending",
-        highlight: "<5% borrow rate",
+        title: "Supply CASH",
+        highlight: "5.61% supply APY",
         description:
-          "The lowest borrow rate on Solana. Over $190M in available liquidity with PayPal-backed stability. A straightforward lending opportunity with deep liquidity.",
+          "Earn yield by supplying CASH to the Prime Market. $52.8M total supply with $48.0M in active borrows.",
         details: [
-          "Market size: $190M+ borrowable",
-          "Borrow APY under 5%",
-          "PayPal-backed stablecoin",
+          "Market: Prime Market",
+          "Total supply: $52.8M",
+          "Total borrow: $48.0M",
         ],
-        link: "https://kamino.com/lend",
+        link: "https://kamino.com/borrow",
       },
       {
-        title: "Main Market",
-        highlight: "$1.47B market size",
+        title: "Supply PYUSD",
+        highlight: "5.51% supply APY",
         description:
-          "The primary lending market on Kamino supporting SOL and 27 additional assets. The deepest liquidity pool across all of Solana DeFi with 5.35% borrow APY.",
+          "Earn yield by supplying PYUSD to the Prime Market. $19.6M total supply with $18.1M in active borrows.",
         details: [
-          "SOL + 27 assets",
-          "5.35% borrow APY",
-          "Largest single market on Solana",
+          "Market: Prime Market",
+          "Total supply: $19.6M",
+          "Total borrow: $18.1M",
         ],
-        link: "https://kamino.com/lend",
+        link: "https://kamino.com/borrow",
       },
       {
-        title: "Prime Market (Figure)",
-        highlight: "6.40% borrow APY",
+        title: "Supply USDC",
+        highlight: "5.13% supply APY",
         description:
-          "Backed by PRIME (Figure) HELOC collateral - real-world home equity lines of credit tokenised on Solana. $473M in market size. Productive debt backed by real assets.",
+          "Earn yield by supplying USDC to the Prime Market. $225.6M total supply with $200.9M in active borrows.",
         details: [
-          "Market size: $473.55M",
-          "Real-world asset collateral",
-          "Institutional-grade lending",
+          "Market: Prime Market",
+          "Total supply: $225.6M",
+          "Total borrow: $200.9M",
         ],
-        link: "https://kamino.com/lend",
+        link: "https://kamino.com/borrow",
       },
       {
-        title: "Maple Market (syrupUSDC)",
-        highlight: "3.16% borrow APY",
+        title: "Supply SOL",
+        highlight: "9.09% supply APY",
         description:
-          "Institutional lending powered by Maple Finance. syrupUSDC provides yield from institutional borrowers with over-collateralised loans. $242M in market size.",
+          "Earn yield by supplying SOL to the Main Market. $263.9M total supply with $232.3M in active borrows.",
         details: [
-          "Market size: $242.52M",
-          "Institutional borrowers",
-          "Over-collateralised loans",
+          "Market: Main Market",
+          "Total supply: $263.9M",
+          "Total borrow: $232.3M",
         ],
-        link: "https://kamino.com/lend",
+        link: "https://kamino.com/borrow",
+      },
+      {
+        title: "Borrow cbBTC",
+        highlight: "0.04% borrow APY",
+        description:
+          "Borrow cbBTC from the Main Market at low rates. $153.9M available liquidity.",
+        details: [
+          "Market: Main Market",
+          "Available: $153.9M",
+          "Total supply: $154.7M",
+        ],
+        link: "https://kamino.com/borrow",
+      },
+      {
+        title: "Borrow xBTC",
+        highlight: "0.08% borrow APY",
+        description:
+          "Borrow xBTC from the Main Market at low rates. $21.3M available liquidity.",
+        details: [
+          "Market: Main Market",
+          "Available: $21.3M",
+          "Total supply: $21.6M",
+        ],
+        link: "https://kamino.com/borrow",
       },
     ],
     risks: [
