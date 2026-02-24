@@ -4,6 +4,7 @@ export function Header() {
     { label: "Borrow", href: "#borrow" },
     { label: "Liquidity", href: "#liquidity" },
     { label: "Multiply", href: "#multiply" },
+    { label: "Competitors", href: "/competitors" },
   ];
 
   return (

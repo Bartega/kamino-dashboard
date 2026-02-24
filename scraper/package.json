@@ -6,7 +6,8 @@
     "scrape": "npx tsx scrape.ts",
     "scrape:lending": "npx tsx scrape.ts --page lending",
     "scrape:liquidity": "npx tsx scrape.ts --page liquidity",
-    "scrape:multiply": "npx tsx scrape.ts --page multiply"
+    "scrape:multiply": "npx tsx scrape.ts --page multiply",
+    "competitor-scrape": "npx tsx competitor-scrape.ts"
   },
   "dependencies": {
     "playwright": "^1.58.0"
