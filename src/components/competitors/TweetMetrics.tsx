@@ -7,6 +7,11 @@ function formatCount(n: number): string {
 }
 
 function MetricIcon({ name }: { name: string }) {
+  const colorMap: Record<string, string> = {
+    heart: "text-pink-500",
+    bookmark: "text-blue-500",
+  };
+
   const paths: Record<string, string> = {
     heart:
       "M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z",
@@ -20,7 +25,7 @@ function MetricIcon({ name }: { name: string }) {
 
   return (
     <svg
-      className="w-3.5 h-3.5"
+      className={`w-3.5 h-3.5 ${colorMap[name] ?? ""}`}
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
