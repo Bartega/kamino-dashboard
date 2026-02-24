@@ -1,9 +1,9 @@
 export function Header() {
   const links = [
-    { label: "Overview", href: "#overview" },
-    { label: "Borrow", href: "#borrow" },
-    { label: "Liquidity", href: "#liquidity" },
-    { label: "Multiply", href: "#multiply" },
+    { label: "Overview", href: "/#overview" },
+    { label: "Borrow", href: "/#borrow" },
+    { label: "Liquidity", href: "/#liquidity" },
+    { label: "Multiply", href: "/#multiply" },
     { label: "Competitors", href: "/competitors" },
   ];
 
