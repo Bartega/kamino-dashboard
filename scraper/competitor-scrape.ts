@@ -154,7 +154,7 @@ async function generateAiSummary(
     .join("\n\n");
 
   return callLlm(
-    `Summarise the key themes and announcements from these 5 recent tweets by @${handle}. Be specific about products, features, or metrics mentioned. Write in a neutral, analytical tone. Keep your response to a maximum of 6 lines.\n\n${tweetTexts}`
+    `Summarise the key themes from these 5 recent tweets by @${handle} in 30 words or fewer. Be specific about products, features, or metrics. Neutral, analytical tone. Do not exceed 30 words.\n\n${tweetTexts}`
   );
 }
 
