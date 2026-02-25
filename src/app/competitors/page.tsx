@@ -25,7 +25,7 @@ export default async function CompetitorsPage() {
             </h1>
             <p className="text-muted text-sm mt-1 max-w-2xl">
               Track competitor activity across Twitter and DeFi Llama.
-              Updated four times daily.
+              Updated eight times daily.
             </p>
           </div>
           {data && <KaminoTvlBadge tvl={data.kaminoTvl} />}
