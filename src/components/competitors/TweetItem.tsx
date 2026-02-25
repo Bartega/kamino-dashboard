@@ -85,6 +85,13 @@ export function TweetItem({ tweet }: { tweet: CompetitorTweet }) {
         onClick={() => setExpanded(!expanded)}
         className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-background/50 transition-colors"
       >
+        {tweet.thumbnailUrl && (
+          <img
+            src={tweet.thumbnailUrl}
+            alt=""
+            className="w-10 h-10 rounded object-cover shrink-0 mr-2"
+          />
+        )}
         <div className="flex-1 min-w-0">
           <p className="text-sm text-foreground truncate">{preview}</p>
           <div className="mt-1">

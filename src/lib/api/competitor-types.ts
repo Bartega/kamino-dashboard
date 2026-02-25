@@ -19,6 +19,13 @@ export interface ApifyTweet {
   retweetCount: number;
   replyCount: number;
   viewCount: number;
+  media?: string[];
+  entities?: {
+    media?: { media_url_https: string; type: string }[];
+  };
+  extendedEntities?: {
+    media?: { media_url_https: string; type: string }[];
+  };
   author: {
     name: string;
     userName: string;
@@ -38,6 +45,7 @@ export interface CompetitorTweet {
   retweetCount: number;
   replyCount: number;
   viewCount: number;
+  thumbnailUrl?: string;
 }
 
 export interface TvlDataPoint {

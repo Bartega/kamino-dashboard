@@ -207,17 +207,27 @@ async function main() {
     try {
       const rawTweets = await fetchTweets(comp.twitterHandle);
 
-      const tweets: CompetitorTweet[] = rawTweets.map((t) => ({
-        id: t.id,
-        fullText: t.fullText,
-        createdAt: t.createdAt,
-        twitterUrl: t.twitterUrl,
-        likeCount: t.likeCount ?? 0,
-        bookmarkCount: t.bookmarkCount ?? 0,
-        retweetCount: t.retweetCount ?? 0,
-        replyCount: t.replyCount ?? 0,
-        viewCount: t.viewCount ?? 0,
-      }));
+      const tweets: CompetitorTweet[] = rawTweets.map((t) => {
+        // Extract first image URL from media fields
+        const thumbnailUrl =
+          t.media?.[0] ||
+          t.extendedEntities?.media?.find((m) => m.type === "photo")?.media_url_https ||
+          t.entities?.media?.find((m) => m.type === "photo")?.media_url_https ||
+          undefined;
+
+        return {
+          id: t.id,
+          fullText: t.fullText,
+          createdAt: t.createdAt,
+          twitterUrl: t.twitterUrl,
+          likeCount: t.likeCount ?? 0,
+          bookmarkCount: t.bookmarkCount ?? 0,
+          retweetCount: t.retweetCount ?? 0,
+          replyCount: t.replyCount ?? 0,
+          viewCount: t.viewCount ?? 0,
+          ...(thumbnailUrl ? { thumbnailUrl } : {}),
+        };
+      });
 
       const profilePicture = rawTweets[0]?.author?.profilePicture || "";
       const displayName = rawTweets[0]?.author?.name || comp.displayName;
