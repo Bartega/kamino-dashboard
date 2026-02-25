@@ -75,10 +75,6 @@ export function TweetItem({ tweet }: { tweet: CompetitorTweet }) {
   const [expanded, setExpanded] = useState(false);
   const tweetId = getTweetId(tweet.twitterUrl);
 
-  // First line of tweet text as preview
-  const preview =
-    tweet.fullText.split("\n").find((l) => l.trim()) ?? tweet.fullText;
-
   return (
     <div className="border border-border rounded-lg bg-white">
       <button
@@ -93,7 +89,7 @@ export function TweetItem({ tweet }: { tweet: CompetitorTweet }) {
           />
         )}
         <div className="flex-1 min-w-0">
-          <p className="text-sm text-foreground truncate">{preview}</p>
+          <p className="text-sm text-foreground line-clamp-2">{tweet.fullText}</p>
           <div className="mt-1">
             <TweetMetrics tweet={tweet} />
           </div>

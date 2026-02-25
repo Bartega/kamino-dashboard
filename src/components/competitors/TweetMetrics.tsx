@@ -46,7 +46,6 @@ export function TweetMetrics({ tweet }: { tweet: CompetitorTweet }) {
     { icon: "heart", value: tweet.likeCount, label: "Likes" },
     { icon: "bookmark", value: tweet.bookmarkCount, label: "Bookmarks" },
     { icon: "retweet", value: tweet.retweetCount, label: "Retweets" },
-    { icon: "reply", value: tweet.replyCount, label: "Replies" },
     { icon: "eye", value: tweet.viewCount, label: "Views" },
   ];
 
