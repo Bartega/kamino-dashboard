@@ -96,3 +96,22 @@ export interface CompetitorDataFile {
   competitors: CompetitorData[];
   highlights: CompetitorHighlights;
 }
+
+// --- Tweet archive (stored in Upstash Redis) ---
+
+export interface ArchivedTweet extends CompetitorTweet {
+  twitterHandle: string;
+  displayName: string;
+  scrapedAt: string;
+  engagementRate: number;
+  aiAnalysis?: string;
+}
+
+export interface ArchiveStats {
+  totalTweets: number;
+  earliestDate: string | null;
+  latestDate: string | null;
+  competitorCount: number;
+  topByVolume: { handle: string; count: number } | null;
+  topByEngagement: { handle: string; avgRate: number } | null;
+}

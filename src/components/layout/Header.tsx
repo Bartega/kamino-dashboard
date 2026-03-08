@@ -5,6 +5,7 @@ export function Header() {
     { label: "Liquidity", href: "/#liquidity" },
     { label: "Multiply", href: "/#multiply" },
     { label: "Competitors", href: "/competitors" },
+    { label: "Archive", href: "/competitors/archive" },
   ];
 
   return (

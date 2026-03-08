@@ -1,6 +1,7 @@
 import { writeFileSync, renameSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { archiveTweets } from "./archive-tweets.js";
 import type {
   CompetitorConfig,
   CompetitorDataFile,
@@ -328,6 +329,14 @@ async function main() {
   renameSync(tmpPath, OUTPUT_PATH);
 
   console.log(`[competitor-scrape] Written to ${OUTPUT_PATH}`);
+
+  // Archive tweets to Redis
+  try {
+    await archiveTweets(competitors, callLlm);
+  } catch (e) {
+    console.warn(`[competitor-scrape] Archive failed: ${(e as Error).message}`);
+  }
+
   console.log(`[competitor-scrape] Finished at ${new Date().toISOString()}`);
 }
 
