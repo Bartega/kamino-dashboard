@@ -39,7 +39,10 @@ export function TopTweetsTable({
     })),
   );
 
-  const sorted = [...allTweets].sort((a, b) => b[sortBy] - a[sortBy]).slice(0, 10);
+  const sorted = [...allTweets]
+    .filter((t) => t.views >= 500)
+    .sort((a, b) => b[sortBy] - a[sortBy])
+    .slice(0, 10);
 
   const headers: { key: SortKey; label: string }[] = [
     { key: "engRate", label: "Eng %" },

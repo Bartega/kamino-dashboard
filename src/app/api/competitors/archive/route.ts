@@ -69,6 +69,9 @@ export async function GET(request: NextRequest) {
     }
   }
 
+  // Exclude low-view tweets
+  tweets = tweets.filter((t) => t.viewCount >= 500);
+
   // Sort
   if (sort === "engagement") {
     tweets.sort((a, b) => b.engagementRate - a.engagementRate);
