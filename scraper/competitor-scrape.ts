@@ -51,7 +51,7 @@ async function fetchTweets(handle: string): Promise<ApifyTweet[]> {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         author: handle,
-        maxItems: 5,
+        maxItems: 15,
         sort: "Latest",
       }),
     }
@@ -208,7 +208,12 @@ async function main() {
     try {
       const rawTweets = await fetchTweets(comp.twitterHandle);
 
-      const tweets: CompetitorTweet[] = rawTweets.map((t) => {
+      // Filter out replies and take up to 5 original tweets
+      const nonReplyTweets = rawTweets
+        .filter((t) => !t.isReply && !t.inReplyToId)
+        .slice(0, 5);
+
+      const tweets: CompetitorTweet[] = nonReplyTweets.map((t) => {
         // Extract first image URL from media fields
         const thumbnailUrl =
           t.media?.[0] ||

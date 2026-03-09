@@ -26,6 +26,8 @@ export interface ApifyTweet {
   extendedEntities?: {
     media?: { media_url_https: string; type: string }[];
   };
+  isReply?: boolean;
+  inReplyToId?: string;
   author: {
     name: string;
     userName: string;
