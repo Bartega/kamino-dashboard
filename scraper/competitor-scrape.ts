@@ -244,11 +244,15 @@ async function main() {
       }));
 
       let aiSummary = "";
-      try {
-        aiSummary = await generateAiSummary(comp.twitterHandle, tweets);
-      } catch (e) {
-        console.warn(`  AI summary failed for @${comp.twitterHandle}: ${(e as Error).message}`);
-        aiSummary = `Recent activity from @${comp.twitterHandle} (AI summary unavailable).`;
+      if (tweets.length === 0) {
+        aiSummary = "";
+      } else {
+        try {
+          aiSummary = await generateAiSummary(comp.twitterHandle, tweets);
+        } catch (e) {
+          console.warn(`  AI summary failed for @${comp.twitterHandle}: ${(e as Error).message}`);
+          aiSummary = "";
+        }
       }
 
       // Generate per-tweet AI analysis
