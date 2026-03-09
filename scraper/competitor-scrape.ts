@@ -246,6 +246,18 @@ async function main() {
         aiSummary = `Recent activity from @${comp.twitterHandle} (AI summary unavailable).`;
       }
 
+      // Generate per-tweet AI analysis
+      console.log(`  Generating per-tweet analysis for @${comp.twitterHandle}...`);
+      for (const tweet of tweets) {
+        try {
+          tweet.aiAnalysis = await callLlm(
+            `Analyse this tweet by @${comp.twitterHandle} (${tweet.likeCount} likes, ${tweet.bookmarkCount} bookmarks, ${tweet.viewCount.toLocaleString()} views). In 1-2 sentences, identify: the content hook or angle, and what it signals (product launch, partnership, metric milestone, community play, or other). Be specific.\n\nTweet: "${tweet.fullText}"`,
+          );
+        } catch {
+          // Non-fatal - skip analysis for this tweet
+        }
+      }
+
       competitors.push({
         twitterHandle: comp.twitterHandle,
         displayName,

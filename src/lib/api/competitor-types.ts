@@ -46,6 +46,7 @@ export interface CompetitorTweet {
   replyCount: number;
   viewCount: number;
   thumbnailUrl?: string;
+  aiAnalysis?: string;
 }
 
 export interface TvlDataPoint {

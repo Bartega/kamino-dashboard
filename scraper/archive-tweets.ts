@@ -112,29 +112,33 @@ export async function archiveTweets(
 
   console.log(`[archive] Archived ${newTweets.length} tweets.`);
 
-  // Generate AI analysis for top 5 performers
-  const top5 = [...newTweets]
-    .sort((a, b) => b.engagementRate - a.engagementRate)
-    .slice(0, 5);
+  // Generate AI analysis for all new tweets
+  console.log(`[archive] Generating AI analysis for ${newTweets.length} tweets...`);
 
-  console.log("[archive] Generating AI analysis for top 5 performers...");
-
-  for (const tweet of top5) {
+  const analysisCmds: unknown[][] = [];
+  for (const tweet of newTweets) {
     try {
       const analysis = await callLlm(
-        `Analyse why this tweet by @${tweet.twitterHandle} performed well (${tweet.likeCount} likes, ${tweet.bookmarkCount} bookmarks, ${tweet.viewCount.toLocaleString()} views, ${tweet.engagementRate}% engagement rate).\n\nTweet: "${tweet.fullText}"\n\nIn 2-3 sentences, identify: (1) the content hook or format that drove engagement, (2) whether this signals a product launch, partnership, metric milestone, or community play. Be specific and analytical.`,
+        `Analyse this tweet by @${tweet.twitterHandle} (${tweet.likeCount} likes, ${tweet.bookmarkCount} bookmarks, ${tweet.viewCount.toLocaleString()} views, ${tweet.engagementRate}% engagement rate). In 1-2 sentences, identify: the content hook or angle, and what it signals (product launch, partnership, metric milestone, community play, or other). Be specific.\n\nTweet: "${tweet.fullText}"`,
       );
-      await redisCmd([
+      analysisCmds.push([
         "SET",
         `tweet-archive:ai-analysis:${tweet.id}`,
         analysis,
       ]);
-      console.log(`  Analysed @${tweet.twitterHandle}: ${tweet.id}`);
     } catch (e) {
       console.warn(
         `  AI analysis failed for ${tweet.id}: ${(e as Error).message}`,
       );
     }
+  }
+
+  // Batch store analyses
+  if (analysisCmds.length > 0) {
+    for (let i = 0; i < analysisCmds.length; i += BATCH_SIZE) {
+      await redisPipeline(analysisCmds.slice(i, i + BATCH_SIZE));
+    }
+    console.log(`[archive] Stored ${analysisCmds.length} analyses.`);
   }
 
   console.log("[archive] Done.");
