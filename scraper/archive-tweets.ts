@@ -6,7 +6,6 @@ import type {
 
 const KV_REST_API_URL = process.env.KV_REST_API_URL!;
 const KV_REST_API_TOKEN = process.env.KV_REST_API_TOKEN!;
-const GROQ_API_KEY = process.env.GROQ_API_KEY!;
 
 // ---------------------------------------------------------------------------
 // Redis helpers (raw REST API for GitHub Actions compatibility)

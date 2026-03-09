@@ -16,7 +16,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = resolve(__dirname, "../src/lib/data/competitor-data.json");
 
 const APIFY_TOKEN = process.env.APIFY_TOKEN!;
-const GROQ_API_KEY = process.env.GROQ_API_KEY!;
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY!;
 const DEFILLAMA_BASE = process.env.DEFILLAMA_API_BASE || "https://api.llama.fi";
 const KV_REST_API_URL = process.env.KV_REST_API_URL!;
 const KV_REST_API_TOKEN = process.env.KV_REST_API_TOKEN!;
@@ -124,25 +124,25 @@ async function fetchProtocolTvl(
 // ---------------------------------------------------------------------------
 
 async function callLlm(prompt: string): Promise<string> {
-  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${GROQ_API_KEY}`,
+      "x-api-key": ANTHROPIC_API_KEY,
+      "anthropic-version": "2023-06-01",
     },
     body: JSON.stringify({
-      model: "llama-3.3-70b-versatile",
-      messages: [{ role: "user", content: prompt }],
+      model: "claude-haiku-4-5-20251001",
       max_tokens: 300,
-      temperature: 0.3,
+      messages: [{ role: "user", content: prompt }],
     }),
   });
   if (!res.ok) {
     const err = await res.text();
-    throw new Error(`Groq API ${res.status}: ${err.slice(0, 200)}`);
+    throw new Error(`Anthropic API ${res.status}: ${err.slice(0, 200)}`);
   }
   const data = await res.json();
-  return data.choices[0].message.content;
+  return data.content[0].text;
 }
 
 async function generateAiSummary(
