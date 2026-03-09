@@ -251,7 +251,7 @@ async function main() {
       for (const tweet of tweets) {
         try {
           tweet.aiAnalysis = await callLlm(
-            `Analyse this tweet by @${comp.twitterHandle} (${tweet.likeCount} likes, ${tweet.bookmarkCount} bookmarks, ${tweet.viewCount.toLocaleString()} views). In 1-2 sentences, identify: the content hook or angle, and what it signals (product launch, partnership, metric milestone, community play, or other). Be specific.\n\nTweet: "${tweet.fullText}"`,
+            `This tweet by @${comp.twitterHandle} got ${tweet.likeCount} likes, ${tweet.bookmarkCount} bookmarks, ${tweet.retweetCount} retweets, and ${tweet.viewCount.toLocaleString()} views. In 1-2 sentences, explain WHY it performed the way it did - what content hook, format, or timing drove engagement (or lack of it)? Consider: emotional triggers, specificity of claims, use of metrics, visual content, community relevance, newsworthiness. Do NOT summarise the tweet content.\n\nTweet: "${tweet.fullText}"`,
           );
         } catch {
           // Non-fatal - skip analysis for this tweet

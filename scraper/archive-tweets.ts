@@ -119,7 +119,7 @@ export async function archiveTweets(
   for (const tweet of newTweets) {
     try {
       const analysis = await callLlm(
-        `Analyse this tweet by @${tweet.twitterHandle} (${tweet.likeCount} likes, ${tweet.bookmarkCount} bookmarks, ${tweet.viewCount.toLocaleString()} views, ${tweet.engagementRate}% engagement rate). In 1-2 sentences, identify: the content hook or angle, and what it signals (product launch, partnership, metric milestone, community play, or other). Be specific.\n\nTweet: "${tweet.fullText}"`,
+        `This tweet by @${tweet.twitterHandle} got ${tweet.likeCount} likes, ${tweet.bookmarkCount} bookmarks, ${tweet.retweetCount} retweets, and ${tweet.viewCount.toLocaleString()} views (${tweet.engagementRate}% engagement rate). In 1-2 sentences, explain WHY it performed the way it did - what content hook, format, or timing drove engagement (or lack of it)? Consider: emotional triggers, specificity of claims, use of metrics, visual content, community relevance, newsworthiness. Do NOT summarise the tweet content.\n\nTweet: "${tweet.fullText}"`,
       );
       analysisCmds.push([
         "SET",
