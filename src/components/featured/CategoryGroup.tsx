@@ -17,7 +17,7 @@ export function CategoryGroup({
       </p>
       <div className="grid sm:grid-cols-2 gap-4">
         {category.opportunities.map((opp) => (
-          <FeaturedCard key={opp.title} opportunity={opp} />
+          <FeaturedCard key={opp.title} opportunity={opp} categoryId={category.id} />
         ))}
       </div>
       <RiskDisclaimer
