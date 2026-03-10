@@ -4,7 +4,6 @@ import { getCompetitorData } from "@/lib/data/fetch-competitors";
 import { KaminoTvlBadge } from "@/components/competitors/KaminoTvlBadge";
 import { HighlightsBar } from "@/components/competitors/HighlightsBar";
 import { CompetitorGrid } from "@/components/competitors/CompetitorGrid";
-import { CompetitorCharts } from "@/components/competitors/CompetitorCharts";
 import { CompetitorAdmin } from "@/components/competitors/CompetitorAdmin";
 
 export const revalidate = 300;
@@ -48,7 +47,6 @@ export default async function CompetitorsPage() {
               competitors={data.competitors}
             />
             <CompetitorGrid competitors={data.competitors} />
-            <CompetitorCharts data={data} />
           </>
         ) : (
           <div className="text-center py-16">
