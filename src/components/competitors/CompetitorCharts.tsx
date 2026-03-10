@@ -31,6 +31,14 @@ export function CompetitorCharts({ data }: { data: CompetitorDataFile }) {
       <h2 className="text-2xl font-bold text-foreground">Analytics</h2>
 
       <div className="grid lg:grid-cols-2 gap-6">
+        <ChartCard title="Content Performance Heatmap">
+          <ContentHeatmap competitors={data.competitors} />
+        </ChartCard>
+
+        <ChartCard title="Top 10 Tweets by Engagement Rate">
+          <TopTweetsTable competitors={data.competitors} />
+        </ChartCard>
+
         <ChartCard title="TVL Comparison (30 days)">
           <TvlComparisonChart data={data} />
         </ChartCard>
@@ -51,16 +59,8 @@ export function CompetitorCharts({ data }: { data: CompetitorDataFile }) {
           <TvlSocialQuadrant competitors={data.competitors} />
         </ChartCard>
 
-        <ChartCard title="Content Performance Heatmap">
-          <ContentHeatmap competitors={data.competitors} />
-        </ChartCard>
-
         <ChartCard title="Tweet Velocity">
           <TweetVelocityChart competitors={data.competitors} />
-        </ChartCard>
-
-        <ChartCard title="Top 10 Tweets by Engagement Rate">
-          <TopTweetsTable competitors={data.competitors} />
         </ChartCard>
       </div>
     </section>
