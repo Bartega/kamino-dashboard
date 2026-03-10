@@ -2,8 +2,8 @@ import type { FeaturedOpportunity } from "@/lib/data/featured";
 
 const CATEGORY_COLORS: Record<string, string> = {
   borrow: "bg-kamino-blue/40",
-  liquidity: "bg-liquidity-blue/25",
-  multiply: "bg-kamino-blue/20",
+  liquidity: "bg-kamino-blue/40",
+  multiply: "bg-kamino-blue/40",
 };
 
 export function FeaturedCard({
