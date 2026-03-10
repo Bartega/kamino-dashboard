@@ -27,6 +27,7 @@ export interface ApifyTweet {
     media?: { media_url_https: string; type: string }[];
   };
   isReply?: boolean;
+  isQuote?: boolean;
   inReplyToId?: string;
   author: {
     name: string;

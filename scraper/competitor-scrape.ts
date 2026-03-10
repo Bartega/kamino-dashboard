@@ -208,9 +208,9 @@ async function main() {
     try {
       const rawTweets = await fetchTweets(comp.twitterHandle);
 
-      // Filter out replies and take up to 5 original tweets
+      // Keep originals, thread starters, and quote tweets; exclude replies and thread continuations
       const nonReplyTweets = rawTweets
-        .filter((t) => !t.isReply && !t.inReplyToId && t.id && t.fullText && t.twitterUrl)
+        .filter((t) => t.id && t.fullText && t.twitterUrl && (!t.isReply || t.isQuote))
         .slice(0, 5);
 
       const tweets: CompetitorTweet[] = nonReplyTweets.map((t) => {
