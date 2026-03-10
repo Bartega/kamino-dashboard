@@ -210,7 +210,7 @@ async function main() {
 
       // Filter out replies and take up to 5 original tweets
       const nonReplyTweets = rawTweets
-        .filter((t) => !t.isReply && !t.inReplyToId)
+        .filter((t) => !t.isReply && !t.inReplyToId && t.id && t.fullText && t.twitterUrl)
         .slice(0, 5);
 
       const tweets: CompetitorTweet[] = nonReplyTweets.map((t) => {

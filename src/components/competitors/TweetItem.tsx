@@ -13,7 +13,8 @@ function formatTimeAgo(dateStr: string): string {
   return `${days}d ago`;
 }
 
-function getTweetId(url: string): string | null {
+function getTweetId(url: string | undefined): string | null {
+  if (!url) return null;
   const match = url.match(/status\/(\d+)/);
   return match ? match[1] : null;
 }
