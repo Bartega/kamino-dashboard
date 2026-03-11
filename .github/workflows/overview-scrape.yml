@@ -1,0 +1,46 @@
+name: Overview Data Scrape
+
+on:
+  schedule:
+    - cron: "15,45 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install scraper dependencies
+        working-directory: scraper
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        working-directory: scraper
+        run: npx playwright install chromium --with-deps
+
+      - name: Run overview scrape
+        working-directory: scraper
+        run: npx tsx scrape.ts
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet src/lib/data/scraped-data.json 2>/dev/null; then
+            echo "No changes to scraped data"
+          else
+            git add src/lib/data/scraped-data.json
+            git commit -m "Update scraped data $(date -Iseconds)"
+            git pull --rebase
+            git push
+          fi

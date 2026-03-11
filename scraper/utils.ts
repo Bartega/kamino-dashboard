@@ -1,12 +1,10 @@
 import { chromium, type Browser, type Page } from "playwright";
 
-const CHROMIUM_PATH =
-  process.env.CHROMIUM_PATH ||
-  "/home/julian/.cache/ms-playwright/chromium-1209/chrome-linux64/chrome";
+const CHROMIUM_PATH = process.env.CHROMIUM_PATH || undefined;
 
 export async function launchBrowser(): Promise<Browser> {
   return chromium.launch({
-    executablePath: CHROMIUM_PATH,
+    ...(CHROMIUM_PATH ? { executablePath: CHROMIUM_PATH } : {}),
     headless: true,
     args: ["--no-sandbox", "--disable-gpu"],
   });
