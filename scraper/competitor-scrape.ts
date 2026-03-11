@@ -32,8 +32,11 @@ async function fetchCompetitorConfig(): Promise<CompetitorConfig[]> {
   if (!res.ok) throw new Error(`KV fetch failed: ${res.status}`);
   const body = await res.json();
   if (!body.result) return [];
-  const parsed =
-    typeof body.result === "string" ? JSON.parse(body.result) : body.result;
+  let parsed = body.result;
+  // Upstash may double-encode - keep parsing until we get an array
+  while (typeof parsed === "string") {
+    parsed = JSON.parse(parsed);
+  }
   return parsed as CompetitorConfig[];
 }
 
@@ -120,10 +123,11 @@ async function fetchProtocolTvl(
 }
 
 // ---------------------------------------------------------------------------
-// Groq AI summaries (Llama 3.3 70B, free tier)
+// AI summaries via Anthropic
 // ---------------------------------------------------------------------------
 
-async function callLlm(prompt: string): Promise<string> {
+// Simple retry with backoff for rate limits
+async function callLlm(prompt: string, retries = 2): Promise<string> {
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
@@ -138,6 +142,10 @@ async function callLlm(prompt: string): Promise<string> {
     }),
   });
   if (!res.ok) {
+    if (res.status === 429 && retries > 0) {
+      await new Promise((r) => setTimeout(r, 2000));
+      return callLlm(prompt, retries - 1);
+    }
     const err = await res.text();
     throw new Error(`Anthropic API ${res.status}: ${err.slice(0, 200)}`);
   }
@@ -179,7 +187,9 @@ async function determineMostInteresting(
     `From these competitor tweets, which single tweet is most strategically interesting for Kamino Finance (a Solana DeFi lending/liquidity protocol) to be aware of? Consider new product launches, competitive moves, partnerships, or metric announcements.\n\nRespond ONLY with valid JSON, no other text: {"handle": "...", "tweetIndex": 0, "reason": "..."}\n\n${tweetList}`
   );
 
-  return JSON.parse(result);
+  // Strip markdown code fences if present
+  const cleaned = result.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim();
+  return JSON.parse(cleaned);
 }
 
 // ---------------------------------------------------------------------------
@@ -201,20 +211,27 @@ async function main() {
   console.log("[competitor-scrape] Fetching Kamino TVL...");
   const kaminoTvlData = await fetchProtocolTvl("kamino");
 
-  // Process each competitor
+  // Process competitors in parallel batches
+  const BATCH_SIZE = 5;
   const competitors: CompetitorData[] = [];
-  for (const comp of config) {
+
+  // Helper: process a single competitor
+  async function processCompetitor(comp: CompetitorConfig): Promise<CompetitorData | null> {
     console.log(`[competitor-scrape] Processing @${comp.twitterHandle}...`);
     try {
-      const rawTweets = await fetchTweets(comp.twitterHandle);
+      const [rawTweets, tvlData] = await Promise.all([
+        fetchTweets(comp.twitterHandle),
+        fetchProtocolTvl(comp.defiLlamaSlug).catch(() => ({
+          currentTvl: 0,
+          history: [] as TvlDataPoint[],
+        })),
+      ]);
 
-      // Keep originals, thread starters, and quote tweets; exclude replies and thread continuations
       const nonReplyTweets = rawTweets
         .filter((t) => t.id && t.fullText && t.twitterUrl && (!t.isReply || t.isQuote))
         .slice(0, 5);
 
       const tweets: CompetitorTweet[] = nonReplyTweets.map((t) => {
-        // Extract first image URL from media fields
         const thumbnailUrl =
           t.media?.[0] ||
           t.extendedEntities?.media?.find((m) => m.type === "photo")?.media_url_https ||
@@ -238,36 +255,29 @@ async function main() {
       const profilePicture = rawTweets[0]?.author?.profilePicture || "";
       const displayName = rawTweets[0]?.author?.name || comp.displayName;
 
-      const tvlData = await fetchProtocolTvl(comp.defiLlamaSlug).catch(() => ({
-        currentTvl: 0,
-        history: [] as TvlDataPoint[],
-      }));
-
+      // AI summary + per-tweet analysis in parallel
       let aiSummary = "";
-      if (tweets.length === 0) {
-        aiSummary = "";
-      } else {
-        try {
-          aiSummary = await generateAiSummary(comp.twitterHandle, tweets);
-        } catch (e) {
-          console.warn(`  AI summary failed for @${comp.twitterHandle}: ${(e as Error).message}`);
-          aiSummary = "";
-        }
-      }
+      if (tweets.length > 0) {
+        const aiPromises: Promise<void>[] = [];
 
-      // Generate per-tweet AI analysis
-      console.log(`  Generating per-tweet analysis for @${comp.twitterHandle}...`);
-      for (const tweet of tweets) {
-        try {
-          tweet.aiAnalysis = await callLlm(
-            `This tweet by @${comp.twitterHandle} got ${tweet.likeCount} likes, ${tweet.bookmarkCount} bookmarks, ${tweet.retweetCount} retweets, and ${tweet.viewCount.toLocaleString()} views. In 1-2 sentences, explain WHY it performed the way it did - what content hook, format, or timing drove engagement (or lack of it)? Consider: emotional triggers, specificity of claims, use of metrics, visual content, community relevance, newsworthiness. Do NOT summarise the tweet content.\n\nTweet: "${tweet.fullText}"`,
+        aiPromises.push(
+          generateAiSummary(comp.twitterHandle, tweets)
+            .then((s) => { aiSummary = s; })
+            .catch((e) => { console.warn(`  AI summary failed for @${comp.twitterHandle}: ${(e as Error).message}`); })
+        );
+
+        for (const tweet of tweets) {
+          aiPromises.push(
+            callLlm(
+              `This tweet by @${comp.twitterHandle} got ${tweet.likeCount} likes, ${tweet.bookmarkCount} bookmarks, ${tweet.retweetCount} retweets, and ${tweet.viewCount.toLocaleString()} views. In 1-2 sentences, explain WHY it performed the way it did - what content hook, format, or timing drove engagement (or lack of it)? Consider: emotional triggers, specificity of claims, use of metrics, visual content, community relevance, newsworthiness. Do NOT summarise the tweet content.\n\nTweet: "${tweet.fullText}"`,
+            ).then((a) => { tweet.aiAnalysis = a; }).catch(() => {})
           );
-        } catch {
-          // Non-fatal - skip analysis for this tweet
         }
+
+        await Promise.all(aiPromises);
       }
 
-      competitors.push({
+      return {
         twitterHandle: comp.twitterHandle,
         displayName,
         defiLlamaSlug: comp.defiLlamaSlug,
@@ -276,12 +286,20 @@ async function main() {
         tvlHistory: tvlData.history,
         aiSummary,
         tweets,
-      });
+      };
     } catch (err) {
-      console.error(
-        `  Error processing @${comp.twitterHandle}:`,
-        (err as Error).message
-      );
+      console.error(`  Error processing @${comp.twitterHandle}:`, (err as Error).message);
+      return null;
+    }
+  }
+
+  // Run in batches of BATCH_SIZE to avoid overwhelming Apify
+  for (let i = 0; i < config.length; i += BATCH_SIZE) {
+    const batch = config.slice(i, i + BATCH_SIZE);
+    console.log(`[competitor-scrape] Batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(config.length / BATCH_SIZE)} (${batch.map(c => c.twitterHandle).join(", ")})`);
+    const results = await Promise.all(batch.map(processCompetitor));
+    for (const r of results) {
+      if (r) competitors.push(r);
     }
   }
 
