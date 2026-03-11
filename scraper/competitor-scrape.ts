@@ -228,7 +228,7 @@ async function main() {
       ]);
 
       const nonReplyTweets = rawTweets
-        .filter((t) => t.id && t.fullText && t.twitterUrl && (!t.isReply || t.isQuote))
+        .filter((t) => t.id && t.fullText && t.twitterUrl && !t.isReply)
         .slice(0, 5);
 
       const tweets: CompetitorTweet[] = nonReplyTweets.map((t) => {
