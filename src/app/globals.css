@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   /* Kamino Brand Palette */
   --color-background: #FCFCFC;        /* Paper - 30% */
   --color-foreground: #000000;         /* Black - text */
@@ -22,22 +22,22 @@
 }
 
 /* Dark theme */
-:root.dark {
-  --color-background: #080C14 !important;
-  --color-foreground: #E2E8F0 !important;
-  --color-card: #0F1D2E !important;
-  --color-card-hover: #162A3F !important;
-  --color-border: #1C2E42 !important;
-  --color-muted: #94A3B8 !important;
-  --color-accent: #C6F4FF !important;
-  --color-accent-foreground: #080C14 !important;
-  --color-accent-dim: rgba(198, 244, 255, 0.12) !important;
-  --color-surface: #0F1720 !important;
-  --color-kamino-blue: #0C4A6E !important;
-  --color-liquidity-blue: #7DD3FC !important;
-  --color-warning: #F59E0B !important;
-  --color-danger: #EF4444 !important;
-  --color-chart-navy: #7DD3FC !important;
+.dark {
+  --color-background: #080C14;
+  --color-foreground: #E2E8F0;
+  --color-card: #0F1D2E;
+  --color-card-hover: #162A3F;
+  --color-border: #1C2E42;
+  --color-muted: #94A3B8;
+  --color-accent: #C6F4FF;
+  --color-accent-foreground: #080C14;
+  --color-accent-dim: rgba(198, 244, 255, 0.12);
+  --color-surface: #0F1720;
+  --color-kamino-blue: #0C4A6E;
+  --color-liquidity-blue: #7DD3FC;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-chart-navy: #7DD3FC;
 }
 
 body {
