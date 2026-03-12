@@ -10,10 +10,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import type { CompetitorDataFile } from "@/lib/api/competitor-types";
+import { useThemeColors } from "@/hooks/useThemeColors";
 
 const COLORS = ["#9CAED4", "#D97706", "#DC2626", "#4A5565", "#10B981"];
 
 export function TvlComparisonChart({ data }: { data: CompetitorDataFile }) {
+  const colors = useThemeColors();
+
   // Build a unified time-series keyed by date
   const dateMap = new Map<number, Record<string, number>>();
 
@@ -61,7 +64,7 @@ export function TvlComparisonChart({ data }: { data: CompetitorDataFile }) {
         <Legend />
         <Line
           dataKey="Kamino"
-          stroke="#001F46"
+          stroke={colors.chartNavy || "#001F46"}
           strokeWidth={2}
           dot={false}
         />

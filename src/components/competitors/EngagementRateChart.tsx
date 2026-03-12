@@ -12,6 +12,7 @@ import {
 } from "recharts";
 import type { CompetitorData } from "@/lib/api/competitor-types";
 import { avgEngagementRate, avgViews } from "@/lib/utils/competitor-metrics";
+import { useThemeColors } from "@/hooks/useThemeColors";
 
 const COLORS = [
   "#001F46", "#D97706", "#DC2626", "#10B981", "#4A5565",
@@ -25,6 +26,8 @@ export function EngagementRateChart({
 }: {
   competitors: CompetitorData[];
 }) {
+  const colors = useThemeColors();
+
   const chartData = competitors.map((c, i) => ({
     name: c.displayName,
     engRate: +(avgEngagementRate(c.tweets) * 100).toFixed(2),

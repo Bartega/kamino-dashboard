@@ -10,12 +10,15 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import type { CompetitorData } from "@/lib/api/competitor-types";
+import { useThemeColors } from "@/hooks/useThemeColors";
 
 export function EngagementChart({
   competitors,
 }: {
   competitors: CompetitorData[];
 }) {
+  const colors = useThemeColors();
+
   const chartData = competitors.map((c) => ({
     name: c.displayName,
     likes: c.tweets.reduce((sum, t) => sum + t.likeCount, 0),
@@ -30,9 +33,9 @@ export function EngagementChart({
         <YAxis tick={{ fontSize: 11 }} />
         <Tooltip />
         <Legend />
-        <Bar dataKey="likes" fill="#001F46" radius={[4, 4, 0, 0]} />
-        <Bar dataKey="bookmarks" fill="#C0F4FF" radius={[4, 4, 0, 0]} />
-        <Bar dataKey="retweets" fill="#9CAED4" radius={[4, 4, 0, 0]} />
+        <Bar dataKey="likes" fill={colors.chartNavy || "#001F46"} radius={[4, 4, 0, 0]} />
+        <Bar dataKey="bookmarks" fill={colors.kaminoBlue || "#C0F4FF"} radius={[4, 4, 0, 0]} />
+        <Bar dataKey="retweets" fill={colors.liquidityBlue || "#9CAED4"} radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   );

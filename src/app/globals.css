@@ -9,13 +9,35 @@
   --color-border: #D1D5DC;             /* Grey border */
   --color-muted: #4A5565;              /* Medium grey - secondary text */
   --color-accent: #001F46;             /* Dark navy - accent/links */
+  --color-accent-foreground: #FFFFFF;  /* Text on accent backgrounds */
   --color-accent-dim: rgba(198, 244, 255, 0.5); /* Kamino Blue translucent */
+  --color-surface: #FFFFFF;            /* Card/panel backgrounds */
   --color-kamino-blue: #C6F4FF;        /* Kamino Blue */
   --color-liquidity-blue: #9CAED4;     /* Liquidity Blue - 10% */
   --color-warning: #D97706;
   --color-danger: #DC2626;
+  --color-chart-navy: #001F46;         /* Chart strokes/fills */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+/* Dark theme */
+:root.dark {
+  --color-background: #0A0F1A !important;
+  --color-foreground: #E2E8F0 !important;
+  --color-card: #111827 !important;
+  --color-card-hover: #1A2332 !important;
+  --color-border: #1E293B !important;
+  --color-muted: #94A3B8 !important;
+  --color-accent: #C6F4FF !important;
+  --color-accent-foreground: #0A0F1A !important;
+  --color-accent-dim: rgba(198, 244, 255, 0.1) !important;
+  --color-surface: #111827 !important;
+  --color-kamino-blue: #0C4A6E !important;
+  --color-liquidity-blue: #7DD3FC !important;
+  --color-warning: #F59E0B !important;
+  --color-danger: #EF4444 !important;
+  --color-chart-navy: #7DD3FC !important;
 }
 
 body {

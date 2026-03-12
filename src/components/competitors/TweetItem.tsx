@@ -77,7 +77,7 @@ export function TweetItem({ tweet }: { tweet: CompetitorTweet }) {
   const tweetId = getTweetId(tweet.twitterUrl);
 
   return (
-    <div className="border border-border rounded-lg bg-white">
+    <div className="border border-border rounded-lg bg-surface">
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-background/50 transition-colors"

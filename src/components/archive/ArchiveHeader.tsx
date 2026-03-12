@@ -2,7 +2,7 @@ import type { ArchiveStats } from "@/lib/api/competitor-types";
 
 function StatBadge({ label, value }: { label: string; value: string }) {
   return (
-    <div className="bg-white border border-border rounded-lg px-4 py-2">
+    <div className="bg-surface border border-border rounded-lg px-4 py-2">
       <p className="text-xs text-muted">{label}</p>
       <p className="text-sm font-semibold text-foreground">{value}</p>
     </div>

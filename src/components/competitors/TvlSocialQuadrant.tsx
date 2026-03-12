@@ -12,6 +12,7 @@ import {
 } from "recharts";
 import type { CompetitorData } from "@/lib/api/competitor-types";
 import { totalEngagement } from "@/lib/utils/competitor-metrics";
+import { useThemeColors } from "@/hooks/useThemeColors";
 
 const COLORS = [
   "#001F46", "#D97706", "#DC2626", "#10B981", "#4A5565",
@@ -25,6 +26,8 @@ export function TvlSocialQuadrant({
 }: {
   competitors: CompetitorData[];
 }) {
+  const colors = useThemeColors();
+
   const withTvl = competitors.filter((c) => c.tvl > 0);
 
   const chartData = withTvl.map((c, i) => ({
@@ -60,8 +63,8 @@ export function TvlSocialQuadrant({
             v >= 1_000 ? `${(v / 1e3).toFixed(0)}K` : String(v)
           }
         />
-        <ReferenceLine x={medianTvl} stroke="#9CAED4" strokeDasharray="3 3" />
-        <ReferenceLine y={medianEng} stroke="#9CAED4" strokeDasharray="3 3" />
+        <ReferenceLine x={medianTvl} stroke={colors.liquidityBlue || "#9CAED4"} strokeDasharray="3 3" />
+        <ReferenceLine y={medianEng} stroke={colors.liquidityBlue || "#9CAED4"} strokeDasharray="3 3" />
         <Tooltip
           formatter={(value, name) =>
             name === "tvl"

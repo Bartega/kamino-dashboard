@@ -9,7 +9,7 @@ function formatCount(n: number): string {
 function MetricIcon({ name }: { name: string }) {
   const colorMap: Record<string, string> = {
     heart: "text-pink-500",
-    bookmark: "text-blue-500",
+    bookmark: "text-liquidity-blue",
   };
 
   const paths: Record<string, string> = {

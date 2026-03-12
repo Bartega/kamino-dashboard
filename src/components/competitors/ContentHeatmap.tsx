@@ -4,10 +4,10 @@ import type { CompetitorData } from "@/lib/api/competitor-types";
 import { metricRates } from "@/lib/utils/competitor-metrics";
 
 function intensityClass(value: number, max: number): string {
-  if (!max) return "bg-gray-50";
+  if (!max) return "bg-surface";
   const ratio = value / max;
-  if (ratio > 0.75) return "bg-accent/80 text-white";
-  if (ratio > 0.5) return "bg-accent/50 text-white";
+  if (ratio > 0.75) return "bg-accent/80 text-accent-foreground";
+  if (ratio > 0.5) return "bg-accent/50 text-accent-foreground";
   if (ratio > 0.25) return "bg-accent/25 text-foreground";
   return "bg-accent/10 text-foreground";
 }

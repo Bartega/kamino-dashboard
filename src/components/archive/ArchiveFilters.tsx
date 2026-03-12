@@ -20,7 +20,7 @@ export function ArchiveFilters({
   onSearchChange,
 }: ArchiveFiltersProps) {
   return (
-    <div className="flex flex-wrap items-center gap-3 bg-white border border-border rounded-lg p-3">
+    <div className="flex flex-wrap items-center gap-3 bg-surface border border-border rounded-lg p-3">
       <select
         value={selectedHandle}
         onChange={(e) => onHandleChange(e.target.value)}

@@ -87,7 +87,7 @@ export function VaultTable({ vaults }: { vaults: DisplayVault[] }) {
                       vault.type === "Stable"
                         ? "bg-accent-dim text-accent"
                         : vault.type === "Pegged"
-                          ? "bg-blue-500/10 text-blue-400"
+                          ? "bg-liquidity-blue/10 text-liquidity-blue"
                           : "bg-warning/10 text-warning"
                     }`}
                   >
@@ -141,7 +141,7 @@ export function VaultTable({ vaults }: { vaults: DisplayVault[] }) {
                     vault.type === "Stable"
                       ? "bg-accent-dim text-accent"
                       : vault.type === "Pegged"
-                        ? "bg-blue-500/10 text-blue-400"
+                        ? "bg-liquidity-blue/10 text-liquidity-blue"
                         : "bg-warning/10 text-warning"
                   }`}
                 >

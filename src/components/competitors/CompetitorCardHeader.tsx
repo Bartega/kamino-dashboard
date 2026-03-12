@@ -22,14 +22,14 @@ export function CompetitorCardHeader({
         height={40}
       />
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-semibold text-white truncate">
+        <p className="text-sm font-semibold text-accent-foreground truncate">
           {displayName}
         </p>
         <p className="text-xs text-liquidity-blue">@{handle}</p>
       </div>
       <div className="text-right shrink-0">
         <p className="text-xs text-liquidity-blue">TVL</p>
-        <p className="text-sm font-bold text-white font-mono">
+        <p className="text-sm font-bold text-accent-foreground font-mono">
           {formatUsd(tvl)}
         </p>
       </div>

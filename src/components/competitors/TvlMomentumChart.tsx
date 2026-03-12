@@ -12,8 +12,10 @@ import {
 } from "recharts";
 import type { CompetitorDataFile } from "@/lib/api/competitor-types";
 import { tvlChange } from "@/lib/utils/competitor-metrics";
+import { useThemeColors } from "@/hooks/useThemeColors";
 
 export function TvlMomentumChart({ data }: { data: CompetitorDataFile }) {
+  const colors = useThemeColors();
   const [days, setDays] = useState<7 | 30>(7);
 
   const chartData = [
@@ -31,13 +33,13 @@ export function TvlMomentumChart({ data }: { data: CompetitorDataFile }) {
       <div className="flex gap-2 mb-3">
         <button
           onClick={() => setDays(7)}
-          className={`text-xs px-2 py-1 rounded ${days === 7 ? "bg-accent text-white" : "bg-background text-muted"}`}
+          className={`text-xs px-2 py-1 rounded ${days === 7 ? "bg-accent text-accent-foreground" : "bg-background text-muted"}`}
         >
           7 days
         </button>
         <button
           onClick={() => setDays(30)}
-          className={`text-xs px-2 py-1 rounded ${days === 30 ? "bg-accent text-white" : "bg-background text-muted"}`}
+          className={`text-xs px-2 py-1 rounded ${days === 30 ? "bg-accent text-accent-foreground" : "bg-background text-muted"}`}
         >
           30 days
         </button>

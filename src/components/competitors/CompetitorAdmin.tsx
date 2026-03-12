@@ -48,7 +48,7 @@ export function CompetitorAdmin() {
   }
 
   return (
-    <div className="border border-border rounded-lg bg-white mt-8">
+    <div className="border border-border rounded-lg bg-surface mt-8">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-4 py-3 text-sm text-muted hover:text-foreground transition-colors"
@@ -107,7 +107,7 @@ export function CompetitorAdmin() {
             <button
               onClick={handleAdd}
               disabled={loading || !newHandle || !newSlug}
-              className="text-sm font-medium px-4 py-2 rounded-lg bg-accent text-white hover:bg-accent/80 transition-colors disabled:opacity-50"
+              className="text-sm font-medium px-4 py-2 rounded-lg bg-accent text-accent-foreground hover:bg-accent/80 transition-colors disabled:opacity-50"
             >
               Add
             </button>

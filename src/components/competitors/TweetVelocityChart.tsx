@@ -10,12 +10,15 @@ import {
 } from "recharts";
 import type { CompetitorData } from "@/lib/api/competitor-types";
 import { tweetFrequency } from "@/lib/utils/competitor-metrics";
+import { useThemeColors } from "@/hooks/useThemeColors";
 
 export function TweetVelocityChart({
   competitors,
 }: {
   competitors: CompetitorData[];
 }) {
+  const colors = useThemeColors();
+
   const chartData = competitors
     .map((c) => {
       const freq = tweetFrequency(c.tweets);
@@ -41,7 +44,7 @@ export function TweetVelocityChart({
         />
         <Bar
           dataKey="tweetsPerDay"
-          fill="#001F46"
+          fill={colors.chartNavy || "#001F46"}
           radius={[4, 4, 0, 0]}
           name="Tweets/day"
         />

@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="border-t border-border mt-16 bg-white">
+    <footer className="border-t border-border mt-16 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <p className="text-sm text-muted leading-relaxed max-w-3xl">
           This site is for educational purposes only. All DeFi carries risk

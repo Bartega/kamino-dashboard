@@ -1,3 +1,5 @@
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
+
 export function Header() {
   const links = [
     { label: "Overview", href: "/#overview" },
@@ -24,14 +26,17 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <a
-          href="https://kamino.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm font-medium px-4 py-2 rounded-lg bg-accent text-white hover:bg-accent/80 transition-colors"
-        >
-          Open Kamino
-        </a>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href="https://kamino.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium px-4 py-2 rounded-lg bg-accent text-accent-foreground hover:bg-accent/80 transition-colors"
+          >
+            Open Kamino
+          </a>
+        </div>
       </div>
     </header>
   );

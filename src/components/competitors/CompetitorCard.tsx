@@ -9,7 +9,7 @@ export function CompetitorCard({
   competitor: CompetitorData;
 }) {
   return (
-    <div className="bg-white rounded-xl border border-border overflow-hidden">
+    <div className="bg-surface rounded-xl border border-border overflow-hidden">
       <CompetitorCardHeader
         displayName={competitor.displayName}
         handle={competitor.twitterHandle}

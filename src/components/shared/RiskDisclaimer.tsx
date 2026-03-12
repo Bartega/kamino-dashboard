@@ -12,7 +12,7 @@ export function RiskDisclaimer({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="mt-4 border border-border rounded-lg bg-white">
+    <div className="mt-4 border border-border rounded-lg bg-surface">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-4 py-3 text-sm text-muted hover:text-foreground transition-colors"

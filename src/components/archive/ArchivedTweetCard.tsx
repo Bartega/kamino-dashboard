@@ -21,7 +21,7 @@ export function ArchivedTweetCard({ tweet }: { tweet: ArchivedTweet }) {
   const [showAnalysis, setShowAnalysis] = useState(false);
 
   return (
-    <div className="bg-white border border-border rounded-lg p-4">
+    <div className="bg-surface border border-border rounded-lg p-4">
       <div className="flex items-start gap-3">
         {tweet.thumbnailUrl && (
           <img
@@ -53,7 +53,7 @@ export function ArchivedTweetCard({ tweet }: { tweet: ArchivedTweet }) {
 
           <div className="flex items-center gap-4 text-xs text-muted">
             <span className="text-pink-500">{formatCount(tweet.likeCount)} likes</span>
-            <span className="text-blue-500">{formatCount(tweet.bookmarkCount)} bookmarks</span>
+            <span className="text-liquidity-blue">{formatCount(tweet.bookmarkCount)} bookmarks</span>
             <span>{formatCount(tweet.retweetCount)} RTs</span>
             <span>{formatCount(tweet.viewCount)} views</span>
           </div>

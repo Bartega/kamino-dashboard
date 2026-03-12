@@ -88,7 +88,7 @@ export function MultiplyTable({
                   <span
                     className={`text-xs px-2 py-0.5 rounded-full ${
                       s.type === "Correlated"
-                        ? "bg-blue-500/10 text-blue-400"
+                        ? "bg-liquidity-blue/10 text-liquidity-blue"
                         : s.type === "Stable"
                           ? "bg-accent-dim text-accent"
                           : "bg-warning/10 text-warning"

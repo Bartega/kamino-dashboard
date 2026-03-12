@@ -134,7 +134,7 @@ export default function ArchivePage() {
                 <button
                   onClick={() => setPage((p) => Math.max(0, p - 1))}
                   disabled={page === 0}
-                  className="text-sm px-3 py-1.5 rounded border border-border bg-white disabled:opacity-40 hover:bg-background transition-colors"
+                  className="text-sm px-3 py-1.5 rounded border border-border bg-surface disabled:opacity-40 hover:bg-background transition-colors"
                 >
                   Previous
                 </button>
@@ -146,7 +146,7 @@ export default function ArchivePage() {
                     setPage((p) => Math.min(totalPages - 1, p + 1))
                   }
                   disabled={page >= totalPages - 1}
-                  className="text-sm px-3 py-1.5 rounded border border-border bg-white disabled:opacity-40 hover:bg-background transition-colors"
+                  className="text-sm px-3 py-1.5 rounded border border-border bg-surface disabled:opacity-40 hover:bg-background transition-colors"
                 >
                   Next
                 </button>

@@ -20,7 +20,7 @@ export function FeaturedCard({
       href={opportunity.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="block bg-white rounded-xl border border-border hover:border-liquidity-blue hover:shadow-md transition-all group overflow-hidden"
+      className="block bg-surface rounded-xl border border-border hover:border-liquidity-blue hover:shadow-md dark:hover:shadow-lg dark:hover:shadow-black/30 transition-all group overflow-hidden"
     >
       <div className={`flex items-center justify-between px-5 pt-4 pb-3 ${headerBg}`}>
         <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">
