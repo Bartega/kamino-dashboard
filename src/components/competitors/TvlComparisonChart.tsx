@@ -68,7 +68,7 @@ export function TvlComparisonChart({ data }: { data: CompetitorDataFile }) {
           strokeWidth={2}
           dot={false}
         />
-        {data.competitors.map((c, i) => (
+        {data.competitors.filter((c) => c.tvlHistory.some((p) => p.tvl > 0)).map((c, i) => (
           <Line
             key={c.twitterHandle}
             dataKey={c.displayName}
