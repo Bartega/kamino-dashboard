@@ -6,6 +6,7 @@ export function Header() {
     { label: "Competitors", href: "/competitors" },
     { label: "Analysis", href: "/competitors/analysis" },
     { label: "Archive", href: "/competitors/archive" },
+    { label: "Digest", href: "/competitors/digest" },
   ];
 
   return (
