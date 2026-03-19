@@ -22,13 +22,6 @@ interface DailyDigest {
     twitterUrl: string;
     category?: string;
   }[];
-  tvlMovers: {
-    handle: string;
-    displayName: string;
-    slug: string;
-    currentTvl: number;
-    change24h: number;
-  }[];
   categoryBreakdown: {
     category: string;
     count: number;
@@ -50,19 +43,6 @@ function formatDate(dateStr: string): string {
     year: "numeric",
     timeZone: "UTC",
   });
-}
-
-function formatTvl(value: number): string {
-  if (value >= 1_000_000_000) {
-    return `$${(value / 1_000_000_000).toFixed(1)}B`;
-  }
-  if (value >= 1_000_000) {
-    return `$${(value / 1_000_000).toFixed(1)}M`;
-  }
-  if (value >= 1_000) {
-    return `$${(value / 1_000).toFixed(1)}K`;
-  }
-  return `$${value.toFixed(0)}`;
 }
 
 function formatCategoryName(raw: string): string {
@@ -98,73 +78,6 @@ function DigestSummary({
         })}{" "}
         UTC
       </p>
-    </div>
-  );
-}
-
-function DigestTvlMovers({
-  movers,
-}: {
-  movers: DailyDigest["tvlMovers"];
-}) {
-  const sorted = useMemo(
-    () => [...movers].sort((a, b) => Math.abs(b.change24h) - Math.abs(a.change24h)),
-    [movers],
-  );
-
-  if (sorted.length === 0) {
-    return (
-      <div className="bg-surface rounded-xl border border-border p-5">
-        <h2 className="text-lg font-semibold text-foreground mb-4">
-          TVL Movers
-        </h2>
-        <p className="text-sm text-muted">
-          No TVL data available for this period.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="bg-surface rounded-xl border border-border p-5">
-      <h2 className="text-lg font-semibold text-foreground mb-4">
-        TVL Movers
-      </h2>
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-border">
-              <th className="text-left py-2 text-muted font-medium">
-                Protocol
-              </th>
-              <th className="text-right py-2 text-muted font-medium">
-                Current TVL
-              </th>
-              <th className="text-right py-2 text-muted font-medium">
-                24h Change
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {sorted.map((mover) => (
-              <tr key={mover.slug} className="border-b border-border/50">
-                <td className="py-2 text-foreground">{mover.displayName}</td>
-                <td className="py-2 text-right text-foreground">
-                  {formatTvl(mover.currentTvl)}
-                </td>
-                <td
-                  className={`py-2 text-right font-medium ${
-                    mover.change24h >= 0 ? "text-green-500" : "text-red-500"
-                  }`}
-                >
-                  {mover.change24h >= 0 ? "+" : ""}
-                  {mover.change24h.toFixed(2)}%
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
     </div>
   );
 }
@@ -451,8 +364,6 @@ export default function DigestPage() {
               summary={digest.aiSummary}
               generatedAt={digest.generatedAt}
             />
-
-            <DigestTvlMovers movers={digest.tvlMovers} />
 
             <DigestTopTweets tweets={digest.topTweets} />
 

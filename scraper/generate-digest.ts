@@ -1,6 +1,5 @@
 import type {
   ArchivedTweet,
-  CompetitorConfig,
 } from "../src/lib/api/competitor-types.js";
 
 // ---------------------------------------------------------------------------
@@ -10,7 +9,6 @@ import type {
 const KV_REST_API_URL = process.env.KV_REST_API_URL!;
 const KV_REST_API_TOKEN = process.env.KV_REST_API_TOKEN!;
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY!;
-const DEFILLAMA_BASE = process.env.DEFILLAMA_API_BASE || "https://api.llama.fi";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -33,13 +31,6 @@ interface DailyDigest {
     createdAt: string;
     twitterUrl: string;
     category?: string;
-  }[];
-  tvlMovers: {
-    handle: string;
-    displayName: string;
-    slug: string;
-    currentTvl: number;
-    change24h: number;
   }[];
   categoryBreakdown: {
     category: string;
@@ -227,104 +218,7 @@ function getTopTweets(
 }
 
 // ---------------------------------------------------------------------------
-// Step 4: TVL movers
-// ---------------------------------------------------------------------------
-
-async function fetchCompetitorConfig(): Promise<CompetitorConfig[]> {
-  console.log("[digest] Fetching competitor config...");
-  const result = await redisCmd(["GET", "competitors"]);
-  if (!result) return [];
-
-  let parsed = result;
-  while (typeof parsed === "string") {
-    parsed = JSON.parse(parsed);
-  }
-  return parsed as CompetitorConfig[];
-}
-
-async function fetchTvlMover(
-  slug: string,
-  handle: string,
-  displayName: string
-): Promise<DailyDigest["tvlMovers"][number] | null> {
-  try {
-    const res = await fetch(`${DEFILLAMA_BASE}/protocol/${slug}`);
-    if (!res.ok) throw new Error(`DeFi Llama ${slug}: ${res.status}`);
-    const data = await res.json();
-
-    // Current TVL: prefer Solana chain, fall back to sum of non-borrowed chains, then last tvl entry
-    let currentTvl = data.currentChainTvls?.Solana ?? 0;
-    if (!currentTvl && data.currentChainTvls) {
-      currentTvl = Object.entries(data.currentChainTvls)
-        .filter(([k]) => !k.includes("-"))
-        .reduce((sum, [, v]) => sum + (v as number), 0);
-    }
-    if (!currentTvl && data.tvl?.length) {
-      currentTvl = data.tvl[data.tvl.length - 1]?.totalLiquidityUSD ?? 0;
-    }
-
-    // 24h ago TVL: find the closest entry to 24h ago
-    const tvlArray: { date: number; totalLiquidityUSD: number }[] =
-      data.chainTvls?.Solana?.tvl || data.tvl || [];
-    const targetTs = Date.now() / 1000 - 86400;
-
-    let previousTvl = 0;
-    let closestDiff = Infinity;
-    for (const entry of tvlArray) {
-      const diff = Math.abs(entry.date - targetTs);
-      if (diff < closestDiff) {
-        closestDiff = diff;
-        previousTvl = entry.totalLiquidityUSD;
-      }
-    }
-
-    const change24h =
-      previousTvl > 0 ? ((currentTvl - previousTvl) / previousTvl) * 100 : 0;
-
-    return { handle, displayName, slug, currentTvl, change24h };
-  } catch (err) {
-    console.warn(`[digest] TVL fetch failed for ${slug}: ${(err as Error).message}`);
-    return null;
-  }
-}
-
-async function getTvlMovers(
-  config: CompetitorConfig[]
-): Promise<DailyDigest["tvlMovers"]> {
-  console.log("[digest] Fetching TVL data...");
-
-  // Build the list: all competitors + Kamino
-  const entries = [
-    { slug: "kamino", handle: "KaminoFinance", displayName: "Kamino" },
-    ...config.map((c) => ({
-      slug: c.defiLlamaSlug,
-      handle: c.twitterHandle,
-      displayName: c.displayName,
-    })),
-  ];
-
-  // Fetch in parallel batches of 5
-  const BATCH = 5;
-  const movers: DailyDigest["tvlMovers"] = [];
-  for (let i = 0; i < entries.length; i += BATCH) {
-    const batch = entries.slice(i, i + BATCH);
-    const results = await Promise.all(
-      batch.map((e) => fetchTvlMover(e.slug, e.handle, e.displayName))
-    );
-    for (const r of results) {
-      if (r) movers.push(r);
-    }
-  }
-
-  // Sort by absolute change descending
-  movers.sort((a, b) => Math.abs(b.change24h) - Math.abs(a.change24h));
-
-  console.log(`[digest] Got TVL data for ${movers.length} protocols.`);
-  return movers;
-}
-
-// ---------------------------------------------------------------------------
-// Step 5: Category breakdown
+// Step 4: Category breakdown
 // ---------------------------------------------------------------------------
 
 function getCategoryBreakdown(
@@ -356,12 +250,11 @@ function getCategoryBreakdown(
 }
 
 // ---------------------------------------------------------------------------
-// Step 6: AI narrative summary
+// Step 5: AI narrative summary
 // ---------------------------------------------------------------------------
 
 async function generateNarrativeSummary(
   topTweets: DailyDigest["topTweets"],
-  tvlMovers: DailyDigest["tvlMovers"],
   categoryBreakdown: DailyDigest["categoryBreakdown"]
 ): Promise<string> {
   console.log("[digest] Generating AI narrative summary...");
@@ -374,29 +267,15 @@ async function generateNarrativeSummary(
     )
     .join("\n");
 
-  const gainers = tvlMovers
-    .filter((m) => m.change24h > 0)
-    .slice(0, 3)
-    .map((m) => `${m.displayName}: +${m.change24h.toFixed(2)}% ($${(m.currentTvl / 1e6).toFixed(1)}M)`)
-    .join(", ");
-  const losers = tvlMovers
-    .filter((m) => m.change24h < 0)
-    .slice(0, 3)
-    .map((m) => `${m.displayName}: ${m.change24h.toFixed(2)}% ($${(m.currentTvl / 1e6).toFixed(1)}M)`)
-    .join(", ");
-
   const categories = categoryBreakdown
     .slice(0, 5)
     .map((c) => `${c.category}: ${c.count} tweets (${c.avgEngagement}% avg engagement)`)
     .join(", ");
 
-  const prompt = `You are a DeFi market analyst. Based on the following data from the last 24 hours, write a concise 3-4 sentence summary of the day's key developments. Focus on notable competitor moves, trending topics, and standout content. Be specific about protocols and metrics. Neutral, analytical tone.
+  const prompt = `You are a DeFi market analyst. Based on the following competitor tweet data from the last 24 hours, write a concise 3-4 sentence summary of the day's key developments. Focus on what competitors are talking about, trending topics, and standout content. Be specific about protocols and metrics. Neutral, analytical tone.
 
 TOP TWEETS:
 ${tweetSection || "No tweets in the last 24 hours."}
-
-TVL MOVERS (top gainers): ${gainers || "None"}
-TVL MOVERS (top losers): ${losers || "None"}
 
 CONTENT CATEGORIES: ${categories || "None"}`;
 
@@ -404,7 +283,7 @@ CONTENT CATEGORIES: ${categories || "None"}`;
 }
 
 // ---------------------------------------------------------------------------
-// Step 7: Store digest in Redis
+// Step 6: Store digest in Redis
 // ---------------------------------------------------------------------------
 
 async function storeDigest(digest: DailyDigest): Promise<void> {
@@ -428,23 +307,16 @@ async function main() {
   const targetDate = getTargetDate();
   console.log(`[digest] Starting daily digest for ${targetDate} at ${new Date().toISOString()}`);
 
-  // Fetch tweets and competitor config in parallel
-  const [tweets, competitorConfig] = await Promise.all([
-    fetchRecentTweets(),
-    fetchCompetitorConfig(),
-  ]);
+  // Fetch tweets
+  const tweets = await fetchRecentTweets();
 
   // Compute sections
   const topTweets = getTopTweets(tweets);
   const categoryBreakdown = getCategoryBreakdown(tweets);
 
-  // TVL movers (requires network calls)
-  const tvlMovers = await getTvlMovers(competitorConfig);
-
   // AI summary
   const aiSummary = await generateNarrativeSummary(
     topTweets,
-    tvlMovers,
     categoryBreakdown
   );
 
@@ -459,7 +331,6 @@ async function main() {
     generatedAt: new Date().toISOString(),
     aiSummary,
     topTweets,
-    tvlMovers,
     categoryBreakdown,
     stats: {
       totalTweets: tweets.length,
@@ -472,7 +343,7 @@ async function main() {
 
   console.log(`[digest] Finished at ${new Date().toISOString()}`);
   console.log(
-    `[digest] Summary: ${tweets.length} tweets, ${tvlMovers.length} protocols, ${categoryBreakdown.length} categories`
+    `[digest] Summary: ${tweets.length} tweets, ${categoryBreakdown.length} categories`
   );
 }
 
