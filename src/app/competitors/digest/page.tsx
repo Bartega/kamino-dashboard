@@ -315,8 +315,8 @@ export default function DigestPage() {
   useEffect(() => {
     fetch("/api/digest/dates")
       .then((r) => r.json())
-      .then((data: string[]) => {
-        const sorted = [...data].sort();
+      .then((json: { dates: string[] }) => {
+        const sorted = [...json.dates].sort();
         setAvailableDates(sorted);
       })
       .catch(() => setAvailableDates([]));
@@ -331,8 +331,8 @@ export default function DigestPage() {
         setDigest(null);
         return;
       }
-      const data: DailyDigest = await res.json();
-      setDigest(data);
+      const json = await res.json();
+      setDigest(json.digest ?? null);
     } catch {
       setDigest(null);
     } finally {
