@@ -9,6 +9,10 @@ import { TweetVelocityChart } from "./TweetVelocityChart";
 import { ContentHeatmap } from "./ContentHeatmap";
 import { TvlSocialQuadrant } from "./TvlSocialQuadrant";
 import { TopTweetsTable } from "./TopTweetsTable";
+import { ShareOfVoiceChart } from "./ShareOfVoiceChart";
+import { PostingHeatmap } from "./PostingHeatmap";
+import { FollowerGrowthChart } from "./FollowerGrowthChart";
+import { NarrativeTracker } from "./NarrativeTracker";
 
 function ChartCard({
   title,
@@ -25,11 +29,33 @@ function ChartCard({
   );
 }
 
+function SectionHeader({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="text-lg font-semibold text-foreground">{children}</h3>
+  );
+}
+
 export function CompetitorCharts({ data }: { data: CompetitorDataFile }) {
   return (
     <section className="space-y-8">
       <h2 className="text-2xl font-bold text-foreground">Analytics</h2>
 
+      <SectionHeader>TVL Analysis</SectionHeader>
+      <div className="grid lg:grid-cols-2 gap-6">
+        <ChartCard title="TVL Comparison (30 days)">
+          <TvlComparisonChart data={data} />
+        </ChartCard>
+
+        <ChartCard title="TVL Momentum">
+          <TvlMomentumChart data={data} />
+        </ChartCard>
+
+        <ChartCard title="TVL vs Social Engagement">
+          <TvlSocialQuadrant competitors={data.competitors} />
+        </ChartCard>
+      </div>
+
+      <SectionHeader>Content Performance</SectionHeader>
       <div className="grid lg:grid-cols-2 gap-6">
         <ChartCard title="Content Performance Heatmap">
           <ContentHeatmap competitors={data.competitors} />
@@ -39,14 +65,13 @@ export function CompetitorCharts({ data }: { data: CompetitorDataFile }) {
           <TopTweetsTable competitors={data.competitors} />
         </ChartCard>
 
-        <ChartCard title="TVL Comparison (30 days)">
-          <TvlComparisonChart data={data} />
+        <ChartCard title="Narrative Tracker">
+          <NarrativeTracker />
         </ChartCard>
+      </div>
 
-        <ChartCard title="TVL Momentum">
-          <TvlMomentumChart data={data} />
-        </ChartCard>
-
+      <SectionHeader>Social Metrics</SectionHeader>
+      <div className="grid lg:grid-cols-2 gap-6">
         <ChartCard title="Tweet Engagement (last 5 tweets)">
           <EngagementChart competitors={data.competitors} />
         </ChartCard>
@@ -55,12 +80,23 @@ export function CompetitorCharts({ data }: { data: CompetitorDataFile }) {
           <EngagementRateChart competitors={data.competitors} />
         </ChartCard>
 
-        <ChartCard title="TVL vs Social Engagement">
-          <TvlSocialQuadrant competitors={data.competitors} />
-        </ChartCard>
-
         <ChartCard title="Tweet Velocity">
           <TweetVelocityChart competitors={data.competitors} />
+        </ChartCard>
+
+        <ChartCard title="Share of Voice">
+          <ShareOfVoiceChart />
+        </ChartCard>
+
+        <ChartCard title="Posting Time Heatmap (UTC)">
+          <PostingHeatmap />
+        </ChartCard>
+      </div>
+
+      <SectionHeader>Audience</SectionHeader>
+      <div className="grid lg:grid-cols-2 gap-6">
+        <ChartCard title="Follower Growth">
+          <FollowerGrowthChart />
         </ChartCard>
       </div>
     </section>

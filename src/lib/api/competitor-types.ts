@@ -33,6 +33,9 @@ export interface ApifyTweet {
     name: string;
     userName: string;
     profilePicture: string;
+    followersCount?: number;
+    followingCount?: number;
+    statusesCount?: number;
   };
 }
 
@@ -109,6 +112,7 @@ export interface ArchivedTweet extends CompetitorTweet {
   scrapedAt: string;
   engagementRate: number;
   aiAnalysis?: string;
+  category?: string;
 }
 
 export interface ArchiveStats {

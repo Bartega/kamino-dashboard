@@ -93,6 +93,31 @@ export async function archiveTweets(
 
   console.log(`[archive] Archiving ${newTweets.length} new tweets...`);
 
+  // Classify tweets by category in batches of 10
+  console.log(`[archive] Classifying ${newTweets.length} tweets by topic...`);
+  const CLASSIFY_BATCH = 10;
+  for (let i = 0; i < newTweets.length; i += CLASSIFY_BATCH) {
+    const batch = newTweets.slice(i, i + CLASSIFY_BATCH);
+    const tweetList = batch
+      .map((t) => `{"id":"${t.id}","text":"${t.fullText.replace(/"/g, '\\"').replace(/\n/g, ' ')}"}`)
+      .join("\n");
+    try {
+      const result = await callLlm(
+        `Classify each tweet into exactly one category. Valid categories: tvl-milestone, new-feature, partnership, education, meme-culture, thread-explainer, promotion, community, market-commentary, other.\n\nRespond with ONLY a JSON array of objects like [{"id":"...","category":"..."}]. No other text.\n\nTweets:\n${tweetList}`,
+      );
+      const cleaned = result.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim();
+      const classifications = JSON.parse(cleaned) as { id: string; category: string }[];
+      const categoryMap = new Map(classifications.map((c) => [c.id, c.category]));
+      for (const tweet of batch) {
+        const cat = categoryMap.get(tweet.id);
+        if (cat) tweet.category = cat;
+      }
+    } catch (e) {
+      console.warn(`  Classification failed for batch: ${(e as Error).message}`);
+    }
+  }
+  console.log(`[archive] Classification complete.`);
+
   // Pipeline: add each tweet to its handle's sorted set + add ID to the dedup set
   const cmds: unknown[][] = [];
   for (const tweet of newTweets) {
@@ -141,4 +166,52 @@ export async function archiveTweets(
   }
 
   console.log("[archive] Done.");
+}
+
+// ---------------------------------------------------------------------------
+// Archive follower snapshots to Redis
+// ---------------------------------------------------------------------------
+
+export async function archiveFollowerSnapshots(
+  competitors: {
+    twitterHandle: string;
+    displayName: string;
+    followerCount?: number;
+  }[],
+): Promise<void> {
+  const withFollowers = competitors.filter(
+    (c) => c.followerCount != null && c.followerCount > 0,
+  );
+
+  if (withFollowers.length === 0) {
+    console.log("[followers] No follower counts to archive.");
+    return;
+  }
+
+  console.log(
+    `[followers] Archiving follower snapshots for ${withFollowers.length} competitors...`,
+  );
+
+  const now = Math.floor(Date.now() / 1000);
+  const timestamp = new Date().toISOString();
+
+  const cmds: unknown[][] = [];
+
+  for (const comp of withFollowers) {
+    const key = `follower-snapshots:${comp.twitterHandle}`;
+    const value = JSON.stringify({
+      followers: comp.followerCount,
+      timestamp,
+      displayName: comp.displayName,
+    });
+    cmds.push(["ZADD", key, now, value]);
+  }
+
+  const BATCH_SIZE = 40;
+  for (let i = 0; i < cmds.length; i += BATCH_SIZE) {
+    const batch = cmds.slice(i, i + BATCH_SIZE);
+    await redisPipeline(batch);
+  }
+
+  console.log(`[followers] Archived ${withFollowers.length} follower snapshots.`);
 }

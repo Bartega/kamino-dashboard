@@ -1,7 +1,7 @@
 import { writeFileSync, renameSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { archiveTweets } from "./archive-tweets.js";
+import { archiveTweets, archiveFollowerSnapshots } from "./archive-tweets.js";
 import type {
   CompetitorConfig,
   CompetitorDataFile,
@@ -214,9 +214,10 @@ async function main() {
   // Process competitors in parallel batches
   const BATCH_SIZE = 5;
   const competitors: CompetitorData[] = [];
+  const followerCounts: Map<string, { twitterHandle: string; displayName: string; followerCount: number }> = new Map();
 
   // Helper: process a single competitor
-  async function processCompetitor(comp: CompetitorConfig): Promise<CompetitorData | null> {
+  async function processCompetitor(comp: CompetitorConfig): Promise<{ data: CompetitorData; followerCount?: number } | null> {
     console.log(`[competitor-scrape] Processing @${comp.twitterHandle}...`);
     try {
       const [rawTweets, tvlData] = await Promise.all([
@@ -254,6 +255,7 @@ async function main() {
 
       const profilePicture = rawTweets[0]?.author?.profilePicture || "";
       const displayName = rawTweets[0]?.author?.name || comp.displayName;
+      const followerCount = rawTweets[0]?.author?.followersCount;
 
       // AI summary + per-tweet analysis in parallel
       let aiSummary = "";
@@ -278,14 +280,17 @@ async function main() {
       }
 
       return {
-        twitterHandle: comp.twitterHandle,
-        displayName,
-        defiLlamaSlug: comp.defiLlamaSlug,
-        profilePicture,
-        tvl: tvlData.currentTvl,
-        tvlHistory: tvlData.history,
-        aiSummary,
-        tweets,
+        data: {
+          twitterHandle: comp.twitterHandle,
+          displayName,
+          defiLlamaSlug: comp.defiLlamaSlug,
+          profilePicture,
+          tvl: tvlData.currentTvl,
+          tvlHistory: tvlData.history,
+          aiSummary,
+          tweets,
+        },
+        followerCount,
       };
     } catch (err) {
       console.error(`  Error processing @${comp.twitterHandle}:`, (err as Error).message);
@@ -299,7 +304,16 @@ async function main() {
     console.log(`[competitor-scrape] Batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(config.length / BATCH_SIZE)} (${batch.map(c => c.twitterHandle).join(", ")})`);
     const results = await Promise.all(batch.map(processCompetitor));
     for (const r of results) {
-      if (r) competitors.push(r);
+      if (r) {
+        competitors.push(r.data);
+        if (r.followerCount != null) {
+          followerCounts.set(r.data.twitterHandle, {
+            twitterHandle: r.data.twitterHandle,
+            displayName: r.data.displayName,
+            followerCount: r.followerCount,
+          });
+        }
+      }
     }
   }
 
@@ -374,6 +388,13 @@ async function main() {
     await archiveTweets(competitors, callLlm);
   } catch (e) {
     console.warn(`[competitor-scrape] Archive failed: ${(e as Error).message}`);
+  }
+
+  // Archive follower snapshots
+  try {
+    await archiveFollowerSnapshots(Array.from(followerCounts.values()));
+  } catch (e) {
+    console.warn(`[competitor-scrape] Follower snapshot failed: ${(e as Error).message}`);
   }
 
   console.log(`[competitor-scrape] Finished at ${new Date().toISOString()}`);
