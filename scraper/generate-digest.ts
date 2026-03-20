@@ -31,6 +31,7 @@ interface DailyDigest {
     createdAt: string;
     twitterUrl: string;
     category?: string;
+    thumbnailUrl?: string;
   }[];
   categoryBreakdown: {
     category: string;
@@ -214,6 +215,7 @@ function getTopTweets(
       createdAt: t.createdAt,
       twitterUrl: `https://twitter.com/${t.twitterHandle}/status/${t.id}`,
       ...(t.category ? { category: t.category } : {}),
+      ...(t.thumbnailUrl ? { thumbnailUrl: t.thumbnailUrl } : {}),
     }));
 }
 
