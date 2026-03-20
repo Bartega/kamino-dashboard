@@ -231,9 +231,13 @@ export default function DigestPage() {
       .then((json: { dates: string[] }) => {
         const sorted = [...json.dates].sort();
         setAvailableDates(sorted);
+        // If today has no digest, snap to the latest available date
+        if (sorted.length > 0 && !sorted.includes(selectedDate)) {
+          setSelectedDate(sorted[sorted.length - 1]);
+        }
       })
       .catch(() => setAvailableDates([]));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Fetch digest when selectedDate changes
   const fetchDigest = useCallback(async () => {
