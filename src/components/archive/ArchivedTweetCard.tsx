@@ -27,7 +27,7 @@ export function ArchivedTweetCard({ tweet }: { tweet: ArchivedTweet }) {
           <img
             src={tweet.thumbnailUrl}
             alt=""
-            className="w-12 h-12 rounded object-cover shrink-0"
+            className="w-24 h-24 rounded-lg object-cover shrink-0"
           />
         )}
         <div className="flex-1 min-w-0">
