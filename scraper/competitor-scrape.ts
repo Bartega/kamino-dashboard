@@ -255,7 +255,7 @@ async function main() {
 
       const profilePicture = rawTweets[0]?.author?.profilePicture || "";
       const displayName = rawTweets[0]?.author?.name || comp.displayName;
-      const followerCount = rawTweets[0]?.author?.followersCount;
+      const followerCount = rawTweets[0]?.author?.followers;
 
       // AI summary + per-tweet analysis in parallel
       let aiSummary = "";
