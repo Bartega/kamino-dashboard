@@ -271,7 +271,7 @@ async function main() {
         for (const tweet of tweets) {
           aiPromises.push(
             callLlm(
-              `This tweet by @${comp.twitterHandle} got ${tweet.likeCount} likes, ${tweet.bookmarkCount} bookmarks, ${tweet.retweetCount} retweets, and ${tweet.viewCount.toLocaleString()} views.${tweet.thumbnailUrl ? " The tweet includes an image." : " The tweet has no image."} In 1-2 sentences, explain WHY it performed the way it did - what content hook, format, or timing drove engagement (or lack of it)? Consider: emotional triggers, specificity of claims, use of metrics, visual content, community relevance, newsworthiness. Do NOT summarise the tweet content.\n\nTweet: "${tweet.fullText}"`,
+              `Context: These are all DeFi/crypto protocol marketing accounts. The audience is crypto-native - do not mention "niche audience" or "crypto community" as engagement factors since that applies to every tweet equally.\n\nThis tweet by @${comp.twitterHandle} got ${tweet.likeCount} likes, ${tweet.bookmarkCount} bookmarks, ${tweet.retweetCount} retweets, and ${tweet.viewCount.toLocaleString()} views.${tweet.thumbnailUrl ? " The tweet includes an image." : " The tweet has no image."} In 1-2 sentences, explain WHY it performed the way it did - what content hook, format, or timing drove engagement (or lack of it)? Consider: emotional triggers, specificity of claims, use of metrics, visual content, community relevance, newsworthiness. Do NOT summarise the tweet content.\n\nTweet: "${tweet.fullText}"`,
             ).then((a) => { tweet.aiAnalysis = a; }).catch(() => {})
           );
         }
