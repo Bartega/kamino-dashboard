@@ -27,8 +27,8 @@ export function TvlComparisonChart({ data }: { data: CompetitorDataFile }) {
     dateMap.set(point.date, entry);
   }
 
-  // Add competitor data
-  for (const comp of data.competitors) {
+  // Add competitor data (exclude Kamino handle to avoid duplication)
+  for (const comp of data.competitors.filter((c) => c.twitterHandle.toLowerCase() !== "kamino")) {
     for (const point of comp.tvlHistory) {
       const entry = dateMap.get(point.date) ?? {};
       entry[comp.displayName] = point.tvl;

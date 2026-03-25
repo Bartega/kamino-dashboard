@@ -20,10 +20,12 @@ export function TvlMomentumChart({ data }: { data: CompetitorDataFile }) {
 
   const chartData = [
     { name: "Kamino", ...tvlChange(data.kaminoTvlHistory, days) },
-    ...data.competitors.map((c) => ({
-      name: c.displayName,
-      ...tvlChange(c.tvlHistory, days),
-    })),
+    ...data.competitors
+      .filter((c) => c.twitterHandle.toLowerCase() !== "kamino")
+      .map((c) => ({
+        name: c.displayName,
+        ...tvlChange(c.tvlHistory, days),
+      })),
   ]
     .filter((d) => d.percentage !== 0)
     .sort((a, b) => b.percentage - a.percentage);
