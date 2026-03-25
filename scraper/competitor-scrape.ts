@@ -295,8 +295,16 @@ async function main() {
         }
       }
 
+      const authorId = rawTweets[0]?.author?.id;
       const nonReplyTweets = rawTweets
-        .filter((t) => t.id && t.fullText && t.twitterUrl && !t.isReply)
+        .filter((t) => {
+          if (!t.id || !t.fullText || !t.twitterUrl) return false;
+          // Keep: non-replies, quote tweets, and self-replies (threads)
+          if (!t.isReply) return true;
+          if (t.isQuote) return true;
+          if (authorId && t.inReplyToUserId === authorId) return true;
+          return false;
+        })
         .slice(0, 5);
 
       const tweets: CompetitorTweet[] = nonReplyTweets.map((t) => {
