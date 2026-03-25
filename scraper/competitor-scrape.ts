@@ -54,7 +54,7 @@ async function fetchTweets(handle: string): Promise<ApifyTweet[]> {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         author: handle,
-        maxItems: 40,
+        maxItems: 30,
         sort: "Latest",
       }),
     }
