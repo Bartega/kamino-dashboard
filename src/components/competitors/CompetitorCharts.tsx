@@ -92,9 +92,11 @@ export function CompetitorCharts({ data }: { data: CompetitorDataFile }) {
           <ShareOfVoiceChart />
         </ChartCard>
 
-        <ChartCard title="Posting Time Heatmap (UTC)">
-          <PostingHeatmap />
-        </ChartCard>
+        <div className="lg:col-span-2">
+          <ChartCard title="Posting Time Heatmap (UTC)">
+            <PostingHeatmap />
+          </ChartCard>
+        </div>
       </div>
     </section>
   );
