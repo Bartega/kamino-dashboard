@@ -66,14 +66,14 @@ export function PostingHeatmap() {
       </div>
 
       <div className="overflow-x-auto">
-        <table className="w-full text-[10px]">
+        <table className="w-full text-xs">
           <thead>
             <tr className="text-muted">
-              <th className="text-left py-1 pr-2 font-medium">Day</th>
+              <th className="text-left py-2 pr-3 font-medium">Day</th>
               {Array.from({ length: 24 }, (_, h) => (
                 <th
                   key={h}
-                  className="text-center py-1 px-0.5 font-medium min-w-[24px]"
+                  className="text-center py-2 px-1 font-medium min-w-[48px]"
                 >
                   {DISPLAY_HOURS.includes(h) ? formatHour(h) : ""}
                 </th>
@@ -83,7 +83,7 @@ export function PostingHeatmap() {
           <tbody>
             {DAYS.map((dayLabel, d) => (
               <tr key={dayLabel}>
-                <td className="py-1 pr-2 text-foreground font-medium whitespace-nowrap">
+                <td className="py-3 pr-3 text-foreground font-medium whitespace-nowrap">
                   {dayLabel}
                 </td>
                 {Array.from({ length: 24 }, (_, h) => {
@@ -103,7 +103,7 @@ export function PostingHeatmap() {
                   return (
                     <td
                       key={h}
-                      className={`text-center py-1 px-0.5 rounded ${intensityClass(cellValue, max)}`}
+                      className={`text-center py-3 px-1 rounded ${intensityClass(cellValue, max)}`}
                       title={tooltip}
                     >
                       {display}
