@@ -131,7 +131,7 @@ export function FollowerGrowthChart() {
           All
         </button>
       </div>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={600}>
         <LineChart data={formattedData}>
           <XAxis dataKey="dateLabel" tick={{ fontSize: 11 }} />
           <YAxis
