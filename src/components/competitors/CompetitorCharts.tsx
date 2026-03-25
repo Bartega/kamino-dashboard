@@ -13,6 +13,7 @@ import { ShareOfVoiceChart } from "./ShareOfVoiceChart";
 import { PostingHeatmap } from "./PostingHeatmap";
 import { FollowerGrowthChart } from "./FollowerGrowthChart";
 import { NarrativeTracker } from "./NarrativeTracker";
+import { SocialMomentumChart } from "./SocialMomentumChart";
 
 function ChartCard({
   title,
@@ -52,6 +53,10 @@ export function CompetitorCharts({ data }: { data: CompetitorDataFile }) {
 
         <ChartCard title="TVL vs Social Engagement">
           <TvlSocialQuadrant competitors={data.competitors} />
+        </ChartCard>
+
+        <ChartCard title="Social Momentum (WoW)">
+          <SocialMomentumChart />
         </ChartCard>
       </div>
 
