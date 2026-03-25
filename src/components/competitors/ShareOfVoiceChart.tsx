@@ -73,7 +73,7 @@ function renderLabel(props: any) {
 export function ShareOfVoiceChart() {
   const colors = useThemeColors();
   const [days, setDays] = useState<7 | 14 | 30>(14);
-  const [tab, setTab] = useState<Tab>("volume");
+  const [tab, setTab] = useState<Tab>("engagement");
   const [data, setData] = useState<ShareOfVoiceData | null>(null);
   const [loading, setLoading] = useState(true);
 
