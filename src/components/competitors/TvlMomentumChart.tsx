@@ -44,7 +44,7 @@ export function TvlMomentumChart({ data }: { data: CompetitorDataFile }) {
           30 days
         </button>
       </div>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={600}>
         <BarChart data={chartData} layout="vertical">
           <XAxis
             type="number"
