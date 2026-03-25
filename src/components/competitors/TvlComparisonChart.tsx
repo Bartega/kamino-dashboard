@@ -51,7 +51,7 @@ export function TvlComparisonChart({ data }: { data: CompetitorDataFile }) {
   }
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height={600}>
       <LineChart data={chartData}>
         <XAxis dataKey="date" tick={{ fontSize: 11 }} />
         <YAxis
