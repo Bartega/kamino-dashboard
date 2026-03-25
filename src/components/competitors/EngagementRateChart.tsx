@@ -36,36 +36,46 @@ export function EngagementRateChart({
   }));
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
-      <ScatterChart margin={{ bottom: 10, left: 10, right: 10 }}>
-        <XAxis
-          dataKey="engRate"
-          type="number"
-          tick={{ fontSize: 11 }}
-          tickFormatter={(v) => `${v}%`}
-        >
-          <Label value="Avg Engagement Rate" position="bottom" offset={-2} style={{ fontSize: 11 }} />
-        </XAxis>
-        <YAxis
-          dataKey="views"
-          type="number"
-          tick={{ fontSize: 11 }}
-          tickFormatter={(v) =>
-            v >= 1_000_000 ? `${(v / 1e6).toFixed(1)}M` : v >= 1_000 ? `${(v / 1e3).toFixed(0)}K` : String(v)
-          }
-        />
-        <Tooltip
-          formatter={(value, name) =>
-            name === "engRate" ? `${value}%` : Number(value).toLocaleString()
-          }
-          labelFormatter={(_, payload) => payload?.[0]?.payload?.name ?? ""}
-        />
-        <Scatter data={chartData}>
-          {chartData.map((entry, i) => (
-            <Cell key={i} fill={entry.color} />
-          ))}
-        </Scatter>
-      </ScatterChart>
-    </ResponsiveContainer>
+    <div>
+      <ResponsiveContainer width="100%" height={300}>
+        <ScatterChart margin={{ bottom: 10, left: 10, right: 10 }}>
+          <XAxis
+            dataKey="engRate"
+            type="number"
+            tick={{ fontSize: 11 }}
+            tickFormatter={(v) => `${v}%`}
+          >
+            <Label value="Avg Engagement Rate" position="bottom" offset={-2} style={{ fontSize: 11 }} />
+          </XAxis>
+          <YAxis
+            dataKey="views"
+            type="number"
+            tick={{ fontSize: 11 }}
+            tickFormatter={(v) =>
+              v >= 1_000_000 ? `${(v / 1e6).toFixed(1)}M` : v >= 1_000 ? `${(v / 1e3).toFixed(0)}K` : String(v)
+            }
+          />
+          <Tooltip
+            formatter={(value, name) =>
+              name === "engRate" ? `${value}%` : Number(value).toLocaleString()
+            }
+            labelFormatter={(_, payload) => payload?.[0]?.payload?.name ?? ""}
+          />
+          <Scatter data={chartData}>
+            {chartData.map((entry, i) => (
+              <Cell key={i} fill={entry.color} />
+            ))}
+          </Scatter>
+        </ScatterChart>
+      </ResponsiveContainer>
+      <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2 px-2">
+        {chartData.map((entry) => (
+          <div key={entry.name} className="flex items-center gap-1.5 text-xs text-muted">
+            <span className="inline-block w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: entry.color }} />
+            {entry.name}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

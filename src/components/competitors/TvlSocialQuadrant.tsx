@@ -43,42 +43,52 @@ export function TvlSocialQuadrant({
   const medianEng = engs[Math.floor(engs.length / 2)] ?? 0;
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
-      <ScatterChart margin={{ bottom: 10, left: 10, right: 10 }}>
-        <XAxis
-          dataKey="tvl"
-          type="number"
-          scale="log"
-          domain={["auto", "auto"]}
-          tick={{ fontSize: 10 }}
-          tickFormatter={(v) =>
-            v >= 1e9 ? `$${(v / 1e9).toFixed(0)}B` : `$${(v / 1e6).toFixed(0)}M`
-          }
-        />
-        <YAxis
-          dataKey="engagement"
-          type="number"
-          tick={{ fontSize: 11 }}
-          tickFormatter={(v) =>
-            v >= 1_000 ? `${(v / 1e3).toFixed(0)}K` : String(v)
-          }
-        />
-        <ReferenceLine x={medianTvl} stroke={colors.liquidityBlue || "#9CAED4"} strokeDasharray="3 3" />
-        <ReferenceLine y={medianEng} stroke={colors.liquidityBlue || "#9CAED4"} strokeDasharray="3 3" />
-        <Tooltip
-          formatter={(value, name) =>
-            name === "tvl"
-              ? `$${(Number(value) / 1e6).toFixed(0)}M`
-              : Number(value).toLocaleString()
-          }
-          labelFormatter={(_, payload) => payload?.[0]?.payload?.name ?? ""}
-        />
-        <Scatter data={chartData}>
-          {chartData.map((entry, i) => (
-            <Cell key={i} fill={entry.color} />
-          ))}
-        </Scatter>
-      </ScatterChart>
-    </ResponsiveContainer>
+    <div>
+      <ResponsiveContainer width="100%" height={300}>
+        <ScatterChart margin={{ bottom: 10, left: 10, right: 10 }}>
+          <XAxis
+            dataKey="tvl"
+            type="number"
+            scale="log"
+            domain={["auto", "auto"]}
+            tick={{ fontSize: 10 }}
+            tickFormatter={(v) =>
+              v >= 1e9 ? `$${(v / 1e9).toFixed(0)}B` : `$${(v / 1e6).toFixed(0)}M`
+            }
+          />
+          <YAxis
+            dataKey="engagement"
+            type="number"
+            tick={{ fontSize: 11 }}
+            tickFormatter={(v) =>
+              v >= 1_000 ? `${(v / 1e3).toFixed(0)}K` : String(v)
+            }
+          />
+          <ReferenceLine x={medianTvl} stroke={colors.liquidityBlue || "#9CAED4"} strokeDasharray="3 3" />
+          <ReferenceLine y={medianEng} stroke={colors.liquidityBlue || "#9CAED4"} strokeDasharray="3 3" />
+          <Tooltip
+            formatter={(value, name) =>
+              name === "tvl"
+                ? `$${(Number(value) / 1e6).toFixed(0)}M`
+                : Number(value).toLocaleString()
+            }
+            labelFormatter={(_, payload) => payload?.[0]?.payload?.name ?? ""}
+          />
+          <Scatter data={chartData}>
+            {chartData.map((entry, i) => (
+              <Cell key={i} fill={entry.color} />
+            ))}
+          </Scatter>
+        </ScatterChart>
+      </ResponsiveContainer>
+      <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2 px-2">
+        {chartData.map((entry) => (
+          <div key={entry.name} className="flex items-center gap-1.5 text-xs text-muted">
+            <span className="inline-block w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: entry.color }} />
+            {entry.name}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
