@@ -41,12 +41,29 @@ async function fetchCompetitorConfig(): Promise<CompetitorConfig[]> {
 }
 
 // ---------------------------------------------------------------------------
+// Redis helpers for latest tweet ID cache
+// ---------------------------------------------------------------------------
+
+async function getLatestTweetId(handle: string): Promise<string | null> {
+  const res = await fetch(`${KV_REST_API_URL}/get/latest-tweet-id:${handle}`, {
+    headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` },
+  });
+  if (!res.ok) return null;
+  const body = await res.json();
+  return body.result ?? null;
+}
+
+async function setLatestTweetId(handle: string, tweetId: string): Promise<void> {
+  await fetch(`${KV_REST_API_URL}/set/latest-tweet-id:${handle}/${tweetId}`, {
+    headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` },
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Apify tweet scraper
 // ---------------------------------------------------------------------------
 
-async function fetchTweets(handle: string): Promise<ApifyTweet[]> {
-  console.log(`  Fetching tweets for @${handle}...`);
-
+async function runApifyScrape(handle: string, maxItems: number): Promise<ApifyTweet[]> {
   const runRes = await fetch(
     `https://api.apify.com/v2/acts/apidojo~tweet-scraper/runs?token=${APIFY_TOKEN}`,
     {
@@ -54,7 +71,7 @@ async function fetchTweets(handle: string): Promise<ApifyTweet[]> {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         author: handle,
-        maxItems: 30,
+        maxItems,
         sort: "Latest",
       }),
     }
@@ -85,6 +102,33 @@ async function fetchTweets(handle: string): Promise<ApifyTweet[]> {
     `https://api.apify.com/v2/datasets/${datasetId}/items?token=${APIFY_TOKEN}`
   );
   return itemsRes.json();
+}
+
+async function fetchTweets(handle: string): Promise<ApifyTweet[]> {
+  console.log(`  Fetching tweets for @${handle}...`);
+
+  // Quick check: fetch 1 tweet and compare ID to cached value
+  const cachedId = await getLatestTweetId(handle);
+  if (cachedId) {
+    console.log(`  Quick check for @${handle} (cached latest: ${cachedId})...`);
+    const checkTweets = await runApifyScrape(handle, 1);
+    const latestId = checkTweets[0]?.id;
+    if (latestId && latestId === cachedId) {
+      console.log(`  No new tweets for @${handle}, skipping full scrape.`);
+      return [];
+    }
+    console.log(`  New tweet detected for @${handle}, running full scrape...`);
+  }
+
+  const tweets = await runApifyScrape(handle, 30);
+
+  // Cache the latest tweet ID for next run
+  const latestId = tweets.find((t) => !t.isReply)?.id;
+  if (latestId) {
+    await setLatestTweetId(handle, latestId);
+  }
+
+  return tweets;
 }
 
 // ---------------------------------------------------------------------------
@@ -211,6 +255,18 @@ async function main() {
   console.log("[competitor-scrape] Fetching Kamino TVL...");
   const kaminoTvlData = await fetchProtocolTvl("kamino");
 
+  // Load previous data for reuse when accounts are skipped
+  let previousData: CompetitorDataFile | null = null;
+  try {
+    const { readFileSync } = await import("node:fs");
+    previousData = JSON.parse(readFileSync(OUTPUT_PATH, "utf-8"));
+  } catch {
+    console.log("[competitor-scrape] No previous data file found.");
+  }
+  const previousByHandle = new Map<string, CompetitorData>(
+    previousData?.competitors?.map((c) => [c.twitterHandle, c]) ?? []
+  );
+
   // Process competitors in parallel batches
   const BATCH_SIZE = 5;
   const competitors: CompetitorData[] = [];
@@ -227,6 +283,17 @@ async function main() {
           history: [] as TvlDataPoint[],
         })),
       ]);
+
+      // If no new tweets, reuse previous data with updated TVL
+      if (rawTweets.length === 0) {
+        const prev = previousByHandle.get(comp.twitterHandle);
+        if (prev) {
+          console.log(`  Reusing cached data for @${comp.twitterHandle}`);
+          return {
+            data: { ...prev, tvl: tvlData.currentTvl, tvlHistory: tvlData.history },
+          };
+        }
+      }
 
       const nonReplyTweets = rawTweets
         .filter((t) => t.id && t.fullText && t.twitterUrl && !t.isReply)
