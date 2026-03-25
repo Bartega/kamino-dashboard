@@ -11,23 +11,23 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center h-16">
+        <a href="#" className="flex items-center gap-2 shrink-0">
           <span className="text-xl font-bold text-foreground">Kamino</span>
           <span className="text-xl font-light text-liquidity-blue">marketing dashboard</span>
         </a>
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center justify-center gap-1 flex-1">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted hover:text-foreground transition-colors"
+              className="text-sm font-medium px-3 py-1.5 rounded-lg text-foreground hover:bg-accent/15 transition-colors"
             >
               {link.label}
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           <ThemeToggle />
           <a
             href="https://kamino.com"
