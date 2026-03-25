@@ -68,6 +68,10 @@ export function CompetitorCharts({ data }: { data: CompetitorDataFile }) {
         <ChartCard title="Narrative Tracker">
           <NarrativeTracker />
         </ChartCard>
+
+        <ChartCard title="Follower Growth">
+          <FollowerGrowthChart />
+        </ChartCard>
       </div>
 
       <SectionHeader>Social Metrics</SectionHeader>
@@ -90,13 +94,6 @@ export function CompetitorCharts({ data }: { data: CompetitorDataFile }) {
 
         <ChartCard title="Posting Time Heatmap (UTC)">
           <PostingHeatmap />
-        </ChartCard>
-      </div>
-
-      <SectionHeader>Audience</SectionHeader>
-      <div className="grid lg:grid-cols-2 gap-6">
-        <ChartCard title="Follower Growth">
-          <FollowerGrowthChart />
         </ChartCard>
       </div>
     </section>
