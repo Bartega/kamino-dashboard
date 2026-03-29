@@ -298,6 +298,8 @@ async function main() {
       const nonReplyTweets = rawTweets
         .filter((t) => {
           if (!t.id || !t.fullText || !t.twitterUrl) return false;
+          // Catch replies Apify doesn't flag
+          if (t.fullText.startsWith("@")) return false;
           // Keep: non-replies and quote tweets
           if (!t.isReply) return true;
           if (t.isQuote) return true;
