@@ -298,12 +298,11 @@ async function main() {
       const nonReplyTweets = rawTweets
         .filter((t) => {
           if (!t.id || !t.fullText || !t.twitterUrl) return false;
+          // Thread reply: conversationId differs from tweet id
+          if (t.conversationId && t.conversationId !== t.id) return false;
           // Catch replies Apify doesn't flag
           if (t.fullText.startsWith("@")) return false;
-          // Keep: non-replies and quote tweets
-          if (!t.isReply) return true;
-          if (t.isQuote) return true;
-          return false;
+          return true;
         })
         .slice(0, 5);
 
