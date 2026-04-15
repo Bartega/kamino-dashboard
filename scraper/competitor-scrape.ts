@@ -44,44 +44,30 @@ async function fetchCompetitorConfig(): Promise<CompetitorConfig[]> {
 // Redis helpers for latest tweet ID cache
 // ---------------------------------------------------------------------------
 
-async function getLatestTweetId(handle: string): Promise<string | null> {
-  const res = await fetch(`${KV_REST_API_URL}/get/latest-tweet-id:${handle}`, {
-    headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` },
-  });
-  if (!res.ok) return null;
-  const body = await res.json();
-  return body.result ?? null;
-}
-
-async function setLatestTweetId(handle: string, tweetId: string): Promise<void> {
-  await fetch(`${KV_REST_API_URL}/set/latest-tweet-id:${handle}/${tweetId}`, {
-    headers: { Authorization: `Bearer ${KV_REST_API_TOKEN}` },
-  });
-}
-
 // ---------------------------------------------------------------------------
-// Apify tweet scraper
+// Apify tweet scraper (batched)
 // ---------------------------------------------------------------------------
 
-async function runApifyScrape(handle: string, maxItems: number): Promise<ApifyTweet[]> {
+async function fetchAllTweets(handles: string[]): Promise<Map<string, ApifyTweet[]>> {
+  console.log(`  Fetching tweets for ${handles.length} handles in one batched run...`);
+
   const runRes = await fetch(
     `https://api.apify.com/v2/acts/apidojo~tweet-scraper/runs?token=${APIFY_TOKEN}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        author: handle,
-        maxItems,
+        twitterHandles: handles,
+        maxItems: handles.length * 30,
         sort: "Latest",
       }),
     }
   );
-  if (!runRes.ok) throw new Error(`Apify run failed: ${runRes.status}`);
+  if (!runRes.ok) throw new Error(`Apify batched run failed: ${runRes.status}`);
   const runData = await runRes.json();
   const runId: string = runData.data.id;
   const datasetId: string = runData.data.defaultDatasetId;
 
-  // Poll for completion (max ~5 minutes)
   let status = "RUNNING";
   let attempts = 0;
   while ((status === "RUNNING" || status === "READY") && attempts < 60) {
@@ -95,40 +81,27 @@ async function runApifyScrape(handle: string, maxItems: number): Promise<ApifyTw
   }
 
   if (status !== "SUCCEEDED") {
-    throw new Error(`Apify run ${runId} ended with status: ${status}`);
+    throw new Error(`Apify batched run ${runId} ended with status: ${status}`);
   }
 
   const itemsRes = await fetch(
     `https://api.apify.com/v2/datasets/${datasetId}/items?token=${APIFY_TOKEN}`
   );
-  return itemsRes.json();
-}
+  const allTweets: ApifyTweet[] = await itemsRes.json();
 
-async function fetchTweets(handle: string): Promise<ApifyTweet[]> {
-  console.log(`  Fetching tweets for @${handle}...`);
-
-  // Quick check: fetch 1 tweet and compare ID to cached value
-  const cachedId = await getLatestTweetId(handle);
-  if (cachedId) {
-    console.log(`  Quick check for @${handle} (cached latest: ${cachedId})...`);
-    const checkTweets = await runApifyScrape(handle, 1);
-    const latestId = checkTweets[0]?.id;
-    if (latestId && latestId === cachedId) {
-      console.log(`  No new tweets for @${handle}, skipping full scrape.`);
-      return [];
-    }
-    console.log(`  New tweet detected for @${handle}, running full scrape...`);
+  // Group by author handle (case-insensitive)
+  const byHandle = new Map<string, ApifyTweet[]>();
+  for (const h of handles) byHandle.set(h.toLowerCase(), []);
+  for (const t of allTweets) {
+    const h = t.author?.userName?.toLowerCase();
+    if (h && byHandle.has(h)) byHandle.get(h)!.push(t);
   }
-
-  const tweets = await runApifyScrape(handle, 30);
-
-  // Cache the latest tweet ID for next run
-  const latestId = tweets.find((t) => !t.isReply)?.id;
-  if (latestId) {
-    await setLatestTweetId(handle, latestId);
-  }
-
-  return tweets;
+  console.log(
+    `  Batched run returned ${allTweets.length} tweets across ${
+      Array.from(byHandle.values()).filter((v) => v.length > 0).length
+    } active handles.`
+  );
+  return byHandle;
 }
 
 // ---------------------------------------------------------------------------
@@ -272,19 +245,20 @@ async function main() {
   const competitors: CompetitorData[] = [];
   const followerCounts: Map<string, { twitterHandle: string; displayName: string; followerCount: number }> = new Map();
 
+  // Fetch all tweets in a single batched Apify run
+  const tweetsByHandle = await fetchAllTweets(config.map((c) => c.twitterHandle));
+
   // Helper: process a single competitor
   async function processCompetitor(comp: CompetitorConfig): Promise<{ data: CompetitorData; followerCount?: number } | null> {
     console.log(`[competitor-scrape] Processing @${comp.twitterHandle}...`);
     try {
-      const [rawTweets, tvlData] = await Promise.all([
-        fetchTweets(comp.twitterHandle),
-        fetchProtocolTvl(comp.defiLlamaSlug).catch(() => ({
-          currentTvl: 0,
-          history: [] as TvlDataPoint[],
-        })),
-      ]);
+      const rawTweets = tweetsByHandle.get(comp.twitterHandle.toLowerCase()) ?? [];
+      const tvlData = await fetchProtocolTvl(comp.defiLlamaSlug).catch(() => ({
+        currentTvl: 0,
+        history: [] as TvlDataPoint[],
+      }));
 
-      // If no new tweets, reuse previous data with updated TVL
+      // If no tweets returned, reuse previous data with updated TVL
       if (rawTweets.length === 0) {
         const prev = previousByHandle.get(comp.twitterHandle);
         if (prev) {
