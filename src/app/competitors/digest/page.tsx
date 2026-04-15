@@ -57,6 +57,14 @@ function getTodayUTC(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+function splitIntoSentences(text: string): string[] {
+  // Split on sentence-ending punctuation followed by whitespace, keeping punctuation
+  return text
+    .split(/(?<=[.!?])\s+(?=[A-Z"'(])/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+}
+
 function DigestSummary({
   summary,
   generatedAt,
@@ -64,12 +72,31 @@ function DigestSummary({
   summary: string;
   generatedAt: string;
 }) {
+  // Separate markdown headers from prose, then split prose by sentences
+  const blocks = summary
+    .split(/\n\n+/)
+    .map((b) => b.trim())
+    .filter((b) => b.length > 0);
+
   return (
     <div className="bg-surface rounded-xl border border-border p-5">
       <h2 className="text-lg font-semibold text-foreground mb-4">
         AI Summary
       </h2>
-      <p className="text-sm text-foreground whitespace-pre-line">{summary}</p>
+      <div className="space-y-3 text-sm text-foreground">
+        {blocks.map((block, bi) => {
+          if (block.startsWith("#")) {
+            return (
+              <p key={bi} className="font-semibold">
+                {block.replace(/^#+\s*/, "")}
+              </p>
+            );
+          }
+          return splitIntoSentences(block).map((sentence, si) => (
+            <p key={`${bi}-${si}`}>{sentence}</p>
+          ));
+        })}
+      </div>
       <p className="text-sm text-muted mt-3">
         Generated at{" "}
         {new Date(generatedAt).toLocaleString("en-GB", {
