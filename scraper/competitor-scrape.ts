@@ -58,7 +58,7 @@ async function fetchAllTweets(handles: string[]): Promise<Map<string, ApifyTweet
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         twitterHandles: handles,
-        maxItems: handles.length * 30,
+        maxItems: handles.length * 50,
         sort: "Latest",
       }),
     }
@@ -276,6 +276,9 @@ async function main() {
           if (t.conversationId && t.conversationId !== t.id) return false;
           // Catch replies Apify doesn't flag
           if (t.fullText.startsWith("@")) return false;
+          // Drop retweets
+          if (t.isRetweet) return false;
+          if (t.fullText.startsWith("RT @")) return false;
           return true;
         })
         .slice(0, 5);
