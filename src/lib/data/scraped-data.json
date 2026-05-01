@@ -1,21 +1,21 @@
 {
-  "timestamp": "2026-05-01T18:48:40.009Z",
+  "timestamp": "2026-05-01T20:12:50.691Z",
   "version": 2,
   "stats": {
     "lendMarketSize": 2858354752,
     "lendVaultDeposits": 554983987,
-    "liquidityDeposits": 162525625,
+    "liquidityDeposits": 162427839,
     "liquidityFeesGenerated": 41992426,
-    "multiplyDeposits": 512084524,
-    "multiplyBorrows": 396311911,
-    "borrowMarketSize": 2444949333,
-    "borrowActiveBorrows": 978867261
+    "multiplyDeposits": 513404051,
+    "multiplyBorrows": 397336219,
+    "borrowMarketSize": 2447178543,
+    "borrowActiveBorrows": 978978239
   },
   "borrow": [
     {
       "asset": "PRIME",
       "market": "Prime Market",
-      "totalSupply": 276870000,
+      "totalSupply": 276990000,
       "totalBorrow": 0,
       "liqLtv": 91,
       "supplyApy": 0,
@@ -24,16 +24,16 @@
     {
       "asset": "USDC",
       "market": "Prime Market",
-      "totalSupply": 167000000,
+      "totalSupply": 166830000,
       "totalBorrow": 157260000,
       "liqLtv": 0,
-      "supplyApy": 5.54,
-      "borrowApy": 6.57
+      "supplyApy": 5.55,
+      "borrowApy": 6.58
     },
     {
       "asset": "CASH",
       "market": "Prime Market",
-      "totalSupply": 38550000,
+      "totalSupply": 38560000,
       "totalBorrow": 35430000,
       "liqLtv": 0,
       "supplyApy": 5.18,
@@ -52,25 +52,25 @@
       "asset": "USDS",
       "market": "Prime Market",
       "totalSupply": 14320000,
-      "totalBorrow": 10980000,
+      "totalBorrow": 10880000,
       "liqLtv": 0,
-      "supplyApy": 5.96,
-      "borrowApy": 6.03
+      "supplyApy": 5.92,
+      "borrowApy": 6.02
     },
     {
       "asset": "SOL",
       "market": "Main Market",
-      "totalSupply": 252780000,
-      "totalBorrow": 228080000,
+      "totalSupply": 251230000,
+      "totalBorrow": 227610000,
       "liqLtv": 75,
-      "supplyApy": 7.8100000000000005,
-      "borrowApy": 6.83
+      "supplyApy": 8.2,
+      "borrowApy": 7.32
     },
     {
       "asset": "USDC",
       "market": "Main Market",
-      "totalSupply": 166440000,
-      "totalBorrow": 157750000,
+      "totalSupply": 166350000,
+      "totalBorrow": 157760000,
       "liqLtv": 90,
       "supplyApy": 3.39,
       "borrowApy": 4.64
@@ -78,8 +78,8 @@
     {
       "asset": "JUPSOL",
       "market": "Main Market",
-      "totalSupply": 129320000,
-      "totalBorrow": 316080,
+      "totalSupply": 129050000.00000001,
+      "totalBorrow": 315420,
       "liqLtv": 60,
       "supplyApy": 0,
       "borrowApy": 1.3
@@ -87,8 +87,8 @@
     {
       "asset": "JITOSOL",
       "market": "Main Market",
-      "totalSupply": 93920000,
-      "totalBorrow": 670070,
+      "totalSupply": 95330000,
+      "totalBorrow": 668670,
       "liqLtv": 60,
       "supplyApy": 2.13,
       "borrowApy": 1.33
@@ -96,8 +96,8 @@
     {
       "asset": "cbBTC",
       "market": "Main Market",
-      "totalSupply": 84790000,
-      "totalBorrow": 2820000,
+      "totalSupply": 84630000,
+      "totalBorrow": 2810000,
       "liqLtv": 80,
       "supplyApy": 4.4399999999999995,
       "borrowApy": 0.19
@@ -105,17 +105,17 @@
     {
       "asset": "PYUSD",
       "market": "Main Market",
-      "totalSupply": 82750000,
-      "totalBorrow": 72000000,
+      "totalSupply": 83860000,
+      "totalBorrow": 72010000,
       "liqLtv": 90,
-      "supplyApy": 3.84,
-      "borrowApy": 5.59
+      "supplyApy": 2.36,
+      "borrowApy": 3.72
     },
     {
       "asset": "MSOL",
       "market": "Main Market",
-      "totalSupply": 71410000,
-      "totalBorrow": 343650,
+      "totalSupply": 71260000,
+      "totalBorrow": 342930,
       "liqLtv": 60,
       "supplyApy": 0,
       "borrowApy": 1.32
@@ -126,13 +126,13 @@
       "totalSupply": 29850000,
       "totalBorrow": 28380000,
       "liqLtv": 90,
-      "supplyApy": 5.95,
-      "borrowApy": 12.58
+      "supplyApy": 5.96,
+      "borrowApy": 12.59
     },
     {
       "asset": "STKESOL",
       "market": "Main Market",
-      "totalSupply": 20400000,
+      "totalSupply": 20350000,
       "totalBorrow": 0,
       "liqLtv": 55,
       "supplyApy": 1.55,
@@ -141,8 +141,8 @@
     {
       "asset": "xBTC",
       "market": "Main Market",
-      "totalSupply": 17670000,
-      "totalBorrow": 438960,
+      "totalSupply": 17630000,
+      "totalBorrow": 438120,
       "liqLtv": 80,
       "supplyApy": 4.92,
       "borrowApy": 0.15
@@ -151,15 +151,15 @@
       "asset": "USDS",
       "market": "Main Market",
       "totalSupply": 12110000,
-      "totalBorrow": 10150000,
+      "totalBorrow": 10140000,
       "liqLtv": 90,
       "supplyApy": 4.6,
-      "borrowApy": 5.07
+      "borrowApy": 5.06
     },
     {
       "asset": "FBTC",
       "market": "Main Market",
-      "totalSupply": 11770000,
+      "totalSupply": 11740000,
       "totalBorrow": 0,
       "liqLtv": 80,
       "supplyApy": 0,
@@ -178,7 +178,7 @@
       "asset": "ETH",
       "market": "Main Market",
       "totalSupply": 3120000,
-      "totalBorrow": 580740,
+      "totalBorrow": 580230,
       "liqLtv": 80,
       "supplyApy": 0.15,
       "borrowApy": 1.02
@@ -186,7 +186,7 @@
     {
       "asset": "CASH",
       "market": "Main Market",
-      "totalSupply": 805150,
+      "totalSupply": 805160,
       "totalBorrow": 634480,
       "liqLtv": 90,
       "supplyApy": 2.92,
@@ -195,8 +195,8 @@
     {
       "asset": "EURC",
       "market": "Main Market",
-      "totalSupply": 769620,
-      "totalBorrow": 561210,
+      "totalSupply": 769300,
+      "totalBorrow": 560980,
       "liqLtv": 0,
       "supplyApy": 2.04,
       "borrowApy": 4.83
@@ -204,8 +204,8 @@
     {
       "asset": "USD1",
       "market": "Main Market",
-      "totalSupply": 103670,
-      "totalBorrow": 95760,
+      "totalSupply": 103660,
+      "totalBorrow": 95750,
       "liqLtv": 0,
       "supplyApy": 4.7,
       "borrowApy": 6.35
@@ -213,7 +213,7 @@
     {
       "asset": "fwdSOL",
       "market": "Main Market",
-      "totalSupply": 167.97,
+      "totalSupply": 167.62,
       "totalBorrow": 0,
       "liqLtv": 55,
       "supplyApy": 0,
@@ -222,8 +222,8 @@
     {
       "asset": "LSTs",
       "market": "Main Market",
-      "totalSupply": 280840000,
-      "totalBorrow": 479800,
+      "totalSupply": 280270000,
+      "totalBorrow": 478810,
       "liqLtv": 55,
       "supplyApy": 0,
       "borrowApy": 0
@@ -232,9 +232,9 @@
   "liquidity": [
     {
       "pair": "USDS-USDC",
-      "feesApy7d": 7.36,
+      "feesApy7d": 7.37,
       "volume7d": 2320000,
-      "tvl": 23160000,
+      "tvl": 23150000,
       "dex": ""
     },
     {
@@ -269,21 +269,21 @@
       "pair": "USDG-USDC",
       "feesApy7d": 0.18,
       "volume7d": 3730000,
-      "tvl": 10530000,
+      "tvl": 10540000,
       "dex": ""
     },
     {
       "pair": "CASH-USDC",
       "feesApy7d": 6.42,
-      "volume7d": 4610000,
+      "volume7d": 4490000,
       "tvl": 10510000,
       "dex": ""
     },
     {
       "pair": "JITOSOL-SOL",
-      "feesApy7d": 5.27,
+      "feesApy7d": 5.31,
       "volume7d": 3220000,
-      "tvl": 4300000,
+      "tvl": 4270000,
       "dex": ""
     },
     {
@@ -316,15 +316,15 @@
     },
     {
       "pair": "JITOSOL-SOL",
-      "feesApy7d": 4.92,
+      "feesApy7d": 4.93,
       "volume7d": 3290000,
       "tvl": 2450000,
       "dex": ""
     },
     {
       "pair": "USDG-xBTC",
-      "feesApy7d": 2.11,
-      "volume7d": 2130000,
+      "feesApy7d": 2.07,
+      "volume7d": 2089999.9999999998,
       "tvl": 2410000,
       "dex": ""
     }
@@ -334,7 +334,7 @@
       "supply": "PRIME",
       "market": "Prime Market",
       "borrowToken": "CASH",
-      "maxNetApy": 15.28,
+      "maxNetApy": 15.29,
       "maxLeverage": "8.3x",
       "liqAvailable": 0,
       "supplied": 38190000,
@@ -344,17 +344,17 @@
       "supply": "PRIME",
       "market": "Prime Market",
       "borrowToken": "USDC",
-      "maxNetApy": 13.31,
+      "maxNetApy": 13.24,
       "maxLeverage": "8.3x",
       "liqAvailable": 0,
-      "supplied": 136740000,
+      "supplied": 136750000,
       "strategy": "RWA Loop"
     },
     {
       "supply": "PRIME",
       "market": "Prime Market",
       "borrowToken": "PYUSD",
-      "maxNetApy": 13.03,
+      "maxNetApy": 13.04,
       "maxLeverage": "8.3x",
       "liqAvailable": 0,
       "supplied": 26670000,
@@ -364,30 +364,30 @@
       "supply": "PRIME",
       "market": "Prime Market",
       "borrowToken": "USDS",
-      "maxNetApy": 17.26,
+      "maxNetApy": 17.33,
       "maxLeverage": "8.3x",
-      "liqAvailable": 1910000,
-      "supplied": 5790000,
+      "liqAvailable": 2009999.9999999998,
+      "supplied": 5840000,
       "strategy": "RWA Loop"
     },
     {
       "supply": "JLP",
       "market": "JLP Market",
       "borrowToken": "USDC",
-      "maxNetApy": 33.6,
+      "maxNetApy": 21.31,
       "maxLeverage": "6.2x",
       "liqAvailable": 2150000,
-      "supplied": 25050000,
+      "supplied": 25000000,
       "strategy": "Directional Leverage"
     },
     {
       "supply": "SOL",
       "market": "Main Market",
       "borrowToken": "USDC",
-      "maxNetApy": 6.78,
+      "maxNetApy": 8.3,
       "maxLeverage": "3.8x",
-      "liqAvailable": 8690000,
-      "supplied": 865950,
+      "liqAvailable": 8590000,
+      "supplied": 863820,
       "strategy": "Directional Leverage"
     },
     {
@@ -404,9 +404,9 @@
       "supply": "INF",
       "market": "Sanctum Market",
       "borrowToken": "SOL",
-      "maxNetApy": 19.41,
+      "maxNetApy": 19.36,
       "maxLeverage": "10x",
-      "liqAvailable": 216340,
+      "liqAvailable": 215110,
       "supplied": 1440000,
       "strategy": "SOL Loop"
     },
@@ -414,29 +414,29 @@
       "supply": "MSOL",
       "market": "Marinade Market",
       "borrowToken": "SOL",
-      "maxNetApy": 11.76,
+      "maxNetApy": 11.79,
       "maxLeverage": "10x",
-      "liqAvailable": 279260,
+      "liqAvailable": 279370,
       "supplied": 2850000,
       "strategy": "SOL Loop"
     },
     {
-      "supply": "STKESOL",
-      "market": "Main Market",
+      "supply": "JITOSOL",
+      "market": "Jito Market",
       "borrowToken": "SOL",
-      "maxNetApy": 8.61,
-      "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 14050000,
+      "maxNetApy": 6.92,
+      "maxLeverage": "12.5x",
+      "liqAvailable": 0,
+      "supplied": 6270000,
       "strategy": "SOL Loop"
     },
     {
       "supply": "USDC",
       "market": "Main Market",
       "borrowToken": "PYUSD",
-      "maxNetApy": 0,
+      "maxNetApy": 0.48,
       "maxLeverage": "10x",
-      "liqAvailable": 10750000,
+      "liqAvailable": 11860000,
       "supplied": 1100000,
       "strategy": "Stable Loop"
     },
@@ -446,8 +446,8 @@
       "borrowToken": "USDG",
       "maxNetApy": 0,
       "maxLeverage": "8.3x",
-      "liqAvailable": 23280,
-      "supplied": 614010,
+      "liqAvailable": 22820,
+      "supplied": 614040,
       "strategy": "RWA Loop"
     },
     {
@@ -457,7 +457,7 @@
       "maxNetApy": 0,
       "maxLeverage": "8.3x",
       "liqAvailable": 15010,
-      "supplied": 216900,
+      "supplied": 216910,
       "strategy": "RWA Loop"
     },
     {
@@ -466,18 +466,18 @@
       "borrowToken": "CASH",
       "maxNetApy": 0,
       "maxLeverage": "8.3x",
-      "liqAvailable": 23480,
-      "supplied": 336350,
+      "liqAvailable": 18480,
+      "supplied": 336370,
       "strategy": "RWA Loop"
     },
     {
       "supply": "syrupUSDC",
       "market": "Maple Market",
       "borrowToken": "PYUSD",
-      "maxNetApy": 8.34,
+      "maxNetApy": 8.51,
       "maxLeverage": "5x",
-      "liqAvailable": 13180000,
-      "supplied": 40750000,
+      "liqAvailable": 14410000,
+      "supplied": 42400000,
       "strategy": "RWA Loop"
     },
     {
@@ -486,15 +486,15 @@
       "borrowToken": "USDC",
       "maxNetApy": 16.07,
       "maxLeverage": "2.5x",
-      "liqAvailable": 1380000,
-      "supplied": 46930000,
+      "liqAvailable": 1240000,
+      "supplied": 46940000,
       "strategy": "RWA Loop"
     },
     {
       "supply": "ONyc",
       "market": "OnRe Market",
       "borrowToken": "USDG",
-      "maxNetApy": 19.52,
+      "maxNetApy": 19.41,
       "maxLeverage": "2.5x",
       "liqAvailable": 0,
       "supplied": 10720000,
@@ -506,7 +506,7 @@
       "borrowToken": "USDS",
       "maxNetApy": 16.36,
       "maxLeverage": "2.5x",
-      "liqAvailable": 140320,
+      "liqAvailable": 140340,
       "supplied": 688780,
       "strategy": "RWA Loop"
     },
@@ -514,9 +514,9 @@
       "supply": "USDG",
       "market": "Main Market",
       "borrowToken": "PYUSD",
-      "maxNetApy": 9.18,
+      "maxNetApy": 26.15,
       "maxLeverage": "10x",
-      "liqAvailable": 10750000,
+      "liqAvailable": 11860000,
       "supplied": 23140000,
       "strategy": "Stable Loop"
     },
@@ -524,19 +524,19 @@
       "supply": "JLP",
       "market": "JLP Market",
       "borrowToken": "USDG",
-      "maxNetApy": 19.41,
+      "maxNetApy": 6.77,
       "maxLeverage": "6.2x",
-      "liqAvailable": 20530,
-      "supplied": 770230,
+      "liqAvailable": 20230,
+      "supplied": 769080,
       "strategy": "Directional Leverage"
     },
     {
       "supply": "JLP",
       "market": "JLP Market",
       "borrowToken": "USDT",
-      "maxNetApy": 6.59,
+      "maxNetApy": 10.13,
       "maxLeverage": "6.2x",
-      "liqAvailable": 3400,
+      "liqAvailable": 28400,
       "supplied": 3030000,
       "strategy": "Directional Leverage"
     },
@@ -544,19 +544,19 @@
       "supply": "JLP",
       "market": "JLP Market",
       "borrowToken": "PYUSD",
-      "maxNetApy": 25.66,
+      "maxNetApy": 13.4,
       "maxLeverage": "6.2x",
       "liqAvailable": 118740,
-      "supplied": 3030000,
+      "supplied": 3020000,
       "strategy": "Directional Leverage"
     },
     {
       "supply": "eUSX",
       "market": "Solstice Market",
       "borrowToken": "USX",
-      "maxNetApy": 12.02,
+      "maxNetApy": 11.93,
       "maxLeverage": "4x",
-      "liqAvailable": 613420,
+      "liqAvailable": 538710,
       "supplied": 4440000,
       "strategy": "RWA Loop"
     },
@@ -564,9 +564,9 @@
       "supply": "eUSX",
       "market": "Solstice Market",
       "borrowToken": "USDG",
-      "maxNetApy": 15.2,
+      "maxNetApy": 15.19,
       "maxLeverage": "4x",
-      "liqAvailable": 722300,
+      "liqAvailable": 721270,
       "supplied": 1440000,
       "strategy": "RWA Loop"
     },
@@ -584,40 +584,40 @@
       "supply": "SOL",
       "market": "Main Market",
       "borrowToken": "PYUSD",
-      "maxNetApy": 4.08,
+      "maxNetApy": 10.94,
       "maxLeverage": "3.8x",
-      "liqAvailable": 10750000,
-      "supplied": 645760,
+      "liqAvailable": 11860000,
+      "supplied": 644170,
       "strategy": "Directional Leverage"
     },
     {
       "supply": "dSOL",
       "market": "Main Market",
       "borrowToken": "SOL",
-      "maxNetApy": 1.82,
+      "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 692310,
+      "liqAvailable": 23620000,
+      "supplied": 690600,
       "strategy": "SOL Loop"
     },
     {
       "supply": "JUPSOL",
       "market": "Main Market",
       "borrowToken": "SOL",
-      "maxNetApy": 2.87,
+      "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 29830000,
+      "liqAvailable": 23620000,
+      "supplied": 29760000,
       "strategy": "SOL Loop"
     },
     {
       "supply": "JUPSOL",
       "market": "Main Market",
       "borrowToken": "USDC",
-      "maxNetApy": 8.72,
+      "maxNetApy": 8.71,
       "maxLeverage": "2.4x",
-      "liqAvailable": 8690000,
-      "supplied": 43830,
+      "liqAvailable": 8590000,
+      "supplied": 43720,
       "strategy": "Directional Leverage"
     },
     {
@@ -626,8 +626,8 @@
       "borrowToken": "SOL",
       "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 6120000,
+      "liqAvailable": 23620000,
+      "supplied": 6100000,
       "strategy": "SOL Loop"
     },
     {
@@ -636,8 +636,8 @@
       "borrowToken": "USDC",
       "maxNetApy": 7.27,
       "maxLeverage": "2.4x",
-      "liqAvailable": 8690000,
-      "supplied": 84950,
+      "liqAvailable": 8590000,
+      "supplied": 84740,
       "strategy": "Directional Leverage"
     },
     {
@@ -646,7 +646,7 @@
       "borrowToken": "PYUSD",
       "maxNetApy": 0,
       "maxLeverage": "10x",
-      "liqAvailable": 10750000,
+      "liqAvailable": 11860000,
       "supplied": 380080,
       "strategy": "Stable Loop"
     },
@@ -654,10 +654,10 @@
       "supply": "MSOL",
       "market": "Main Market",
       "borrowToken": "SOL",
-      "maxNetApy": 0.66,
+      "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 6950000,
+      "liqAvailable": 23620000,
+      "supplied": 6930000,
       "strategy": "SOL Loop"
     },
     {
@@ -666,28 +666,28 @@
       "borrowToken": "USDC",
       "maxNetApy": 8.02,
       "maxLeverage": "2.4x",
-      "liqAvailable": 8690000,
-      "supplied": 4520,
+      "liqAvailable": 8590000,
+      "supplied": 4510,
       "strategy": "Directional Leverage"
     },
     {
-      "supply": "JITOSOL",
-      "market": "Jito Market",
+      "supply": "STKESOL",
+      "market": "Main Market",
       "borrowToken": "SOL",
-      "maxNetApy": 6.88,
-      "maxLeverage": "12.5x",
-      "liqAvailable": 0,
-      "supplied": 6280000,
+      "maxNetApy": 5.28,
+      "maxLeverage": "7.7x",
+      "liqAvailable": 23620000,
+      "supplied": 14010000,
       "strategy": "SOL Loop"
     },
     {
       "supply": "dfdvSOL",
       "market": "Main Market",
       "borrowToken": "SOL",
-      "maxNetApy": 0.45,
+      "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 381790,
+      "liqAvailable": 23620000,
+      "supplied": 380850,
       "strategy": "SOL Loop"
     },
     {
@@ -696,18 +696,18 @@
       "borrowToken": "SOL",
       "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 14290000,
+      "liqAvailable": 23620000,
+      "supplied": 14260000,
       "strategy": "SOL Loop"
     },
     {
       "supply": "bonkSOL",
       "market": "Main Market",
       "borrowToken": "SOL",
-      "maxNetApy": 0.31,
+      "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 14450000,
+      "liqAvailable": 23620000,
+      "supplied": 14410000,
       "strategy": "SOL Loop"
     },
     {
@@ -716,8 +716,8 @@
       "borrowToken": "SOL",
       "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 465700,
+      "liqAvailable": 23620000,
+      "supplied": 464550,
       "strategy": "SOL Loop"
     },
     {
@@ -726,17 +726,17 @@
       "borrowToken": "SOL",
       "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 12950000,
+      "liqAvailable": 23620000,
+      "supplied": 12920000,
       "strategy": "SOL Loop"
     },
     {
       "supply": "PSOL",
       "market": "Main Market",
       "borrowToken": "SOL",
-      "maxNetApy": 3.22,
+      "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
+      "liqAvailable": 23620000,
       "supplied": 1060000,
       "strategy": "SOL Loop"
     },
@@ -746,18 +746,18 @@
       "borrowToken": "CASH",
       "maxNetApy": 7.64,
       "maxLeverage": "1.8x",
-      "liqAvailable": 170680,
-      "supplied": 13500,
+      "liqAvailable": 170670,
+      "supplied": 13470,
       "strategy": "Directional Leverage"
     },
     {
       "supply": "strongSOL",
       "market": "Main Market",
       "borrowToken": "SOL",
-      "maxNetApy": 2.49,
+      "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 4179999.9999999995,
+      "liqAvailable": 23620000,
+      "supplied": 4170000,
       "strategy": "SOL Loop"
     },
     {
@@ -766,18 +766,18 @@
       "borrowToken": "SOL",
       "maxNetApy": 0,
       "maxLeverage": "10x",
-      "liqAvailable": 131890,
-      "supplied": 4520000,
+      "liqAvailable": 138150,
+      "supplied": 4510000,
       "strategy": "SOL Loop"
     },
     {
       "supply": "lanternSOL",
       "market": "Main Market",
       "borrowToken": "SOL",
-      "maxNetApy": 5.84,
+      "maxNetApy": 2.51,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 3850000,
+      "liqAvailable": 23620000,
+      "supplied": 3840000,
       "strategy": "SOL Loop"
     },
     {
@@ -786,18 +786,18 @@
       "borrowToken": "SOL",
       "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 3640000,
+      "liqAvailable": 23620000,
+      "supplied": 3630000,
       "strategy": "SOL Loop"
     },
     {
       "supply": "CGNTSOL",
       "market": "Main Market",
       "borrowToken": "SOL",
-      "maxNetApy": 0.24,
+      "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 3500000,
+      "liqAvailable": 23620000,
+      "supplied": 3490000,
       "strategy": "SOL Loop"
     },
     {
@@ -806,8 +806,8 @@
       "borrowToken": "SOL",
       "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 3590000,
+      "liqAvailable": 23620000,
+      "supplied": 3580000,
       "strategy": "SOL Loop"
     },
     {
@@ -816,8 +816,8 @@
       "borrowToken": "SOL",
       "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 962770,
+      "liqAvailable": 23620000,
+      "supplied": 960390,
       "strategy": "SOL Loop"
     },
     {
@@ -827,7 +827,7 @@
       "maxNetApy": 2.95,
       "maxLeverage": "2.2x",
       "liqAvailable": 1400000,
-      "supplied": 30490,
+      "supplied": 30060,
       "strategy": "Directional Leverage"
     },
     {
@@ -836,7 +836,7 @@
       "borrowToken": "SOL",
       "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
+      "liqAvailable": 23620000,
       "supplied": 1130000,
       "strategy": "SOL Loop"
     },
@@ -847,7 +847,7 @@
       "maxNetApy": 6.08,
       "maxLeverage": "3.7x",
       "liqAvailable": 1400000,
-      "supplied": 29080,
+      "supplied": 29030,
       "strategy": "Directional Leverage"
     },
     {
@@ -857,7 +857,7 @@
       "maxNetApy": 5.43,
       "maxLeverage": "3.3x",
       "liqAvailable": 1400000,
-      "supplied": 2860,
+      "supplied": 2850,
       "strategy": "Directional Leverage"
     },
     {
@@ -866,18 +866,18 @@
       "borrowToken": "SOL",
       "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 129720,
+      "liqAvailable": 23620000,
+      "supplied": 129400,
       "strategy": "SOL Loop"
     },
     {
       "supply": "cbBTC",
       "market": "Main Market",
       "borrowToken": "USDC",
-      "maxNetApy": 17.43,
+      "maxNetApy": 17.44,
       "maxLeverage": "4.8x",
-      "liqAvailable": 8690000,
-      "supplied": 33000,
+      "liqAvailable": 8590000,
+      "supplied": 32930,
       "strategy": "Directional Leverage"
     },
     {
@@ -886,17 +886,17 @@
       "borrowToken": "SOL",
       "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 50280,
+      "liqAvailable": 23620000,
+      "supplied": 50150,
       "strategy": "SOL Loop"
     },
     {
       "supply": "xBTC",
       "market": "Main Market",
       "borrowToken": "USDC",
-      "maxNetApy": 17.44,
+      "maxNetApy": 17.45,
       "maxLeverage": "4.8x",
-      "liqAvailable": 8690000,
+      "liqAvailable": 8590000,
       "supplied": 1.95,
       "strategy": "Directional Leverage"
     },
@@ -904,10 +904,10 @@
       "supply": "fwdSOL",
       "market": "Main Market",
       "borrowToken": "SOL",
-      "maxNetApy": 0.31,
+      "maxNetApy": 0,
       "maxLeverage": "7.7x",
-      "liqAvailable": 24690000,
-      "supplied": 113.71,
+      "liqAvailable": 23620000,
+      "supplied": 113.43,
       "strategy": "SOL Loop"
     }
   ]
