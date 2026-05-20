@@ -2,7 +2,7 @@ name: Competitor Intelligence Scrape
 
 on:
   schedule:
-    - cron: "0 1,9,17 * * *"
+    - cron: "0 9 * * *"
   workflow_dispatch: {}
 
 permissions:
