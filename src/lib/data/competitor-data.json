@@ -1,12 +1,8 @@
 {
-  "timestamp": "2026-06-09T12:07:08.878Z",
+  "timestamp": "2026-06-10T12:24:10.432Z",
   "version": 1,
-  "kaminoTvl": 1476979270,
+  "kaminoTvl": 1194304535,
   "kaminoTvlHistory": [
-    {
-      "date": 1778457600,
-      "tvl": 1691202373
-    },
     {
       "date": 1778544000,
       "tvl": 1594189393
@@ -124,8 +120,12 @@
       "tvl": 1467261257
     },
     {
-      "date": 1780998827,
-      "tvl": 1476979270
+      "date": 1781049600,
+      "tvl": 1441831906
+    },
+    {
+      "date": 1781091155,
+      "tvl": 1194304535
     }
   ],
   "competitors": [
@@ -134,12 +134,8 @@
       "displayName": "Kamino",
       "defiLlamaSlug": "kamino",
       "profilePicture": "https://pbs.twimg.com/profile_images/1999411256155938818/lAOSJHuf_normal.jpg",
-      "tvl": 1476979270,
+      "tvl": 1194304535,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 1691202373
-        },
         {
           "date": 1778544000,
           "tvl": 1594189393
@@ -257,23 +253,40 @@
           "tvl": 1467261257
         },
         {
-          "date": 1780998827,
-          "tvl": 1476979270
+          "date": 1781049600,
+          "tvl": 1441831906
+        },
+        {
+          "date": 1781091155,
+          "tvl": 1194304535
         }
       ],
-      "aiSummary": "Kamino expanded leverage and liquidity offerings: 15M ONyc supply capacity added with 20%+ APY on Multiply positions (up to 2.5x leverage); new PT-USX and PT-eUSX September maturities live as collateral; Ethena Market USDG borrow rate updated; PYUSD liquidity increased ($12M) across markets.",
+      "aiSummary": "Kamino launched OnRe Market incentives ($35K monthly USDC), expanded ONyc supply capacity (15M tokens) enabling 20%+ APY leveraged strategies up to 2.5x, introduced PT-USX/eUSX September maturities as collateral for fixed-yield looping, and launched Solstice Yield Looping Vault for automated maturity management.",
       "tweets": [
+        {
+          "id": "2064345690936127490",
+          "fullText": "New incentives are live in the OnRe Market on Kamino.\n\nUsers can earn a share of $35K in monthly USDC incentives across deposits and borrows, supporting growing demand for ONyc strategies on Kamino's isolated lending infrastructure. https://t.co/nQmYIbOU39",
+          "createdAt": "Tue Jun 09 13:55:41 +0000 2026",
+          "twitterUrl": "https://twitter.com/kamino/status/2064345690936127490",
+          "likeCount": 63,
+          "bookmarkCount": 3,
+          "retweetCount": 6,
+          "replyCount": 14,
+          "viewCount": 10848,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKYHdvlbIAAlX3T.jpg",
+          "aiAnalysis": "The concrete incentive structure ($35K monthly USDC) and specific earning mechanism provided clarity and actionable value, but the modest engagement likely reflects limited novelty—isolated lending incentives are table-stakes in DeFi and lack the emotional urgency or competitive scarcity that typically drives sharing behavior. The tweet reads more as operational announcement than event, missing hooks like \"limited time,\" competitive leaderboards, or comparison metrics that would make users feel compelled to act or amplify."
+        },
         {
           "id": "2063979659591602365",
           "fullText": "https://t.co/1QyjRhfRvc",
           "createdAt": "Mon Jun 08 13:41:12 +0000 2026",
           "twitterUrl": "https://twitter.com/kamino/status/2063979659591602365",
-          "likeCount": 49,
+          "likeCount": 55,
           "bookmarkCount": 4,
           "retweetCount": 6,
           "replyCount": 4,
-          "viewCount": 2541,
-          "aiAnalysis": "I'm unable to see the actual tweet content since you've only provided a link. To analyze why this tweet performed the way it did (49 likes, 4 bookmarks, 6 retweets, 2,541 views), I'd need you to share the actual text of the tweet. Could you paste the tweet content so I can evaluate the engagement drivers?"
+          "viewCount": 2759,
+          "aiAnalysis": "I'm unable to view the content of that URL or the tweet itself. Could you please paste the actual tweet text so I can analyze what drove its engagement (or underperformance)?"
         },
         {
           "id": "2062895933814399233",
@@ -284,9 +297,9 @@
           "bookmarkCount": 6,
           "retweetCount": 7,
           "replyCount": 8,
-          "viewCount": 12314,
+          "viewCount": 12571,
           "thumbnailUrl": "https://pbs.twimg.com/media/HKDg63yacAAS3lw.jpg",
-          "aiAnalysis": "# Analysis\n\nThe tweet underperformed (0.2% engagement rate) despite featuring concrete metrics and a clear value proposition. The primary drag is **low newsworthiness for a general audience** — a supply capacity increase for a specific token lacks urgency or broader market relevance. While the 20%+ APY yield metric provides emotional appeal and specificity, it's offset by the niche appeal of leveraged yield strategies, which only resonate with active traders rather than broader protocol observers. The lack of visual differentiation (standard announcement format) combined with incremental infrastructure updates rather than significant milestone announcements further limited viral potential."
+          "aiAnalysis": "# Analysis\n\n**Why it underperformed (~0.02% engagement rate):**\n\nThe tweet relies heavily on product-specific metrics (15M supply, 20%+ APY, 2.5x leverage) that lack emotional resonance or urgency—these are operational updates rather than narrative hooks. The high APY number is specificity-positive, but without context on *why* ONyc demand is surging or what makes this moment special (no newsworthiness angle, no comparison to alternatives, no scarcity deadline), it reads as a standard capacity announcement rather than something compelling enough to engage with or share."
         },
         {
           "id": "2062193719835758995",
@@ -297,34 +310,22 @@
           "bookmarkCount": 5,
           "retweetCount": 3,
           "replyCount": 9,
-          "viewCount": 4219,
+          "viewCount": 4258,
           "thumbnailUrl": "https://pbs.twimg.com/media/HJ5iQeVbYAA9GSR.jpg",
-          "aiAnalysis": "The tweet's modest engagement (~4.3K views, 49 likes) reflects its **low emotional urgency and niche product specificity**—it's an announcement of technical infrastructure (new collateral types) rather than a value proposition that creates FOMO or immediate action incentives. The multi-protocol dependency (Kamino → Exponent Finance → Solstice) and abstract benefit (\"access fixed-yield looping strategies\") requires significant protocol knowledge to parse, limiting accessibility to only deeply engaged users already familiar with principal tokens and money market mechanics."
+          "aiAnalysis": "The tweet underperformed due to low emotional stakes and vague utility claims—\"now available as collateral\" lacks concrete incentive messaging (yield rates, APY comparisons, or risk-adjusted returns) that would drive urgency or FOMO, while the technical jargon (PT maturities, fixed-yield looping) creates friction for casual engagement without a clear \"why should I care\" hook."
         },
         {
-          "id": "2061910551790285238",
-          "fullText": "Updates to the Ethena Market\n\nTomorrow, the USDG borrow rate curve in the Ethena Market will be updated at the direction of the Ethena Risk Committee. Alongside this, PYUSD liquidity and the Debt Swap tool will go live.\n\nPYUSD will be available in the Ethena Market with a more",
-          "createdAt": "Tue Jun 02 20:39:18 +0000 2026",
-          "twitterUrl": "https://twitter.com/kamino/status/2061910551790285238",
-          "likeCount": 80,
-          "bookmarkCount": 12,
-          "retweetCount": 9,
-          "replyCount": 7,
-          "viewCount": 14422,
-          "aiAnalysis": "The tweet underperformed due to lack of specificity and urgency—it announces product updates without concrete metrics, APY changes, or clear user benefits, while the incomplete final sentence and absence of visuals further diluted engagement potential. The \"tomorrow\" timing created FOMO but was offset by the vague, technical nature of the announcement that required users to already understand Ethena's product suite to find value."
-        },
-        {
-          "id": "2061503982359748618",
-          "fullText": "Additional PYUSD capacity is now available in the PRIME Market.\n\nSentora has increased allocation from its PYUSD vault, adding $12M in PYUSD liquidity for borrowing and looping strategies. https://t.co/KxzSPVEcnl",
-          "createdAt": "Mon Jun 01 17:43:44 +0000 2026",
-          "twitterUrl": "https://twitter.com/kamino/status/2061503982359748618",
-          "likeCount": 86,
-          "bookmarkCount": 3,
-          "retweetCount": 14,
+          "id": "2064371358604435782",
+          "fullText": "The Solstice Yield Looping Vault is now live on @ExponentFinance.\n\nUSX and eUSX PT looping in the Solstice Market, curated by @allezlabs, purpose-built for USX and eUSX PT positions on Kamino.\n\nThe vault actively manages rollovers and rate exposure across maturities, combining https://t.co/g4Q8sd5tiv",
+          "createdAt": "Tue Jun 09 15:37:40 +0000 2026",
+          "twitterUrl": "https://twitter.com/kamino/status/2064371358604435782",
+          "likeCount": 45,
+          "bookmarkCount": 1,
+          "retweetCount": 11,
           "replyCount": 9,
-          "viewCount": 9421,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HJvu8mYbcAAAsFt.jpg",
-          "aiAnalysis": "The tweet underperformed due to lack of emotional or narrative hooks—it reads as a routine operational announcement rather than a compelling reason to engage. While the specific $12M figure provides concrete data, the update targets only existing users of PRIME/PYUSD strategies and lacks broader market relevance or time-sensitive urgency that would drive retweets or bookmarks."
+          "viewCount": 2195,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKYezy-bcAAl7Iw.jpg",
+          "aiAnalysis": "# Analysis\n\nThis tweet underperformed due to **low emotional urgency and abstract product positioning**. The announcement lacks concrete yield metrics, specific APY figures, or a compelling reason *why now* matters, relying instead on technical jargon (\"rate exposure,\" \"maturities\") that doesn't create FOMO—the image and multi-partner mention actually dilute focus rather than amplify it."
         }
       ]
     },
@@ -333,12 +334,8 @@
       "displayName": "Aave",
       "defiLlamaSlug": "aave-v3",
       "profilePicture": "https://pbs.twimg.com/profile_images/1808921860781821952/CmtvkzWo_normal.png",
-      "tvl": 21415979424.04589,
+      "tvl": 20931072736.87503,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 14578244918
-        },
         {
           "date": 1778544000,
           "tvl": 14431706252
@@ -456,73 +453,66 @@
           "tvl": 11896541183
         },
         {
-          "date": 1781003363,
-          "tvl": 11807609628
+          "date": 1781049600,
+          "tvl": 11557464731
+        },
+        {
+          "date": 1781090315,
+          "tvl": 11424347699
         }
       ],
-      "aiSummary": "# Aave Summary\n\nAave V4 surpassed $115M deposits with doubled active loans in 30 days; supply/borrow caps increased. LlamaRisk proposed standardized risk framework for V3/V4/Horizon. Aave Glass UI launched cross-platform. Whop Treasury integrated Aave yield for 21M businesses on Plasma, marking major embedded DeFi adoption.",
+      "aiSummary": "Aave expanded institutional access via BitGo custody integration, launched standardized risk framework across V3/V4/Horizon, grew V4 deposits to $115M with increased supply/borrow caps, and deployed Aave Glass UI component across mobile and web platforms.",
       "tweets": [
+        {
+          "id": "2064351301060685858",
+          "fullText": "Institutions can now access Aave from @BitGo qualified custody, through @Narvalgmi's institutional DeFi gateway.\n\nThey can supply assets and manage positions directly, with every transaction decoded and verified before it reaches BitGo's signing or custody approval workflow. https://t.co/b3i1PYDm1p",
+          "createdAt": "Tue Jun 09 14:17:58 +0000 2026",
+          "twitterUrl": "https://twitter.com/aave/status/2064351301060685858",
+          "likeCount": 166,
+          "bookmarkCount": 4,
+          "retweetCount": 25,
+          "replyCount": 32,
+          "viewCount": 29341,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKYLXudWAAAXFEQ.png",
+          "aiAnalysis": "The partnership announcement generated modest engagement (1.5% like rate, 0.15% retweet rate) because while it targets a genuine institutional pain point (custody + DeFi access), the execution-focused messaging lacks emotional urgency or competitive differentiation—it reads as a feature rollout rather than a market-shifting moment that would drive FOMO or heated discussion among token holders and traders."
+        },
         {
           "id": "2064306621837189594",
           "fullText": "Today, @LlamaRisk proposed a new standardized Risk Framework for assets on Aave V3, V4, and Aave Horizon.\n\nAs Aave powers new financial applications and expands into new types of markets, best-in-class standards for evaluating asset risk will support that growth.",
           "createdAt": "Tue Jun 09 11:20:26 +0000 2026",
           "twitterUrl": "https://twitter.com/aave/status/2064306621837189594",
-          "likeCount": 50,
-          "bookmarkCount": 4,
-          "retweetCount": 5,
-          "replyCount": 10,
-          "viewCount": 4010,
-          "aiAnalysis": "# Analysis\n\nThis tweet underperformed due to **lack of emotional urgency and specificity**—it reads as procedural/administrative rather than actionable or exciting. The absence of visuals (charts, framework breakdown, or comparative data) made it harder to scan, and the vague language (\"best-in-class standards,\" \"support growth\") failed to create concrete FOMO or clear value—followers couldn't immediately understand *why they should care* or *what changes for them*."
+          "likeCount": 181,
+          "bookmarkCount": 13,
+          "retweetCount": 104,
+          "replyCount": 24,
+          "viewCount": 16287,
+          "aiAnalysis": "# Analysis\n\nThis tweet underperformed relative to Aave's typical reach due to **lack of visual hierarchy and immediate relevance signals**—it reads as procedural governance announcement rather than outcome-driven news, and the absence of specific metrics (which assets? what changed?) dilutes urgency. The framing around \"standards\" and \"frameworks\" is abstractly institutional rather than emotionally resonant or concretely valuable to individual protocol users."
         },
         {
           "id": "2062593149604618642",
           "fullText": "Aave V4 crossed $115 million deposits.\n\nSupply and borrow caps have been raised across several assets to accommodate demand. https://t.co/fSdxIApmeU",
           "createdAt": "Thu Jun 04 17:51:42 +0000 2026",
           "twitterUrl": "https://twitter.com/aave/status/2062593149604618642",
-          "likeCount": 213,
+          "likeCount": 218,
           "bookmarkCount": 3,
-          "retweetCount": 25,
+          "retweetCount": 38,
           "replyCount": 43,
-          "viewCount": 26313,
+          "viewCount": 26435,
           "thumbnailUrl": "https://pbs.twimg.com/media/HJ_NfP4WgAAjzVB.jpg",
-          "aiAnalysis": "# Analysis\n\nThe tweet underperformed relative to Aave's typical reach due to **incremental milestone framing without emotional stakes or strategic significance** — $115M is a modest update that lacks the novelty or urgency to trigger shares, and the secondary point about cap raises reads as routine maintenance rather than meaningful news. The low retweet-to-view ratio suggests the update felt more informational than engaging, missing opportunities to contextualize *why* this matters (competitive positioning, user impact, or momentum narrative)."
-        },
-        {
-          "id": "2062220196283043942",
-          "fullText": "Active loans on Aave V4 have doubled over the past 30 days. https://t.co/8LoDciMVDR",
-          "createdAt": "Wed Jun 03 17:09:43 +0000 2026",
-          "twitterUrl": "https://twitter.com/aave/status/2062220196283043942",
-          "likeCount": 248,
-          "bookmarkCount": 7,
-          "retweetCount": 43,
-          "replyCount": 29,
-          "viewCount": 37244,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HJ506KPWEAA_pwG.jpg"
+          "aiAnalysis": "The milestone metric ($115M deposits) provided a concrete achievement to anchor engagement, but the relatively modest engagement rates suggest the announcement lacked emotional urgency or novelty—routine cap increases are operational updates rather than catalysts, and the growth figure alone didn't trigger the competitive/FOMO response that larger milestones typically generate."
         },
         {
           "id": "2062999708738441624",
           "fullText": "Aave Glass, our take on Apple's Liquid Glass, now works across mobile and web.\n\nWe've published a post that breaks down how we built Aave Glass and the family of components it now powers.\n\nRead it below. https://t.co/xXluzQu9SO",
           "createdAt": "Fri Jun 05 20:47:13 +0000 2026",
           "twitterUrl": "https://twitter.com/aave/status/2062999708738441624",
-          "likeCount": 539,
+          "likeCount": 542,
           "bookmarkCount": 95,
-          "retweetCount": 39,
+          "retweetCount": 94,
           "replyCount": 74,
-          "viewCount": 89968,
-          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2062999492425658368/img/AcSB9LlM-uQyQUfN.jpg"
-        },
-        {
-          "id": "2062546423065805115",
-          "fullText": "Whop Treasury lets over 21 million businesses on @whop earn yield, powered by @aave on @plasma.\n\nWhop is a leading platform for online businesses, which makes this one of the largest embedded DeFi integrations ever.\n\nRead the case study below. https://t.co/OvLsOMIuIS",
-          "createdAt": "Thu Jun 04 14:46:02 +0000 2026",
-          "twitterUrl": "https://twitter.com/aave/status/2062546423065805115",
-          "likeCount": 224,
-          "bookmarkCount": 21,
-          "retweetCount": 53,
-          "replyCount": 38,
-          "viewCount": 88900,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HJ-fnk9W4AA1zco.png",
-          "aiAnalysis": "# Analysis\n\n**Why it underperformed relative to Aave's typical reach:**\n\nThe tweet relies heavily on partnership announcement framing and scale metrics (21M businesses, \"largest integration\") that lack emotional resonance or urgency—it reads like a press release rather than something that directly impacts the audience's financial outcomes or creates FOMO. The image and case study link suggest educational content rather than actionable opportunity, which typically generates lower engagement than direct protocol updates, governance news, or yield opportunities with clear personal benefit."
+          "viewCount": 90421,
+          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2062999492425658368/img/AcSB9LlM-uQyQUfN.jpg",
+          "aiAnalysis": "The tweet underperforms relative to Aave's typical reach because it leads with a product feature announcement lacking urgency or stakes—there's no clear *why it matters* for users. The reference to \"Apple's Liquid Glass\" attempts prestige-borrowing but feels tangential, and the vague \"family of components\" claim provides no concrete value proposition, leaving viewers unsure whether this impacts their protocol interaction or is purely internal infrastructure."
         }
       ]
     },
@@ -531,12 +521,8 @@
       "displayName": "Fluid 🌊",
       "defiLlamaSlug": "fluid-lending",
       "profilePicture": "https://pbs.twimg.com/profile_images/1712332669697024001/xgs6LB3Y_normal.png",
-      "tvl": 1254888693.2592301,
+      "tvl": 1242538995.54349,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 800958175
-        },
         {
           "date": 1778544000,
           "tvl": 806239252
@@ -654,23 +640,27 @@
           "tvl": 598478788
         },
         {
-          "date": 1781001035,
-          "tvl": 603703374
+          "date": 1781049600,
+          "tvl": 588473706
+        },
+        {
+          "date": 1781091275,
+          "tvl": 594467174
         }
       ],
-      "aiSummary": "Fluid's founder speaks at ETHConf on tokenized asset scaling. Security incident contained in off-chain rewards infrastructure; core protocol unaffected. Expanding to Mexico. Fluid leads DeFi with highest loan-to-deposit ratio (40–50%), maximizing capital efficiency versus competitors like Jupiter Lend.",
+      "aiSummary": "Fluid showcased tokenized asset scaling at ETHGlobal NYC. Despite a contained merkle rewards infrastructure compromise, core protocol and smart contracts remain secure. The platform leads DeFi lending with 40-50% Loan-to-Deposit Ratio, maximizing capital utilization versus competitors.",
       "tweets": [
         {
           "id": "2063747642497093635",
           "fullText": "Fluid is in NYC for @ethconf by @ETHGlobal 🌊\n\nTomorrow, our Founder &amp; CEO, @smykjain, takes the stage at the Javits Center for:\n\nScaling Tokenized Assets: Liquidity, Utility and Distribution",
           "createdAt": "Sun Jun 07 22:19:15 +0000 2026",
           "twitterUrl": "https://twitter.com/0xfluid/status/2063747642497093635",
-          "likeCount": 50,
+          "likeCount": 51,
           "bookmarkCount": 2,
           "retweetCount": 9,
           "replyCount": 3,
-          "viewCount": 5660,
-          "aiAnalysis": "The tweet underperformed due to lack of emotional urgency or compelling narrative—it's a straightforward event announcement without a hook that signals why this talk matters or what problem it solves. The absence of visuals (venue photos, speaker headshots, or event graphics) in a crowded conference environment meant it blended into dozens of similar promotional posts rather than standing out in feeds."
+          "viewCount": 5854,
+          "aiAnalysis": "The tweet underperformed due to weak emotional hooks and low specificity—it's a standard event announcement lacking urgency, controversy, or concrete value proposition that would compel scrollers to engage. The founder appearance angle has minimal pull without framing what problem is being solved or why the talk matters to protocol users, and the generic event promotion format blends into dozens of similar announcements that don't drive action."
         },
         {
           "id": "2061637830091157678",
@@ -681,20 +671,19 @@
           "bookmarkCount": 25,
           "retweetCount": 17,
           "replyCount": 0,
-          "viewCount": 19230,
-          "aiAnalysis": "I can't access the URL to view the tweet content. Could you share the tweet text or describe what the tweet says? That way I can analyze why it achieved that specific engagement level (99 likes, 25 bookmarks, 17 retweets, 19.2K views)."
+          "viewCount": 19325
         },
         {
           "id": "2061124908277538827",
           "fullText": "We identified and contained a compromise affecting our off-chain merkle rewards distribution infrastructure.\n\nImportantly:\n\n• The core protocol remains fully secure and is governed by governance and the 7/14 team multisig.\n• All protocol smart contracts are safe and unaffected.",
           "createdAt": "Sun May 31 16:37:26 +0000 2026",
           "twitterUrl": "https://twitter.com/0xfluid/status/2061124908277538827",
-          "likeCount": 153,
+          "likeCount": 154,
           "bookmarkCount": 26,
           "retweetCount": 16,
           "replyCount": 26,
-          "viewCount": 66530,
-          "aiAnalysis": "This tweet underperformed because the security incident framing triggered defensive positioning rather than engagement—the defensive bullet points and reassurances read like damage control, which ironically amplifies concern rather than diffusing it. The lack of specificity about what was \"compromised,\" the impact scope, or resolution details left readers uncertain, dampening both the urgency that drives shares and the relief that drives positive sentiment."
+          "viewCount": 66646,
+          "aiAnalysis": "The tweet's moderate engagement (1.2% like rate on views) reflects competing dynamics: the specificity and transparency around a security incident created trust and newsworthiness that drove the 66K views, but the reassuring/defensive framing (emphasizing what *wasn't* affected) naturally limits emotional urgency compared to crisis-driven tweets, resulting in lower conversion to likes and shares. The bulleted breakdown builds credibility but lacks the narrative tension or concrete impact metrics that would drive higher engagement."
         },
         {
           "id": "2059409652509540456",
@@ -705,21 +694,21 @@
           "bookmarkCount": 3,
           "retweetCount": 3,
           "replyCount": 9,
-          "viewCount": 2347,
-          "aiAnalysis": "# Analysis\n\nThis tweet underperformed due to **lack of concrete value proposition or news specificity** — it reads as a generic announcement without tangible details (what will happen? when? what's the benefit?), combined with the absence of visual content to break up text and capture attention in a fast-scrolling feed. The exclamation and emojis create enthusiasm but don't compensate for the absence of a compelling hook that would drive retweets or sustained engagement."
+          "viewCount": 2358,
+          "aiAnalysis": "The tweet's modest engagement stems from its lack of specificity and emotional hooks—it's a generic announcement of attendance at an event without concrete details, novel information, or a clear value proposition that would compel followers to engage, discuss, or share. The celebratory tone and geographic expansion framing alone aren't sufficient to overcome the absence of metrics, technical differentiation, or newsworthy developments that typically drive protocol marketing engagement."
         },
         {
           "id": "2062240736800805018",
           "fullText": "More deposits are put to work on Fluid than any major lending protocol in DeFi 🌊\n\nAccording to @Blockworks data, Fluid consistently maintains the highest Loan-to-Deposit Ratio (40–50%).\n\nMore capital borrowed.\nLess capital sitting idle.\n\n#1: Fluid\n#2: Jupiter Lend (Powered by https://t.co/fHGHPzc7ei",
           "createdAt": "Wed Jun 03 18:31:20 +0000 2026",
           "twitterUrl": "https://twitter.com/0xfluid/status/2062240736800805018",
-          "likeCount": 87,
+          "likeCount": 89,
           "bookmarkCount": 4,
-          "retweetCount": 14,
+          "retweetCount": 15,
           "replyCount": 14,
-          "viewCount": 6439,
+          "viewCount": 6500,
           "thumbnailUrl": "https://pbs.twimg.com/media/HJ6NBT0bMAAB3OJ.jpg",
-          "aiAnalysis": "The tweet underperformed relative to views due to a weak emotional hook and overcomplicated core claim—while the specific LTD metric (40-50%) provides credibility, the opening statement \"more deposits put to work\" is vague and requires reading further to understand the actual competitive advantage, which dilutes impact on a fast-scrolling feed. The comparison format itself is solid, but the lack of a clear winner callout or surprising finding in the headline (burying #1 ranking deep in the thread) missed the chance to trigger immediate competitive/status-seeking engagement that typically drives retweets in DeFi protocol discussions."
+          "aiAnalysis": "The tweet performed moderately well by leveraging a specific, quantifiable competitive claim (40-50% LTD ratio) backed by third-party data attribution, which builds credibility while triggering competitive interest among protocol enthusiasts. However, the engagement ceiling was likely capped by the incremental nature of the news (comparing lending metrics rather than announcing a major milestone or market event) and the lack of emotional urgency or novelty that would drive broader viral appeal."
         }
       ]
     },
@@ -728,12 +717,8 @@
       "displayName": "Jupiter Lend",
       "defiLlamaSlug": "jupiter-lend",
       "profilePicture": "https://pbs.twimg.com/profile_images/2007318464030228480/4x6SH7gB_normal.jpg",
-      "tvl": 845187870.21598,
+      "tvl": 835482811.49037,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 964261501
-        },
         {
           "date": 1778544000,
           "tvl": 929581004
@@ -851,11 +836,15 @@
           "tvl": 868790879
         },
         {
-          "date": 1781003543,
-          "tvl": 845187870
+          "date": 1781049600,
+          "tvl": 825203187
+        },
+        {
+          "date": 1781090675,
+          "tvl": 835482811
         }
       ],
-      "aiSummary": "",
+      "aiSummary": "Jupiter Lend implemented a kink mechanism on USDe-USDG vault at 95% utilization with 1% borrow spread, per Ethena's risk requirements. Published collateral risk research reports. Launched xStocks borrowing at 0.06% rates with 2% rewards APY and xPoints accumulation.",
       "tweets": [
         {
           "id": "2062488967585403033",
@@ -866,7 +855,8 @@
           "bookmarkCount": 1,
           "retweetCount": 0,
           "replyCount": 1,
-          "viewCount": 731
+          "viewCount": 739,
+          "aiAnalysis": "# Analysis: Low Engagement Performance\n\n**Why it underperformed:** This is a purely operational/technical announcement with no emotional hook or urgency. The tweet reads like an internal memo—it's explaining *what happened* and *why*, but offers no reason for followers to care emotionally or take action. Without a visual (chart, infographic, or before/after comparison), it's pure text density on a platform optimized for snappy engagement, and the specificity of \"kink applied\" and \"95% utilization\" creates friction rather than clarity for most readers.\n\nThe newsworthiness is also muted since it's acknowledging a prior announcement (\"as announced on Friday\"), meaning the surprise/shock value—if any existed—had already dissipated."
         },
         {
           "id": "2060823674765328686",
@@ -877,9 +867,9 @@
           "bookmarkCount": 13,
           "retweetCount": 15,
           "replyCount": 23,
-          "viewCount": 19101,
+          "viewCount": 19185,
           "thumbnailUrl": "https://pbs.twimg.com/media/HJl_j68bAAAt3kD.jpg",
-          "aiAnalysis": "# Analysis\n\nThis tweet underperformed relative to its views (19k) due to **low emotional resonance and unclear value proposition**—\"risk research\" and \"collateral listings\" are procedural/technical updates that don't create urgency or FOMO, and the multi-step CTA (browse → view reports) creates friction. The image likely showed a dashboard or report page, which is informative but not visually compelling enough to drive shares or bookmarks among users who don't actively manage positions on the protocol."
+          "aiAnalysis": "The tweet underperformed due to low urgency and abstract value proposition—users can't immediately grasp why they should care about risk research accessibility without specific context (e.g., \"discovered X risk in Y asset\" or \"prevented $Z in liquidations\"). The educational/transparency angle is solid for credibility but lacks the emotional hook (fear, FOMO, or concrete benefit) needed to drive shares and engagement beyond passive views."
         },
         {
           "id": "2060381684856725695",
@@ -890,19 +880,21 @@
           "bookmarkCount": 6,
           "retweetCount": 9,
           "replyCount": 8,
-          "viewCount": 8101
+          "viewCount": 8112,
+          "aiAnalysis": "The tweet underperforms due to **lack of visual content and unclear value proposition**. It's an incremental technical update presented without context on why this matters to users—no metrics showing impact, no clear benefit statement, and the incomplete sentence (\"and\" trailing off) creates confusion rather than curiosity, making it feel like an unfinished announcement rather than meaningful news."
         },
         {
           "id": "2060073747655340093",
           "fullText": "JUICED explained in 1 image 👇 https://t.co/ArdsmPcYN9",
           "createdAt": "Thu May 28 19:00:30 +0000 2026",
           "twitterUrl": "https://twitter.com/jup_lend/status/2060073747655340093",
-          "likeCount": 174,
+          "likeCount": 171,
           "bookmarkCount": 7,
-          "retweetCount": 65,
+          "retweetCount": 63,
           "replyCount": 36,
-          "viewCount": 10995,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HJbaAUQaAAA4Oiq.jpg"
+          "viewCount": 11007,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HJbaAUQaAAA4Oiq.jpg",
+          "aiAnalysis": "# Analysis: @jup_lend Tweet Performance\n\nThe minimalist \"explained in 1 image\" format with a curiosity gap hook and promise of clarity drove the 11K+ views, but the relatively modest engagement (1.7% like rate) suggests the explanatory visual may have felt too technical or failed to spark emotional investment once users clicked through. The brevity and efficiency appeal attracted views, but lacked a compelling reason to amplify or save the content."
         },
         {
           "id": "2063893069595029947",
@@ -913,9 +905,9 @@
           "bookmarkCount": 5,
           "retweetCount": 7,
           "replyCount": 6,
-          "viewCount": 1404,
+          "viewCount": 1529,
           "thumbnailUrl": "https://pbs.twimg.com/media/HKRd-YHbkAArhCx.jpg",
-          "aiAnalysis": "# Analysis\n\n**Why it underperformed:** The tweet leads with a specific rate (0.06%) that lacks emotional urgency—users don't perceive this as a breakthrough compared to existing lending protocols, especially without context showing it's materially better than alternatives. The stacked benefits (borrowing rate + APY + points) feel additive rather than compelling, and the tagline \"Just Use Jupiter Lend\" reads as forced marketing rather than a genuine value proposition, which dilutes authenticity that typically drives engagement in protocol announcements."
+          "aiAnalysis": "# Analysis\n\nThe low engagement (3.2% engagement rate) stems from **weak emotional motivation** despite tangible yield numbers. While the tweet stacks three separate benefits (0.06% borrow rate, 2% APY, xPoints), it reads like feature listing rather than a compelling reason to act—users see marginal improvements rather than a game-changing opportunity. The generic closing tagline (\"Just Use Jupiter Lend\") lacks urgency or scarcity, and the tweet doesn't communicate *why now* or what makes this moment different, leaving viewers with no FOMO or time-sensitive driver to engage or convert."
         }
       ]
     },
@@ -924,12 +916,8 @@
       "displayName": "Spark",
       "defiLlamaSlug": "sparklend",
       "profilePicture": "https://pbs.twimg.com/profile_images/1856332015341084672/lF5ZZXRm_normal.jpg",
-      "tvl": 4948836514.17708,
+      "tvl": 4783229798.5639305,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 3360220988
-        },
         {
           "date": 1778544000,
           "tvl": 3421795910
@@ -1047,37 +1035,54 @@
           "tvl": 3358703834
         },
         {
-          "date": 1780999127,
-          "tvl": 3341353023
+          "date": 1781049600,
+          "tvl": 3334821436
+        },
+        {
+          "date": 1781093027,
+          "tvl": 3240534934
         }
       ],
-      "aiSummary": "# Summary\n\nSparkLend reached $3.6B TVL with wstETH dominating collateral (44% of supply, 1M+ backed). Spark Savings hit $6.4B TVL. Multiple trading strategies active simultaneously: cbBTC supply ($44M), USDS borrowing ($17M). Spark Prime enables unified institutional lending across DeFi/CeFi venues with cross-portfolio risk management.",
+      "aiSummary": "Spark Protocol achieved significant growth: $6.4B Savings TVL, $3.6B SparkLend TVL, and $2.6B liquidity layer deployment. wstETH became largest DeFi collateral venue (1M+ supplied, 44% of collateral). BitGo integration enables institutional capital access to credit markets. SparkLend supports diverse strategies: BTC/stablecoin borrowing, ETH leverage, and stablecoin liquidity.",
       "tweets": [
+        {
+          "id": "2064321357026820395",
+          "fullText": "Institutional capital held in custody can now now access on-chain credit markets through structured allocation via Spark.\n\nThrough BitGo, capital can be deployed into Spark Savings vaults, where it is allocated across multiple credit venues within a single, structured system. https://t.co/5eVEpwuG43",
+          "createdAt": "Tue Jun 09 12:18:59 +0000 2026",
+          "twitterUrl": "https://twitter.com/sparkdotfi/status/2064321357026820395",
+          "likeCount": 54,
+          "bookmarkCount": 2,
+          "retweetCount": 15,
+          "replyCount": 8,
+          "viewCount": 12745,
+          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2064292903627747328/img/5HQf3-VputhUJQH9.jpg",
+          "aiAnalysis": "The partnership angle with BitGo provided legitimacy and newsworthiness that drove impressions, but the abstract product explanation and lack of concrete metrics (yield rates, TVL impact, custody amounts) limited conversion to actual engagement—institutional-focused announcements typically need either bold numerical claims or clear competitive differentiation to drive retweets and discussion."
+        },
         {
           "id": "2064030740808151418",
           "fullText": "1M wstETH now backs SparkLend credit.\n\nOver the past week, more than 228K wstETH was added to SparkLend.\n\nThe total supplied is now over 1M making Spark the largest wstETH collateral venue in DeFi.\n\nToday, roughly 44% of all supplied collateral on SparkLend is wstETH.\n\nUsing https://t.co/t0VrRxTW7g",
           "createdAt": "Mon Jun 08 17:04:11 +0000 2026",
           "twitterUrl": "https://twitter.com/sparkdotfi/status/2064030740808151418",
-          "likeCount": 45,
+          "likeCount": 48,
           "bookmarkCount": 0,
           "retweetCount": 6,
-          "replyCount": 10,
-          "viewCount": 5613,
+          "replyCount": 11,
+          "viewCount": 6643,
           "thumbnailUrl": "https://pbs.twimg.com/media/HKTpBOob0AAIEP9.jpg",
-          "aiAnalysis": "The tweet's modest engagement (1.2% engagement rate) stems from **lack of emotional resonance or urgency** — while the metrics are specific and the milestone sounds significant, the claims feel incremental rather than newsworthy (adding 228K to reach 1M is presented as achievement but lacks context on *why* this matters to users). The image likely helped prevent complete failure, but the dry, metrics-heavy structure without a clear value proposition or call-to-action failed to trigger saves or meaningful distribution through retweets."
+          "aiAnalysis": "The tweet's modest engagement despite strong metrics (1M milestone, 228K weekly growth, 44% dominance claim) likely suffered from **lack of emotional urgency or novelty**—hitting a round number milestone feels retrospective rather than breaking news, and the achievement is presented as incremental progress rather than a competitive win or risk/opportunity narrative that would drive immediate action or sharing."
         },
         {
           "id": "2062912572215754936",
           "fullText": "Most lending markets end up dominated by a single trade.\n\nBTC holders borrowing stablecoins.\nETH loopers leveraging exposure.\nStablecoin borrowers chasing liquidity.\n\nThis week on SparkLend, all three were active at the same time:\n\n→ ~$44M cbBTC supplied, $17M USDS borrowed\n→ https://t.co/P9ppt5u2qk",
           "createdAt": "Fri Jun 05 15:00:58 +0000 2026",
           "twitterUrl": "https://twitter.com/sparkdotfi/status/2062912572215754936",
-          "likeCount": 49,
+          "likeCount": 51,
           "bookmarkCount": 2,
           "retweetCount": 9,
           "replyCount": 5,
-          "viewCount": 2434,
+          "viewCount": 2582,
           "thumbnailUrl": "https://pbs.twimg.com/media/HKDwDXDawAAeMuh.jpg",
-          "aiAnalysis": "The tweet underperformed due to weak emotional hooks and abstract framing—it identifies market patterns without creating urgency or controversy that would drive shares. While the specific metrics ($44M cbBTC, $17M USDS) add credibility, the lack of a clear narrative (\"why should I care this happened *now*?\") and absence of a surprising/contrarian insight meant it landed more as protocol data than compulsive-share-worthy content."
+          "aiAnalysis": "# Analysis\n\nThe tweet underperformed relative to its specificity because it **lacked urgency and novelty**—documenting simultaneous market activity on SparkLend reads as routine protocol observation rather than a meaningful market development or insight. While the concrete metrics ($44M cbBTC, $17M USDS) add credibility, they don't trigger emotional engagement (no \"exploit,\" \"opportunity,\" or \"risk\" framing), and the observation about diversified lending demand is contextually expected rather than surprising to a sophisticated audience."
         },
         {
           "id": "2062506672988602537",
@@ -1088,9 +1093,9 @@
           "bookmarkCount": 0,
           "retweetCount": 7,
           "replyCount": 10,
-          "viewCount": 2142,
+          "viewCount": 2250,
           "thumbnailUrl": "https://pbs.twimg.com/media/HJ9-43GbsAASQts.jpg",
-          "aiAnalysis": "The tweet's modest engagement (7 RTs, 39 likes) despite solid metrics stems from being a **retrospective recap with diffused focus**—listing multiple achievements across different products dilutes impact rather than creating a single compelling narrative hook. The specificity of TVL figures and integration names adds credibility but lacks the emotional urgency or forward-looking catalyst (like a major announcement or price trigger) that drives retweets and discussion."
+          "aiAnalysis": "The tweet's modest engagement stems from a lack of emotional or narrative hook—it's purely metrics-focused without explaining *why* these numbers matter or what users should do with this information. While the inclusion of specific achievements (new ATHs, integrations, 10x expansion) provides credibility, the format reads more like a monthly report than a compelling story, which limited retweets and bookmarks despite decent impressions."
         },
         {
           "id": "2062189796152258895",
@@ -1101,21 +1106,8 @@
           "bookmarkCount": 2,
           "retweetCount": 15,
           "replyCount": 6,
-          "viewCount": 7347,
-          "aiAnalysis": "The tweet underperforms due to lack of urgency or emotional hook—it's a straightforward product explanation without a concrete catalyst (no launch date, metric, or competitive advantage stated). The absence of visual content compounds this; complex infrastructure concepts need diagrams or charts to break through the feed, and the multi-line format reads more like educational content than a compelling reason to engage or reshare."
-        },
-        {
-          "id": "2062116604591399265",
-          "fullText": "A portfolio is not a collection of isolated positions.\n\nYet much of crypto credit infrastructure still treats it that way.\n\nInstitutional trading firms manage exposure across exchanges, venues, and strategies simultaneously.\n\nEvaluating each position independently can overstate https://t.co/N80KxgMXkO",
-          "createdAt": "Wed Jun 03 10:18:05 +0000 2026",
-          "twitterUrl": "https://twitter.com/sparkdotfi/status/2062116604591399265",
-          "likeCount": 45,
-          "bookmarkCount": 5,
-          "retweetCount": 11,
-          "replyCount": 3,
-          "viewCount": 14700,
-          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2062116546596761600/img/pFtBxnGSxukIRpxd.jpg",
-          "aiAnalysis": "# Analysis\n\nThis tweet underperformed relative to its conceptual quality because it **lacks a concrete hook or novelty angle**—it frames a widely-understood problem (siloed risk management) as revelation rather than introducing a specific solution, product update, or contrarian insight that would trigger shares or saves. The abstract positioning (\"much of crypto credit infrastructure\") combined with an incomplete value proposition (cut off mid-sentence) leaves readers without a clear reason to engage beyond passive consumption."
+          "viewCount": 7475,
+          "aiAnalysis": "The tweet underperforms because it's **abstract and benefit-vague** — it lists operational complexity without concrete metrics, specific use cases, or quantified value prop that would trigger \"this matters to me\" reactions. The educational tone reads more like compliance documentation than a compelling narrative, lacking the emotional hook (FOMO, opportunity, problem-solved) or newsy angle needed to convert passive scrollers into engagers."
         }
       ]
     },
@@ -1124,12 +1116,8 @@
       "displayName": "Loopscale",
       "defiLlamaSlug": "loopscale",
       "profilePicture": "https://pbs.twimg.com/profile_images/1896677394506784768/f_moNZvF_normal.png",
-      "tvl": 75210645.10425,
+      "tvl": 71607213.64566,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 87504555
-        },
         {
           "date": 1778544000,
           "tvl": 86546351
@@ -1247,11 +1235,15 @@
           "tvl": 73909478
         },
         {
-          "date": 1780998407,
-          "tvl": 75210645
+          "date": 1781049600,
+          "tvl": 73803354
+        },
+        {
+          "date": 1781090675,
+          "tvl": 71607213
         }
       ],
-      "aiSummary": "Loopscale enables leveraged fixed-yield strategies on Solana via Exponent Finance. Key offerings: SOL lending (6.05% APY), PT-USX/eUSX Loop rollovers, curated vaults (OnRe Growth), and Advanced Lend platform with enhanced UI for multi-position management and risk visibility.",
+      "aiSummary": "Loopscale launched Earn vaults offering curated, fixed-yield strategies on Solana. Features include PT-USX/PT-eUSX loop rollovers, SOL lending at 6.05% APY, and OnRe Growth vault integration via Exponent Finance v2, eliminating active management needs.",
       "tweets": [
         {
           "id": "2061085319026573519",
@@ -1262,9 +1254,9 @@
           "bookmarkCount": 1,
           "retweetCount": 4,
           "replyCount": 2,
-          "viewCount": 2530,
+          "viewCount": 2566,
           "thumbnailUrl": "https://pbs.twimg.com/media/HJpyLNkacAAHnmN.png",
-          "aiAnalysis": "The low engagement stems from **niche product-specific functionality** (loop rollovers for specific token pairs) that lacks urgency or emotional pull—it's a feature announcement for existing users rather than news that compels sharing or broad interest. The absence of metrics, comparative advantages, or a clear value prop (\"best rates\") undercuts the incentive to engage, leaving readers without a concrete reason to interact beyond those already integrated into the protocol."
+          "aiAnalysis": "The tweet underperformed due to its highly technical, product-feature focus that lacks emotional urgency or clear value proposition—it reads as a procedural announcement rather than something that compels action or sparks curiosity. The specificity of token names (PT-USX, PT-eUSX) and mechanics appeals only to existing power users already familiar with the protocol, rather than creating FOMO or broader appeal that would drive retweets and engagement."
         },
         {
           "id": "2059696216515244161",
@@ -1275,9 +1267,22 @@
           "bookmarkCount": 1,
           "retweetCount": 2,
           "replyCount": 6,
-          "viewCount": 2755,
+          "viewCount": 2763,
           "thumbnailUrl": "https://pbs.twimg.com/media/HJWCyyfaEAAfS6j.jpg",
-          "aiAnalysis": "# Analysis\n\n**Why it underperformed (2.8% engagement rate):**\n\nThe tweet relies entirely on a generic value proposition (\"best place\") backed by a single metric (6.05% APY), which lacks novelty or urgency in a market where yield farming rates fluctuate constantly—viewers can't assess if this is genuinely competitive or just a snapshot from a favorable period. The instructional format (deposit → earn → borrow) reads like standard product documentation rather than a hook that creates FOMO, curiosity, or emotional investment, making it easily scrollable despite the inclusion of an image."
+          "aiAnalysis": "The tweet underperformed due to its generic, self-promotional positioning (\"best place\") combined with a modest APY claim (6.05%) that lacks competitive context—viewers can't assess if this is genuinely attractive without knowing what alternatives offer. The functional product explanation is practical but uninspiring, missing emotional hooks or urgency that would motivate action beyond the already-interested."
+        },
+        {
+          "id": "2064407243563610288",
+          "fullText": "Loopscale Earn is live.\n\nCurated Vaults that package fixed yield, lending, looping, and multi-venue execution into a single position, with no active management.\n\nThe simplest way to access the most competitive yields on @solana. https://t.co/YIEHAgW9zg",
+          "createdAt": "Tue Jun 09 18:00:16 +0000 2026",
+          "twitterUrl": "https://twitter.com/Loopscale/status/2064407243563610288",
+          "likeCount": 139,
+          "bookmarkCount": 18,
+          "retweetCount": 23,
+          "replyCount": 34,
+          "viewCount": 34375,
+          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2064407185896206336/img/IkGBcDsRL4ALPOwv.jpg",
+          "aiAnalysis": "# Analysis\n\n**Why it underperformed relative to views:** The tweet leads with a product launch announcement (inherently low-engagement format) without a specific yield number, comparison metric, or emotional hook—it relies on abstract benefits (\"simplest,\" \"most competitive\") rather than concrete incentives that would trigger clicks or shares. The 139 likes against 34K views suggests casual scrollers weren't compelled to engage because there's no quantifiable reason to act now (no APY, no scarcity, no social proof)."
         },
         {
           "id": "2060375626268504133",
@@ -1285,11 +1290,11 @@
           "createdAt": "Fri May 29 15:00:03 +0000 2026",
           "twitterUrl": "https://twitter.com/Loopscale/status/2060375626268504133",
           "likeCount": 73,
-          "bookmarkCount": 5,
+          "bookmarkCount": 4,
           "retweetCount": 8,
           "replyCount": 9,
-          "viewCount": 8324,
-          "aiAnalysis": "The tweet underperformed due to lack of emotional hooks or urgency—it reads as a standard product launch announcement without novelty, specificity on returns/benefits, or newsworthiness that would compel sharing. The absence of visuals (vault performance charts, APY metrics, or product screenshots) and vague value proposition (\"balanced, optimized exposure\") failed to create the concrete, tangible appeal needed to drive retweets or saves."
+          "viewCount": 8380,
+          "aiAnalysis": "The tweet underperformed due to lacking a compelling hook—it reads as a standard product launch announcement without emotional incentive, specific performance metrics, or visual differentiation to stop scrollers. The absence of an image and unclear value proposition (\"balanced, optimized exposure\") made it feel like a generic notification rather than news worth engaging with or sharing."
         },
         {
           "id": "2057189705599627340",
@@ -1300,21 +1305,8 @@
           "bookmarkCount": 2,
           "retweetCount": 5,
           "replyCount": 3,
-          "viewCount": 4191,
-          "aiAnalysis": "# Analysis\n\nThe low engagement (0.1% like rate) stems from **lack of emotional stakes and specificity** — the announcement uses vague partnership language (\"coming soon,\" \"curated by\") without concrete differentiators, metrics, or urgency that would compel followers to act. The absence of visual content compounds this, as text-only partnership announcements rely heavily on compelling copy or news hooks to break through feed noise, neither of which this tweet delivers."
-        },
-        {
-          "id": "2055038011033989159",
-          "fullText": "Advanced Lend just got a major upgrade.\n\n• Compact table layout with inline collateral &amp; risk\n• At-a-glance risk visibility\n• Bulk select for multi-position management in one action\n• Strategy-level metrics\n\nManage a full lending book in one view. https://t.co/hZ9P1K3ETw",
-          "createdAt": "Thu May 14 21:30:17 +0000 2026",
-          "twitterUrl": "https://twitter.com/Loopscale/status/2055038011033989159",
-          "likeCount": 57,
-          "bookmarkCount": 1,
-          "retweetCount": 4,
-          "replyCount": 6,
-          "viewCount": 2663,
-          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2055037959603458049/img/i8ZY9Ymgc-tAoevU.jpg",
-          "aiAnalysis": "The tweet underperformed relative to views because it leads with a vague claim (\"major upgrade\") before delivering concrete value—the specificity comes only in bullet points that require effort to parse, and the image appears to be a technical UI screenshot rather than a compelling visual hook that would stop scrolls or trigger shares. The content is feature-focused rather than outcome-focused (no mention of efficiency gains, cost savings, or risk reduction in quantified terms), which limits emotional resonance and shareability."
+          "viewCount": 4198,
+          "aiAnalysis": "The tweet underperformed due to lack of emotional urgency or novelty—it's a standard partnership announcement without specific metrics, timelines (\"coming soon\" is vague), or a clear value proposition that differentiates this from other vault launches. The absence of visual content combined with complex, jargon-heavy messaging (ONyc strategies, Asset Curation) created friction that likely prevented casual scrollers from engaging."
         }
       ]
     },
@@ -1323,12 +1315,8 @@
       "displayName": "Morpho 🦋",
       "defiLlamaSlug": "morpho-v1",
       "profilePicture": "https://pbs.twimg.com/profile_images/1930600293915410432/dgTU7UNU_normal.jpg",
-      "tvl": 9978348634.53513,
+      "tvl": 9763818343.189909,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 7601771521
-        },
         {
           "date": 1778544000,
           "tvl": 7582906445
@@ -1446,11 +1434,15 @@
           "tvl": 6517757056
         },
         {
-          "date": 1781004119,
-          "tvl": 6493315178
+          "date": 1781049600,
+          "tvl": 6373993884
+        },
+        {
+          "date": 1781090435,
+          "tvl": 6307030362
         }
       ],
-      "aiSummary": "",
+      "aiSummary": "# Morpho Key Themes Summary\n\nMorpho pivots from onchain lending to credit infrastructure, addressing the $200T market's both-sided needs. Morpho Midnight whitepaper launched. Association raised $175M from Paradigm, a16z Crypto, Ribbit Capital, and strategic partners. Security audit competition underway via Cantina.",
       "tweets": [
         {
           "id": "2062856153835458663",
@@ -1459,21 +1451,22 @@
           "twitterUrl": "https://twitter.com/Morpho/status/2062856153835458663",
           "likeCount": 75,
           "bookmarkCount": 12,
-          "retweetCount": 4,
+          "retweetCount": 3,
           "replyCount": 16,
-          "viewCount": 7808,
-          "aiAnalysis": "The tweet underperformed due to lack of visual hierarchy and clarity—the strikethrough text and dense bullet points create cognitive friction, while the vague positioning shift (\"lending → credit\") lacks specific metrics or concrete evidence to justify the conceptual rebranding, making it feel more promotional than substantive to skeptical audiences."
+          "viewCount": 8307,
+          "aiAnalysis": "The tweet underperformed due to lack of visual hierarchy and specificity—the strikethrough rebrand feels conceptual rather than concrete, while the bullet points make vague claims about a \"$200T market\" without quantifying Morpho's actual addressable opportunity or performance metrics. The partnerships listed (@krakenfx, @trezor, @wintermute_t) provide social proof but feel tacked-on rather than the core narrative hook, diluting what should have been either a focused product announcement or a partnership celebration."
         },
         {
           "id": "2062855606101287397",
           "fullText": "https://t.co/ftBZt5zIZ1",
           "createdAt": "Fri Jun 05 11:14:37 +0000 2026",
           "twitterUrl": "https://twitter.com/Morpho/status/2062855606101287397",
-          "likeCount": 63,
-          "bookmarkCount": 24,
+          "likeCount": 65,
+          "bookmarkCount": 23,
           "retweetCount": 6,
           "replyCount": 8,
-          "viewCount": 13365
+          "viewCount": 14144,
+          "aiAnalysis": "I can see this is a link to a tweet, but I'm unable to access external URLs or view the actual tweet content. To give you an accurate analysis of why it performed the way it did (65 likes, 23 bookmarks, 6 retweets, 14,144 views), could you paste the tweet text directly? That way I can evaluate the specific hooks, metrics, framing, and other engagement drivers."
         },
         {
           "id": "2062620600330228173",
@@ -1482,36 +1475,36 @@
           "twitterUrl": "https://twitter.com/Morpho/status/2062620600330228173",
           "likeCount": 106,
           "bookmarkCount": 14,
-          "retweetCount": 7,
+          "retweetCount": 6,
           "replyCount": 10,
-          "viewCount": 10390,
+          "viewCount": 10744,
           "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2062620492398227456/img/Xz2U3W__0hOCeyM_.jpg",
-          "aiAnalysis": "The vague philosophical hook (\"It starts with why\") lacks specificity and emotional urgency, relying entirely on the image to convey meaning—a risky strategy that likely confused casual viewers scrolling past and failed to compel clicks. The absence of concrete metrics, claims, or newsworthiness meant the tweet competed on curiosity alone, which generated decent impressions but insufficient conversion to engagement."
+          "aiAnalysis": "The vague, philosophical opener (\"It starts with why\") creates curiosity that pulls viewers into the link, but the minimal text and lack of concrete metrics or newsworthy claims provides little reason to engage without clicking—resulting in solid views but relatively low conversion to likes/shares compared to the view count."
         },
         {
           "id": "2064317262547525718",
           "fullText": "Morpho Association has raised $175M to build the open credit network for the world.\n\nCo-led by @paradigm, @a16zcrypto, @RibbitCapital with strategic participation from @apolloglobal, @vaneck_us, @circle_ventures, and @Ledger @Cathayinnov.\n\nThe round also included participation https://t.co/8dKI8V84CM",
           "createdAt": "Tue Jun 09 12:02:43 +0000 2026",
           "twitterUrl": "https://twitter.com/Morpho/status/2064317262547525718",
-          "likeCount": 21,
-          "bookmarkCount": 3,
-          "retweetCount": 6,
-          "replyCount": 4,
-          "viewCount": 349,
-          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2064317207618916352/img/9zBjvvYOmIWLr3pO.jpg"
+          "likeCount": 1023,
+          "bookmarkCount": 138,
+          "retweetCount": 104,
+          "replyCount": 233,
+          "viewCount": 634538,
+          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2064317207618916352/img/9zBjvvYOmIWLr3pO.jpg",
+          "aiAnalysis": "# Why This Performed Moderately (1K likes, 634K views)\n\n**Strong pull:** The $175M funding announcement with tier-1 VCs (Paradigm, a16z) creates credibility and newsworthiness that drives impressions, while the specific dollar amount and blue-chip investor list (VanEck, Circle) provide concrete proof-points that trigger FOMO and legitimacy signals.\n\n**Weak pull:** The generic \"open credit network\" positioning lacks emotional resonance or differentiation, and the truncated tweet body suggests unclear hierarchy—the image likely contained critical details that should've been in the text itself, diluting impact for viewers who don't click through."
         },
         {
-          "id": "2062151234174566421",
-          "fullText": ".@deel Stablecoin Wallet, powered by Morpho\n\nDeel puts dollar-backed balances into the hands of contractors in Latin America. Morpho now enables those balances to earn onchain rewards via @SentoraHQ curated Morpho Vaults on @tempo https://t.co/pc1ylQK4l8",
-          "createdAt": "Wed Jun 03 12:35:41 +0000 2026",
-          "twitterUrl": "https://twitter.com/Morpho/status/2062151234174566421",
-          "likeCount": 262,
-          "bookmarkCount": 39,
-          "retweetCount": 29,
-          "replyCount": 27,
-          "viewCount": 38349,
-          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2062151183511457792/img/1N9hHlB6R0Q1Be98.jpg",
-          "aiAnalysis": "# Analysis\n\nThe tweet underperformed relative to typical protocol announcements because it buries the actual value proposition (contractors earning yield) beneath partnership jargon and lacks a specific, emotionally resonant hook—no concrete APY, user count, or before/after comparison that would trigger urgency or FOMO.\n\nThe visual asset (image) likely helped it reach 38K+ views, but the partnership-announcement framing and passive tone (\"enables...via...curated\") failed to convert viewers into engaged shares, suggesting the audience needed either a clearer financial incentive metric or a story angle centered on impact/adoption rather than technical integration."
+          "id": "2060385607453462692",
+          "fullText": "The Morpho Midnight audit competition is now live on @cantinasecurity\n\nhttps://t.co/SmSK99jGyL",
+          "createdAt": "Fri May 29 15:39:43 +0000 2026",
+          "twitterUrl": "https://twitter.com/Morpho/status/2060385607453462692",
+          "likeCount": 70,
+          "bookmarkCount": 10,
+          "retweetCount": 2,
+          "replyCount": 6,
+          "viewCount": 5112,
+          "aiAnalysis": "# Analysis\n\nThis announcement underperformed due to **lack of emotional hooks or urgency triggers** — it's a straightforward audit competition notice without highlighting why this matters (e.g., prize pool size, security implications, or competitive differentiation). The absence of an image meant it competed for attention as plain text in a crowded feed, and without specific metrics or stakes clearly called out in the tweet itself, it relied entirely on the link for context."
         }
       ]
     },
@@ -1520,12 +1513,8 @@
       "displayName": "yearn",
       "defiLlamaSlug": "yearn-finance",
       "profilePicture": "https://pbs.twimg.com/profile_images/2056457364337807360/jVobxTcg_normal.png",
-      "tvl": 153244573.47242,
+      "tvl": 151690631.85004002,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 180862278
-        },
         {
           "date": 1778544000,
           "tvl": 181338033
@@ -1643,8 +1632,12 @@
           "tvl": 153649806
         },
         {
-          "date": 1780999307,
-          "tvl": 153244573
+          "date": 1781049600,
+          "tvl": 151905297
+        },
+        {
+          "date": 1781090555,
+          "tvl": 151690631
         }
       ],
       "aiSummary": "",
@@ -1658,18 +1651,21 @@
           "bookmarkCount": 2,
           "retweetCount": 1,
           "replyCount": 2,
-          "viewCount": 1365
+          "viewCount": 1406,
+          "aiAnalysis": "I don't have access to the actual tweet content at that URL. To provide an analysis of why this tweet performed with 13 likes, 2 bookmarks, 1 retweet, and 1,406 views, I'd need you to share the text of the tweet itself.\n\nCould you paste the tweet's content so I can evaluate what content hooks, format choices, or engagement factors drove (or limited) its performance?"
         },
         {
-          "id": "2059987986226323946",
-          "fullText": "https://t.co/NRJHKDalH0",
-          "createdAt": "Thu May 28 13:19:43 +0000 2026",
-          "twitterUrl": "https://twitter.com/yearnfi/status/2059987986226323946",
-          "likeCount": 41,
-          "bookmarkCount": 2,
-          "retweetCount": 10,
-          "replyCount": 0,
-          "viewCount": 2396
+          "id": "2064348298841034822",
+          "fullText": "It's 10 PM, do you know where your money is?\n\nDeFi should be transparent and verifiable, but few users check where their money is.\n\nDo you know where YOUR funds actually are?\n\nLet's see the answer for Yearn vaults\n🧵 https://t.co/S7DRX9yB52",
+          "createdAt": "Tue Jun 09 14:06:02 +0000 2026",
+          "twitterUrl": "https://twitter.com/yearnfi/status/2064348298841034822",
+          "likeCount": 22,
+          "bookmarkCount": 1,
+          "retweetCount": 2,
+          "replyCount": 2,
+          "viewCount": 1270,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKYJ1mIagAAFJ5O.jpg",
+          "aiAnalysis": "# Analysis\n\nThis tweet underperformed due to **weak emotional resonance and vague hook execution**. While the opening line attempts curiosity-driven engagement, it lacks urgency or novelty—the \"do you know where your money is\" premise is table-stakes messaging in DeFi that doesn't differentiate Yearn or create FOMO. The thread promise suggests substantive data/insights ahead, but the tweet itself provides no specificity, metrics, or concrete revelation to drive clicks, making it feel more like a generic transparency PSA than a must-read disclosure."
         },
         {
           "id": "2062532639911969131",
@@ -1680,9 +1676,9 @@
           "bookmarkCount": 0,
           "retweetCount": 3,
           "replyCount": 4,
-          "viewCount": 2764,
+          "viewCount": 2797,
           "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2062532588070379520/img/6KbagX-FZVUlX4uD.jpg",
-          "aiAnalysis": "The update announcement lacks urgency or emotional stakes—it's a standard product feature release without concrete metrics (e.g., \"X% faster load times,\" \"track gains across Y positions\") or a clear pain point it solves, resulting in low engagement despite the visual demonstration. The generic \"Check it out!\" CTA and absence of a compelling reason *why* users should care right now dilutes what could have been a stronger engagement hook around portfolio tracking efficiency or comparative advantages."
+          "aiAnalysis": "The tweet underperformed because it's a generic product update announcement without emotional hooks, urgency, or specific metrics—just a vague \"facelift\" claim that doesn't articulate concrete user benefits or ROI that would compel engagement. A screenshot alone isn't enough to drive shares; it needed comparative visuals (before/after), quantified improvements, or a time-sensitive narrative to stand out in a crowded feed."
         },
         {
           "id": "2061432614100357375",
@@ -1693,20 +1689,19 @@
           "bookmarkCount": 2,
           "retweetCount": 6,
           "replyCount": 5,
-          "viewCount": 3484,
+          "viewCount": 3509,
           "thumbnailUrl": "https://pbs.twimg.com/media/HJuuCbzaQAAxgBB.png"
         },
         {
-          "id": "2059701110722703725",
-          "fullText": "Just using a multisig is NOT enough. How a multisig is configured can be the difference between getting rekt or not.\n\nYearn has spent a lot of time thinking about this very real risk. Today, we share 3 crucial steps for good multisig strategy\n🧵 https://t.co/Xt9eKYZzOm",
-          "createdAt": "Wed May 27 18:19:46 +0000 2026",
-          "twitterUrl": "https://twitter.com/yearnfi/status/2059701110722703725",
-          "likeCount": 60,
-          "bookmarkCount": 18,
-          "retweetCount": 12,
-          "replyCount": 2,
-          "viewCount": 6582,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HJWHPrwaEAEA6Qq.png"
+          "id": "2059987986226323946",
+          "fullText": "https://t.co/NRJHKDalH0",
+          "createdAt": "Thu May 28 13:19:43 +0000 2026",
+          "twitterUrl": "https://twitter.com/yearnfi/status/2059987986226323946",
+          "likeCount": 41,
+          "bookmarkCount": 2,
+          "retweetCount": 10,
+          "replyCount": 0,
+          "viewCount": 2411
         }
       ]
     },
@@ -1715,12 +1710,8 @@
       "displayName": "Euler Labs",
       "defiLlamaSlug": "euler-v2",
       "profilePicture": "https://pbs.twimg.com/profile_images/1947602115557527553/15Jr7cIa_normal.jpg",
-      "tvl": 947662532.42619,
+      "tvl": 962320882.11187,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 406881960
-        },
         {
           "date": 1778544000,
           "tvl": 385142823
@@ -1838,67 +1829,70 @@
           "tvl": 272523447
         },
         {
-          "date": 1780998767,
-          "tvl": 266723556
+          "date": 1781049600,
+          "tvl": 265023132
+        },
+        {
+          "date": 1781090795,
+          "tvl": 271531163
         }
       ],
       "aiSummary": "",
       "tweets": [
         {
+          "id": "2064353542698152392",
+          "fullText": "Alchemix is using Euler's modular vaults to power their MYT yield architecture.\n\nEach vault carries its own collateral, oracle, and cap configuration, so exposure stays scoped to the markets the MYT is allocated to.",
+          "createdAt": "Tue Jun 09 14:26:53 +0000 2026",
+          "twitterUrl": "https://twitter.com/eulerfinance/status/2064353542698152392",
+          "likeCount": 29,
+          "bookmarkCount": 0,
+          "retweetCount": 5,
+          "replyCount": 5,
+          "viewCount": 1947
+        },
+        {
           "id": "2062569301068988800",
           "fullText": "STEY brings supported Ondo tokenized equities into Euler lending markets as collateral for PYUSD borrowing.\n\nEuler’s modular architecture gives market builders vault-level control over risk parameters, while the EVC keeps collateral composable across connected markets.",
           "createdAt": "Thu Jun 04 16:16:56 +0000 2026",
           "twitterUrl": "https://twitter.com/eulerfinance/status/2062569301068988800",
-          "likeCount": 36,
+          "likeCount": 37,
           "bookmarkCount": 3,
           "retweetCount": 3,
           "replyCount": 2,
-          "viewCount": 3035,
-          "aiAnalysis": "# Analysis: Low Engagement Despite Technical Merit\n\n**Why it underperformed:** The tweet prioritizes technical architecture details (modular design, EVC composability) over concrete value propositions, making it inaccessible to all but the most protocol-literate readers. The absence of visuals to break up dense feature descriptions, combined with lack of quantifiable metrics (TVL, yield rates, risk parameters) or emotional hooks (opportunity, risk, urgency), resulted in passive consumption rather than active engagement."
+          "viewCount": 3117
         },
         {
           "id": "2062557775985512744",
           "fullText": "https://t.co/gsuEVEfzLY",
           "createdAt": "Thu Jun 04 15:31:08 +0000 2026",
           "twitterUrl": "https://twitter.com/eulerfinance/status/2062557775985512744",
-          "likeCount": 50,
+          "likeCount": 51,
           "bookmarkCount": 13,
           "retweetCount": 8,
           "replyCount": 3,
-          "viewCount": 29281
+          "viewCount": 29677
         },
         {
           "id": "2062194847579005268",
           "fullText": "KPK ETH Yield Term is live on Euler.\n\nThe @kpk_io curated Earn vault allocates WETH into lending markets, with monthly rate cycles anchored to @TreehouseFi TESR 30D.\n\nTerm-style ETH lending, built on Euler primitives.",
           "createdAt": "Wed Jun 03 15:29:00 +0000 2026",
           "twitterUrl": "https://twitter.com/eulerfinance/status/2062194847579005268",
-          "likeCount": 34,
+          "likeCount": 35,
           "bookmarkCount": 2,
           "retweetCount": 6,
           "replyCount": 4,
-          "viewCount": 5882
+          "viewCount": 5935
         },
         {
           "id": "2061483778833285182",
           "fullText": "A new path for tokenized securities in DeFi lending.\n\nAssets like VBILL and STAC can now be used as collateral on Euler, with required transfer and eligibility checks enforced at the vault level.\n\nRead more about the Securitize-compatible market design.",
           "createdAt": "Mon Jun 01 16:23:28 +0000 2026",
           "twitterUrl": "https://twitter.com/eulerfinance/status/2061483778833285182",
-          "likeCount": 55,
+          "likeCount": 56,
           "bookmarkCount": 15,
           "retweetCount": 5,
           "replyCount": 4,
-          "viewCount": 6175
-        },
-        {
-          "id": "2060027320304546156",
-          "fullText": "Euler is leading the shift from institutional tokenized issuance to collateral utility.\n\nThe Euler Vault Kit now facilitates lending markets that can apply eligibility rules, transfer controls, and market-specific risk parameters onchain.\n\nRead more from @CoinDesk",
-          "createdAt": "Thu May 28 15:56:01 +0000 2026",
-          "twitterUrl": "https://twitter.com/eulerfinance/status/2060027320304546156",
-          "likeCount": 53,
-          "bookmarkCount": 8,
-          "retweetCount": 6,
-          "replyCount": 6,
-          "viewCount": 3891
+          "viewCount": 6197
         }
       ]
     },
@@ -1907,12 +1901,8 @@
       "displayName": "Venus Protocol",
       "defiLlamaSlug": "venus-core-pool",
       "profilePicture": "https://pbs.twimg.com/profile_images/1942208446868185088/YbdsNx5f_normal.jpg",
-      "tvl": 1438158857.5998998,
+      "tvl": 1425675688.63579,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 1213805903
-        },
         {
           "date": 1778544000,
           "tvl": 1211326381
@@ -2030,35 +2020,65 @@
           "tvl": 1021512755
         },
         {
-          "date": 1781004731,
-          "tvl": 1024464283
+          "date": 1781049600,
+          "tvl": 1011760208
+        },
+        {
+          "date": 1781091335,
+          "tvl": 1018995653
         }
       ],
-      "aiSummary": "",
+      "aiSummary": "Venus Protocol emphasizes RWA integration and product expansion. Key features: $XAUm collateral in Fixed-Term Vaults; Venus Flux's four core functions (lend, borrow, multiply, swap); 30-day fixed-term cycles with ~5.4% target rates and 1M capacity on BNB Chain. Focus on simplified UX and unified liquidity.",
       "tweets": [
+        {
+          "id": "2064681357637267551",
+          "fullText": "Utility unlocks adoption with @matrixdock \n\n$XAUm becoming collateral in Venus Fixed-Term Vaults marks a new step for RWAs on @BNBCHAIN ⚡️\n\nCheck here： https://t.co/VbXixHyeio",
+          "createdAt": "Wed Jun 10 12:09:30 +0000 2026",
+          "twitterUrl": "https://twitter.com/VenusProtocol/status/2064681357637267551",
+          "likeCount": 4,
+          "bookmarkCount": 0,
+          "retweetCount": 2,
+          "replyCount": 0,
+          "viewCount": 236,
+          "aiAnalysis": "The tweet underperformed due to weak emotional hooks and unclear value proposition—\"utility unlocks adoption\" is generic marketing language that doesn't create urgency or FOMO, while the RWA collateral news lacks specificity about what this actually enables users to do or earn. The partnership announcement format with a link-to-learn-more cadence is inherently low-engagement compared to concrete metrics, price action, or direct user benefits."
+        },
+        {
+          "id": "2064620728574439585",
+          "fullText": "https://t.co/weY19EsjXM",
+          "createdAt": "Wed Jun 10 08:08:35 +0000 2026",
+          "twitterUrl": "https://twitter.com/VenusProtocol/status/2064620728574439585",
+          "likeCount": 11,
+          "bookmarkCount": 1,
+          "retweetCount": 2,
+          "replyCount": 0,
+          "viewCount": 491,
+          "aiAnalysis": "I'm unable to access the link to view the tweet content. Could you please share the text of the tweet or a screenshot? Once I can see what was posted, I'll be able to analyze why it achieved 11 likes, 1 bookmark, 2 retweets, and 491 views."
+        },
         {
           "id": "2064257829221834906",
           "fullText": "Venus Flux, simplified to four buttons:\n\n🟢 LEND → supply assets and earn yield\n🟡 BORROW → take a loan whose debt can earn LP fees \n🔵 MULTIPLY → loop exposure in one tx, no manual grind \n🟣 SWAP → trade against unified liquidity, tight spreads\nOne liquidity layer powering https://t.co/LW1sGGVqui",
           "createdAt": "Tue Jun 09 08:06:33 +0000 2026",
           "twitterUrl": "https://twitter.com/VenusProtocol/status/2064257829221834906",
-          "likeCount": 9,
+          "likeCount": 20,
           "bookmarkCount": 1,
-          "retweetCount": 1,
+          "retweetCount": 2,
           "replyCount": 1,
-          "viewCount": 482,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HKWxz9qWgAAmpaa.jpg"
+          "viewCount": 1028,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKWxz9qWgAAmpaa.jpg",
+          "aiAnalysis": "The educational \"simplified breakdown\" format with visual hierarchy (color-coded buttons) is strong, but the tweet lacks emotional urgency or a compelling reason to engage *now*—it reads as product documentation rather than news or an opportunity with FOMO appeal. The absence of metrics (TVL growth, yield rates, competitive advantages) or a specific call-to-action dilutes impact, leaving viewers informed but unmotivated to retweet or bookmark."
         },
         {
           "id": "2063955744873955570",
           "fullText": "Soon on @BNBCHAIN 🌪️.\nThe Fixed-Term Vault opens Cycle 1.\n\n→ 💵 Supply solana:Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB backed by @matrixdock XAUm collateral\n→ ⏳30-day term &amp; Target rate ~5.4%\n→ 📊 1M solana:Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB capacity https://t.co/AVMVMANcnJ",
           "createdAt": "Mon Jun 08 12:06:10 +0000 2026",
           "twitterUrl": "https://twitter.com/VenusProtocol/status/2063955744873955570",
-          "likeCount": 36,
+          "likeCount": 37,
           "bookmarkCount": 1,
           "retweetCount": 5,
           "replyCount": 6,
-          "viewCount": 4136,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HKSj-4IWEAAoOZI.jpg"
+          "viewCount": 4797,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKSj-4IWEAAoOZI.jpg",
+          "aiAnalysis": "The low engagement stems from **unclear value proposition and poor readability**. The tweet buries specificity (5.4% yield, 30-day term, 1M capacity) beneath confusing token addresses and vague \"soon\" messaging, while the visual likely didn't compensate for the cluttered text-heavy format—users couldn't quickly grasp *why* this vault matters or how it differs from existing options."
         },
         {
           "id": "2063515636719116722",
@@ -2069,31 +2089,8 @@
           "bookmarkCount": 1,
           "retweetCount": 5,
           "replyCount": 2,
-          "viewCount": 2426
-        },
-        {
-          "id": "2062846210541593036",
-          "fullText": "Meet our newest team member : WikiVenus 🤖\n\nAlways online. Never sleeps. Knows Venus inside and out.\n\nWhether you're looking for answers about products, rewards, campaigns, vaults, risk parameters, or protocol mechanics, WikiVenus is here to help.\n\n⏰ Available 24/7 for the https://t.co/Y3EHGPeVMN",
-          "createdAt": "Fri Jun 05 10:37:17 +0000 2026",
-          "twitterUrl": "https://twitter.com/VenusProtocol/status/2062846210541593036",
-          "likeCount": 25,
-          "bookmarkCount": 0,
-          "retweetCount": 8,
-          "replyCount": 5,
-          "viewCount": 2378,
-          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2062844244511846401/img/7zN--vw0d_tMlJ_M.jpg",
-          "aiAnalysis": "# Analysis\n\nThis tweet underperformed relative to views because it lacks urgency or emotional stakes—announcing a chatbot tool is inherently functional rather than compelling, with no FOMO, competitive advantage claim, or concrete user benefit (like yield rates or risk metrics) to drive urgency. The \"meet our team member\" personification angle feels forced for a bot and doesn't create the novelty or shareability that would trigger retweets among a protocol-focused audience expecting product updates or announcements with measurable impact."
-        },
-        {
-          "id": "2062454610531668057",
-          "fullText": "The lending sector on @BNBCHAIN has a clear anchor ⚓️\n\nVenus ended Q1 with roughly $1.60B in deposits, about 81% of total lending deposits, and $466M in borrow balances, accounting for approximately 78% of outstanding loans across tracked venues. \n\nGreat to see more ecosystem",
-          "createdAt": "Thu Jun 04 08:41:12 +0000 2026",
-          "twitterUrl": "https://twitter.com/VenusProtocol/status/2062454610531668057",
-          "likeCount": 29,
-          "bookmarkCount": 1,
-          "retweetCount": 5,
-          "replyCount": 5,
-          "viewCount": 1978
+          "viewCount": 2525,
+          "aiAnalysis": "This tweet underperformed due to weak engagement hooks—it's a generic call-to-action with no emotional trigger, specific yield metric, or time-sensitive incentive to drive clicks. The vague \"details below\" format also creates friction; users scrolling won't know if it's worth stopping without immediate, concrete information (like APY or bonus amount) visible in the tweet itself."
         }
       ]
     },
@@ -2102,12 +2099,8 @@
       "displayName": "Drift",
       "defiLlamaSlug": "drift-trade",
       "profilePicture": "https://pbs.twimg.com/profile_images/1996562092879663104/5W5GGU9U_normal.png",
-      "tvl": 5624326.49407,
+      "tvl": 5419320.31007,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 7188467
-        },
         {
           "date": 1778544000,
           "tvl": 7057068
@@ -2225,8 +2218,12 @@
           "tvl": 5591950
         },
         {
-          "date": 1781004299,
-          "tvl": 5624326
+          "date": 1781049600,
+          "tvl": 5540033
+        },
+        {
+          "date": 1781090495,
+          "tvl": 5419320
         }
       ],
       "aiSummary": "",
@@ -2236,23 +2233,22 @@
           "fullText": "Clarification: \nUsers are able to redeem at any time after redemption opens; however, early redemption occurs at a discount to the full claim value as users receive a pro-rata share of the current pool. Holders who wait may benefit from a higher recovery price as the pool",
           "createdAt": "Wed May 06 13:20:12 +0000 2026",
           "twitterUrl": "https://twitter.com/DriftProtocol/status/2052015574809710977",
-          "likeCount": 94,
+          "likeCount": 95,
           "bookmarkCount": 8,
           "retweetCount": 15,
           "replyCount": 123,
-          "viewCount": 40292,
-          "aiAnalysis": "This tweet underperformed due to its defensive, clarification-focused tone that lacks emotional pull or newsworthy value—it reads as reactive damage control rather than an exciting development, and the truncated/incomplete final sentence further dampens engagement by failing to deliver a clear payoff or hook."
+          "viewCount": 40352
         },
         {
           "id": "2062341550101704763",
           "fullText": "Today we are sharing an update on Drift recovery and relaunch \n\nhttps://t.co/pn4121cUp3",
           "createdAt": "Thu Jun 04 01:11:56 +0000 2026",
           "twitterUrl": "https://twitter.com/DriftProtocol/status/2062341550101704763",
-          "likeCount": 162,
+          "likeCount": 164,
           "bookmarkCount": 26,
           "retweetCount": 13,
-          "replyCount": 64,
-          "viewCount": 93620
+          "replyCount": 65,
+          "viewCount": 94503
         },
         {
           "id": "2057103397266854288",
@@ -2263,7 +2259,7 @@
           "bookmarkCount": 14,
           "retweetCount": 16,
           "replyCount": 62,
-          "viewCount": 54160
+          "viewCount": 54273
         },
         {
           "id": "2051666099675025732",
@@ -2274,7 +2270,7 @@
           "bookmarkCount": 59,
           "retweetCount": 46,
           "replyCount": 153,
-          "viewCount": 124135
+          "viewCount": 124188
         },
         {
           "id": "2042093972500177305",
@@ -2285,7 +2281,7 @@
           "bookmarkCount": 18,
           "retweetCount": 27,
           "replyCount": 234,
-          "viewCount": 129003
+          "viewCount": 129021
         }
       ]
     },
@@ -2294,12 +2290,8 @@
       "displayName": "Carrot",
       "defiLlamaSlug": "carrot-lend",
       "profilePicture": "https://pbs.twimg.com/profile_images/1996652426724585473/4OvTPWz1_normal.jpg",
-      "tvl": 67900.74763,
+      "tvl": 67643.04499,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 1172071
-        },
         {
           "date": 1778544000,
           "tvl": 1052418
@@ -2417,11 +2409,15 @@
           "tvl": 67922
         },
         {
-          "date": 1781004995,
-          "tvl": 67900
+          "date": 1781049600,
+          "tvl": 67755
+        },
+        {
+          "date": 1781085611,
+          "tvl": 67643
         }
       ],
-      "aiSummary": "",
+      "aiSummary": "Carrot experienced a 2.6% drawdown from Project0 (redemption price: $57.52). Following a Drift exploit, Carrot initially announced shutdown but subsequently resumed operations. The protocol paused then unpaused mint/redeem functions and achieved ~90% liquidity, planning CRT redemption reopening pending Drift's official response.",
       "tweets": [
         {
           "id": "2043751124046381514",
@@ -2432,18 +2428,18 @@
           "bookmarkCount": 1,
           "retweetCount": 0,
           "replyCount": 3,
-          "viewCount": 5150
+          "viewCount": 5152
         },
         {
           "id": "2049907092664762624",
           "fullText": "1/ Carrot is shutting down\n\nThis is certainly not the outcome we wanted, but the situation with the Drift exploit, has proven to be catastrophic for our continued operations.",
           "createdAt": "Thu Apr 30 17:41:50 +0000 2026",
           "twitterUrl": "https://twitter.com/DeFiCarrot/status/2049907092664762624",
-          "likeCount": 826,
+          "likeCount": 827,
           "bookmarkCount": 119,
           "retweetCount": 94,
           "replyCount": 278,
-          "viewCount": 193704
+          "viewCount": 193755
         },
         {
           "id": "2044486486284804100",
@@ -2454,7 +2450,8 @@
           "bookmarkCount": 4,
           "retweetCount": 4,
           "replyCount": 6,
-          "viewCount": 8991
+          "viewCount": 8999,
+          "aiAnalysis": "The tweet underperformed due to lack of urgency or emotional hook—it's a straightforward operational announcement without context on *why* the pause mattered, what problem was solved, or what users should do next, making it feel like an internal notification rather than compelling news."
         },
         {
           "id": "2043725930644861435",
@@ -2465,18 +2462,20 @@
           "bookmarkCount": 4,
           "retweetCount": 3,
           "replyCount": 9,
-          "viewCount": 10558
+          "viewCount": 10559,
+          "aiAnalysis": "The thread opener format with a numbered break creates anticipation and encourages clicks, while the specific liquidity metric (90%) and concrete timeline (\"tomorrow\") provide reassuring specificity that justifies engagement. However, the relatively modest engagement likely stems from the update being incremental rather than transformative—it addresses existing holders with status information rather than triggering broader appeal or FOMO."
         },
         {
           "id": "2041599719407824968",
           "fullText": "1/ Update on Carrot\n\nWe haven't sent an update in a few days, and wanted to stay in touch even though no new official information has come from Drift yet.\n\nPlease see our discord for the full update",
           "createdAt": "Tue Apr 07 19:31:18 +0000 2026",
           "twitterUrl": "https://twitter.com/DeFiCarrot/status/2041599719407824968",
-          "likeCount": 73,
+          "likeCount": 72,
           "bookmarkCount": 5,
           "retweetCount": 4,
           "replyCount": 10,
-          "viewCount": 11179
+          "viewCount": 11180,
+          "aiAnalysis": "The tweet underperformed due to low informational value and a weak hook—it's a meta-announcement about an update rather than substantive news, combined with a friction point (asking users to leave Twitter for Discord) that discourages engagement without any compelling reason to do so."
         }
       ]
     },
@@ -2485,12 +2484,8 @@
       "displayName": "Lista DAO",
       "defiLlamaSlug": "lista-lending",
       "profilePicture": "https://pbs.twimg.com/profile_images/2006524473323778048/ekWFvFN3_normal.jpg",
-      "tvl": 813649590.81814,
+      "tvl": 792887902.18315,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 634038993
-        },
         {
           "date": 1778544000,
           "tvl": 617923791
@@ -2608,70 +2603,74 @@
           "tvl": 619456419
         },
         {
-          "date": 1781003963,
-          "tvl": 625476243
+          "date": 1781049600,
+          "tvl": 612541059
+        },
+        {
+          "date": 1781093087,
+          "tvl": 607901249
         }
       ],
-      "aiSummary": "# Lista DAO Summary\n\nLista emphasizes security (CertiK AAA, RootData A ratings) and token economics through buyback mechanisms (1.3M daily purchases, 204.4M locked). Key products include lisASTER (7.57% APY), USDT yields (10.47%), and stablecoin vaults offering up to 22.26% APY across Ethereum and BNB Chain, with one-click deposits.",
+      "aiSummary": "",
       "tweets": [
+        {
+          "id": "2064675192161362151",
+          "fullText": "Today’s Lista Picks👇 \n\n🔹 XAUT/USDT\nhttps://t.co/5rXmpO5tSy\n\n🔹 ETH/USDT\nhttps://t.co/8Xt8KYAW11\n\n🔹 slisBNB &amp; BNB / XAUT\nhttps://t.co/viJAowQ43d https://t.co/AL65V6LQ90",
+          "createdAt": "Wed Jun 10 11:45:00 +0000 2026",
+          "twitterUrl": "https://twitter.com/lista_dao/status/2064675192161362151",
+          "likeCount": 1,
+          "bookmarkCount": 0,
+          "retweetCount": 0,
+          "replyCount": 1,
+          "viewCount": 3369,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKcmKiPXIAAwNeT.jpg"
+        },
+        {
+          "id": "2064633671852691461",
+          "fullText": "Early mover advantage: -1,310,299% borrow rate. 😳  \n\nSmart Lending just went live on Ethereum with $LISTA emissions. \nCurrent USDC/USDT borrow rate: -1,310,299%.\n\nBe early, earn early!\nhttps://t.co/UenIA3qYFI https://t.co/IKR5fSYkhX",
+          "createdAt": "Wed Jun 10 09:00:01 +0000 2026",
+          "twitterUrl": "https://twitter.com/lista_dao/status/2064633671852691461",
+          "likeCount": 19,
+          "bookmarkCount": 1,
+          "retweetCount": 1,
+          "replyCount": 6,
+          "viewCount": 7998,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKcAoJzWAAA0Khc.jpg"
+        },
+        {
+          "id": "2064512873288655146",
+          "fullText": "Gold Gold Gold! 🟡 Enjoy ~7% for your XAUT!\n\nTwo ways to put your $XAUt to work on Lista.\n\n1⃣Deposit into the XAUt Vault and earn ~7% APY.\n\n2⃣Or use $XAUt as collateral and borrow $U at -4.81% APY. You get paid to borrow, and your borrowed capital is free to deploy elsewhere. https://t.co/0akOLENZbm",
+          "createdAt": "Wed Jun 10 01:00:00 +0000 2026",
+          "twitterUrl": "https://twitter.com/lista_dao/status/2064512873288655146",
+          "likeCount": 49,
+          "bookmarkCount": 1,
+          "retweetCount": 12,
+          "replyCount": 4,
+          "viewCount": 7512,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKZogX7WoAAcSdi.jpg"
+        },
         {
           "id": "2064293932775727287",
           "fullText": "Thanks for featuring us! Two top scale ratings💫\n\nSecurity and transparency, independently verified.\n👉 @CertiKCommunity AAA (93.81)\n👉 @RootDataCrypto  A Grade (83)",
           "createdAt": "Tue Jun 09 10:30:00 +0000 2026",
           "twitterUrl": "https://twitter.com/lista_dao/status/2064293932775727287",
-          "likeCount": 8,
+          "likeCount": 32,
           "bookmarkCount": 0,
-          "retweetCount": 1,
+          "retweetCount": 2,
           "replyCount": 4,
-          "viewCount": 7182
+          "viewCount": 9137
         },
         {
           "id": "2064256844504130008",
           "fullText": "$LISTA Buyback Page is now live 🔵\n\nTwo mechanisms reducing $LISTA circulating supply.\n\n🔷 Daily Real-time Buyback: 1.3M $LISTA purchased to date via daily on-chain buybacks, funded by protocol revenue. \n🔷 Permanently Locked: 204.4M $LISTA removed from circulating supply and https://t.co/Qt18hkO6h7",
           "createdAt": "Tue Jun 09 08:02:38 +0000 2026",
           "twitterUrl": "https://twitter.com/lista_dao/status/2064256844504130008",
-          "likeCount": 24,
+          "likeCount": 76,
           "bookmarkCount": 14,
-          "retweetCount": 3,
-          "replyCount": 11,
-          "viewCount": 8194,
+          "retweetCount": 46,
+          "replyCount": 14,
+          "viewCount": 9299,
           "thumbnailUrl": "https://pbs.twimg.com/media/HKW2qPDX0AAYWIL.jpg"
-        },
-        {
-          "id": "2064150485356212336",
-          "fullText": "7.57% APY on $ASTER via $lisASTER.\n\n▶️Deposit $ASTER into Lista. Receive $lisASTER. Earn optimized staking rewards.\n\nLista handles 208-week locking, auto-relock every epoch, and trading volume aggregation for maximum yield.\n\nYour $ASTER. Working at full capacity.",
-          "createdAt": "Tue Jun 09 01:00:00 +0000 2026",
-          "twitterUrl": "https://twitter.com/lista_dao/status/2064150485356212336",
-          "likeCount": 39,
-          "bookmarkCount": 0,
-          "retweetCount": 13,
-          "replyCount": 4,
-          "viewCount": 8833,
-          "aiAnalysis": "The tweet underperformed due to lack of visual hierarchy and a missing emotional hook—it reads as a straightforward yield announcement without urgency, scarcity, or comparison context that would make 7.57% APY feel compelling relative to alternatives. The technical explanation of mechanics (208-week locking, auto-relock) clutters the message rather than creating FOMO, and the absence of an image in a visual-first platform means it had to compete on copy alone, which for a yield product typically requires either striking visuals or a newsworthy angle."
-        },
-        {
-          "id": "2063973389035868388",
-          "fullText": "Earn 10.47% APY on your USDT.\n\nCurated by @gauntlet_xyz. \n\nIndependently rated A by @CredoraNetwork, with low collateral risk across all underlying markets.\n\nDeposit here: https://t.co/zqnZUzET3G https://t.co/7iHjnyAfGD",
-          "createdAt": "Mon Jun 08 13:16:17 +0000 2026",
-          "twitterUrl": "https://twitter.com/lista_dao/status/2063973389035868388",
-          "likeCount": 33,
-          "bookmarkCount": 15,
-          "retweetCount": 2,
-          "replyCount": 9,
-          "viewCount": 6162,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HKSya7xXwAAoWfa.jpg"
-        },
-        {
-          "id": "2063931542603452684",
-          "fullText": "Want simple USDT or USDC yields? Up to 22% APY💥\n\nOn @ethereum:\n▶️Deposit USDC for 22.26%\n▶️Deposit USDC for 18.37%\n\nOn @BNBCHAIN:\n🟡 Earn with @gauntlet_xyz USDT Vault 10.27%\n🟡 Earn with @RockawayX  USDT Vault 12.78%\n\nOne click deposits, as easy as that\nhttps://t.co/vMejKfeJzi https://t.co/hzIu2EaCfV",
-          "createdAt": "Mon Jun 08 10:30:00 +0000 2026",
-          "twitterUrl": "https://twitter.com/lista_dao/status/2063931542603452684",
-          "likeCount": 37,
-          "bookmarkCount": 33,
-          "retweetCount": 1,
-          "replyCount": 9,
-          "viewCount": 8903,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HKR3a6sWkAAsEfW.jpg"
         }
       ]
     },
@@ -2680,12 +2679,8 @@
       "displayName": "HyperLend",
       "defiLlamaSlug": "hyperlend-pooled",
       "profilePicture": "https://pbs.twimg.com/profile_images/2011062303932678145/a5-fTMGC_normal.jpg",
-      "tvl": 671393678.99077,
+      "tvl": 590496659.92365,
       "tvlHistory": [
-        {
-          "date": 1778457600,
-          "tvl": 396068261
-        },
         {
           "date": 1778544000,
           "tvl": 389382940
@@ -2803,8 +2798,12 @@
           "tvl": 440293957
         },
         {
-          "date": 1781003411,
-          "tvl": 421127055
+          "date": 1781049600,
+          "tvl": 380781463
+        },
+        {
+          "date": 1781090555,
+          "tvl": 365927088
         }
       ],
       "aiSummary": "",
@@ -2818,7 +2817,7 @@
           "bookmarkCount": 4,
           "retweetCount": 15,
           "replyCount": 3,
-          "viewCount": 10342
+          "viewCount": 10365
         },
         {
           "id": "2054609546425839971",
@@ -2829,8 +2828,7 @@
           "bookmarkCount": 5,
           "retweetCount": 13,
           "replyCount": 15,
-          "viewCount": 16441,
-          "aiAnalysis": "The tweet underperformed due to lack of visual content and a generic, self-congratulatory claim without concrete metrics or comparison data to substantiate \"leading\" status—readers got positioning language rather than newsworthy proof points that would trigger sharing behavior."
+          "viewCount": 16474
         },
         {
           "id": "2046288343210582085",
@@ -2841,8 +2839,7 @@
           "bookmarkCount": 5,
           "retweetCount": 16,
           "replyCount": 9,
-          "viewCount": 19637,
-          "aiAnalysis": "The tweet underperformed due to lack of visual content and a procedural/technical announcement that reads more like a governance compliance update than a user-benefit story. The absence of concrete metrics, timeline impact, or emotional hooks (e.g., \"now users can...\" or performance improvements) made it feel routine rather than newsworthy, limiting share-ability."
+          "viewCount": 19646
         },
         {
           "id": "2042344906690003288",
@@ -2853,7 +2850,7 @@
           "bookmarkCount": 4,
           "retweetCount": 20,
           "replyCount": 7,
-          "viewCount": 7929,
+          "viewCount": 7937,
           "thumbnailUrl": "https://pbs.twimg.com/media/HFfdwFzbQAElYcb.png"
         },
         {
@@ -2865,9 +2862,8 @@
           "bookmarkCount": 40,
           "retweetCount": 28,
           "replyCount": 18,
-          "viewCount": 34622,
-          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2041210698437668864/img/AoNq-MepYDtvEsx1.jpg",
-          "aiAnalysis": "The minimal text paired with a clickthrough link forced viewers to engage with the image to understand what was being announced, creating friction that limited engagement, while the vague \"2.0\" framing lacked the specific metrics or emotional hooks (new features, TVL gains, yield improvements) needed to drive shares and bookmarks from an audience skeptical of incremental updates."
+          "viewCount": 34641,
+          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2041210698437668864/img/AoNq-MepYDtvEsx1.jpg"
         }
       ]
     },
@@ -2878,7 +2874,7 @@
       "profilePicture": "https://pbs.twimg.com/profile_images/1884484151463874560/IieI8_rA_normal.jpg",
       "tvl": 0,
       "tvlHistory": [],
-      "aiSummary": "",
+      "aiSummary": "# Summary\n\nElemental's key updates include: launching Partial Unstake for Fixed Depositors, enabling partial withdrawals while maintaining yield; strong $USDG lend vault performance; and V2 lending launch featuring isolated vaults on Kamino markets with transparent capital tracking and flexible deposit access via both platforms.",
       "tweets": [
         {
           "id": "2062112485461872653",
@@ -2889,7 +2885,8 @@
           "bookmarkCount": 0,
           "retweetCount": 0,
           "replyCount": 1,
-          "viewCount": 350
+          "viewCount": 355,
+          "aiAnalysis": "The tweet lacks any substantive hook—no metrics, narrative tension, problem-solving angle, or visual asset to stop scrollers. It reads as internal team sentiment rather than externally valuable information, offering nothing for followers to learn, react to, or share."
         },
         {
           "id": "2047124818617921996",
@@ -2900,8 +2897,9 @@
           "bookmarkCount": 1,
           "retweetCount": 3,
           "replyCount": 3,
-          "viewCount": 2153,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HGjZJBybUAARB8E.png"
+          "viewCount": 2154,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HGjZJBybUAARB8E.png",
+          "aiAnalysis": "The tweet underperformed due to a lack of emotional urgency or concrete incentive hooks—it reads as a standard product announcement rather than highlighting user benefit or competitive differentiation. While it correctly identifies high demand (\"most requested\"), it fails to quantify the impact (e.g., \"unlock liquidity without sacrificing 30% APY\") or create FOMO, resulting in low engagement despite addressing a genuine pain point."
         },
         {
           "id": "2046442897508352182",
@@ -2925,7 +2923,8 @@
           "retweetCount": 1,
           "replyCount": 2,
           "viewCount": 1381,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HGVnuMPaoAAcQxP.jpg"
+          "thumbnailUrl": "https://pbs.twimg.com/media/HGVnuMPaoAAcQxP.jpg",
+          "aiAnalysis": "The vague \"above average\" claim lacks specificity or concrete metrics that would create urgency or credibility—without showing exact yield percentages or comparative data, there's minimal reason for followers to engage or share. The straightforward announcement format feels promotional rather than newsworthy, missing the emotional hook (FOMO, surprise, or community validation) needed to drive retweets and saves."
         },
         {
           "id": "2051332546928251256",
@@ -2936,8 +2935,9 @@
           "bookmarkCount": 2,
           "retweetCount": 1,
           "replyCount": 3,
-          "viewCount": 2296,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HHfKaLmbQAAwXdM.png"
+          "viewCount": 2299,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HHfKaLmbQAAwXdM.png",
+          "aiAnalysis": "The low engagement stems from a **product announcement lacking urgency or differentiation hooks** — it's a straightforward feature launch without metrics (TVL, APY, risk parameters), comparison to alternatives, or a compelling reason *why now*. The dependency on Kamino markets and multi-step access (deposit via two platforms) adds friction rather than clarity, and the image likely shows UI/dashboards rather than a visual that triggers emotional response or FOMO."
         }
       ]
     },
@@ -2948,64 +2948,64 @@
       "profilePicture": "https://pbs.twimg.com/profile_images/1969454584155209729/SPDA0l3R_normal.png",
       "tvl": 0,
       "tvlHistory": [],
-      "aiSummary": "Bartega emphasizes capital efficiency over APY alone, highlighting ezSOL-JitoSOL's advantages. Kamino's RWA TVL reached $800M (60% of protocol), demonstrating isolated multi-market architecture benefits. New debt swap feature boosts Ethena returns from 12% to 44%. ONyc reinsurance premiums remain stable amid market drawdowns, offering uncorrelated yield opportunities.",
+      "aiSummary": "",
       "tweets": [
+        {
+          "id": "2064664264543977520",
+          "fullText": "happy solana RWA ATH day to those who celebrate",
+          "createdAt": "Wed Jun 10 11:01:34 +0000 2026",
+          "twitterUrl": "https://twitter.com/xBartega/status/2064664264543977520",
+          "likeCount": 10,
+          "bookmarkCount": 1,
+          "retweetCount": 0,
+          "replyCount": 2,
+          "viewCount": 195
+        },
+        {
+          "id": "2064414647797588419",
+          "fullText": "/model claude-fable-5[1M]\n\nfor fable with 1M context, you're welcome",
+          "createdAt": "Tue Jun 09 18:29:41 +0000 2026",
+          "twitterUrl": "https://twitter.com/xBartega/status/2064414647797588419",
+          "likeCount": 4,
+          "bookmarkCount": 0,
+          "retweetCount": 0,
+          "replyCount": 0,
+          "viewCount": 90
+        },
+        {
+          "id": "2064349946053091508",
+          "fullText": "bear market resistant, crypto uncorrelated yields just got even more attractive on kamino",
+          "createdAt": "Tue Jun 09 14:12:35 +0000 2026",
+          "twitterUrl": "https://twitter.com/xBartega/status/2064349946053091508",
+          "likeCount": 7,
+          "bookmarkCount": 0,
+          "retweetCount": 0,
+          "replyCount": 1,
+          "viewCount": 176
+        },
         {
           "id": "2064300233127801324",
           "fullText": "efficiency in yield is return per unit of risk taken, you can't compare product to product by APY alone\n\nezSOL-JitoSOL get's similar APY to a multiply position but has no leverage, no exposure to other borrowers, and no liquidation risk\n\nthat's capitial efficiency",
           "createdAt": "Tue Jun 09 10:55:03 +0000 2026",
           "twitterUrl": "https://twitter.com/xBartega/status/2064300233127801324",
-          "likeCount": 4,
+          "likeCount": 12,
           "bookmarkCount": 0,
-          "retweetCount": 1,
+          "retweetCount": 2,
           "replyCount": 0,
-          "viewCount": 116
+          "viewCount": 368
         },
         {
           "id": "2063888273303367899",
           "fullText": "kamino RWA TVL is now over 60% of total protocol TVL, at $800M\n\nkamino held even TVL on the week despite the drawdown, while other lending protocols are down 10%+\n\nthis diversification is the benefit of building a isolated multi-market architecture, ideal for scaling RWAs https://t.co/voPkbQMqOv",
           "createdAt": "Mon Jun 08 07:38:04 +0000 2026",
           "twitterUrl": "https://twitter.com/xBartega/status/2063888273303367899",
-          "likeCount": 30,
+          "likeCount": 34,
           "bookmarkCount": 1,
           "retweetCount": 4,
-          "replyCount": 5,
-          "viewCount": 1877,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HKRmvIOWQAAwtpx.jpg"
-        },
-        {
-          "id": "2063271304988414389",
-          "fullText": "debt swap for the ethena market is live, swap your position from USDG to PYUSD and go from 12% to 44%",
-          "createdAt": "Sat Jun 06 14:46:27 +0000 2026",
-          "twitterUrl": "https://twitter.com/xBartega/status/2063271304988414389",
-          "likeCount": 10,
-          "bookmarkCount": 1,
-          "retweetCount": 1,
-          "replyCount": 1,
-          "viewCount": 682
-        },
-        {
-          "id": "2063088657775362096",
-          "fullText": "i'd like to speak with the manager",
-          "createdAt": "Sat Jun 06 02:40:41 +0000 2026",
-          "twitterUrl": "https://twitter.com/xBartega/status/2063088657775362096",
-          "likeCount": 6,
-          "bookmarkCount": 0,
-          "retweetCount": 0,
-          "replyCount": 3,
-          "viewCount": 245
-        },
-        {
-          "id": "2062898545263288395",
-          "fullText": "red across the board today\n\nreinsurance premiums don't check the chart - ONyc keeps paying the same while leverage gets unwound everywhere else\n\nhigher cap, more room to loop it, and the timing is perfect\n\nnever a better time to be in uncorrelated yield",
-          "createdAt": "Fri Jun 05 14:05:14 +0000 2026",
-          "twitterUrl": "https://twitter.com/xBartega/status/2062898545263288395",
-          "likeCount": 31,
-          "bookmarkCount": 0,
-          "retweetCount": 1,
-          "replyCount": 2,
-          "viewCount": 1183,
-          "aiAnalysis": "The tweet's weak performance stems from **vague, insider-baseball positioning** that lacks concrete hooks—no metrics, timeframes, or visual proof to anchor the claim about ONyc's outperformance, making it feel like speculation rather than actionable insight. The fragmented structure and jargon-heavy messaging (\"reinsurance premiums,\" \"loop it\") creates friction for quick scanning, diluting impact despite what should be a timely market-downturn narrative."
+          "replyCount": 7,
+          "viewCount": 2130,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKRmvIOWQAAwtpx.jpg",
+          "aiAnalysis": "The tweet underperformed due to weak emotional hooks and audience relevance—RWA metrics lack the speculative excitement that drives engagement in DeFi, while the isolated-market architecture claim is too technical and abstract to resonate. The specific TVL figures and comparative performance data (60%, $800M, 10%+ declines) provide credibility but don't create urgency or FOMO, resulting in solid reach but minimal sharing behavior."
         }
       ]
     },
@@ -3019,6 +3019,30 @@
       "aiSummary": "",
       "tweets": [
         {
+          "id": "2064673796343161232",
+          "fullText": "Asset Focus: PRIME\n\nIssued by @HastraFi, PRIME provides short-term liquidity for Figure's HELOC origination\n\nPRIME was the fastest growing RWA market on Solana, now at $370M market size\n\nLoop it up to 8x in Multiply for increased yield exposure\n\nTrade it now on Kamino Swap https://t.co/W3QtP77aHA",
+          "createdAt": "Wed Jun 10 11:39:27 +0000 2026",
+          "twitterUrl": "https://twitter.com/kamino_swap/status/2064673796343161232",
+          "likeCount": 8,
+          "bookmarkCount": 1,
+          "retweetCount": 0,
+          "replyCount": 0,
+          "viewCount": 83,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKcxzyqWkAAEfZP.jpg"
+        },
+        {
+          "id": "2064347597054070994",
+          "fullText": "Mission confirmed. This Friday with @sunrisedefi. https://t.co/1Wbu7Q7lRZ",
+          "createdAt": "Tue Jun 09 14:03:15 +0000 2026",
+          "twitterUrl": "https://twitter.com/kamino_swap/status/2064347597054070994",
+          "likeCount": 28,
+          "bookmarkCount": 1,
+          "retweetCount": 2,
+          "replyCount": 4,
+          "viewCount": 4627,
+          "thumbnailUrl": "https://pbs.twimg.com/amplify_video_thumb/2064347469421346816/img/aVPgAuDJUN_lFiPv.jpg"
+        },
+        {
           "id": "2063940530732458493",
           "fullText": "Every swap on Kamino competes on execution, not fees earned\n\nZero platform fees means routes are ranked purely by output\n\n- 11+ routes aggregated\n- Execution built around best returned value\n\nTrade now with Zero fees and Zero route bias https://t.co/9t8KRlSvHq",
           "createdAt": "Mon Jun 08 11:05:43 +0000 2026",
@@ -3027,8 +3051,9 @@
           "bookmarkCount": 0,
           "retweetCount": 0,
           "replyCount": 0,
-          "viewCount": 141,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HKSW4N9WwAAxc06.jpg"
+          "viewCount": 229,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKSW4N9WwAAxc06.jpg",
+          "aiAnalysis": "The tweet underperformed due to weak emotional hooks and unclear value differentiation. While \"zero fees\" is compelling, the messaging focuses on technical routing mechanics (11+ routes, execution ranking) rather than concrete user benefits—lacking specificity about *why* this matters or what users actually gain compared to competitors, which fails to create urgency or shareability."
         },
         {
           "id": "2062864264495247851",
@@ -3039,8 +3064,7 @@
           "bookmarkCount": 0,
           "retweetCount": 2,
           "replyCount": 1,
-          "viewCount": 694,
-          "aiAnalysis": "The tweet failed to generate meaningful engagement because it lacks emotional urgency or novelty—announcing a live product launch without highlighting what makes this specific token valuable or why traders should act now, combined with the absence of visual content (no screenshots, charts, or imagery) to break up text-heavy copy in a crowded feed. The partnership angle with Sunrise and zero-fee trading are weak hooks compared to performance metrics, scarcity data, or trading volume that would signal opportunity or FOMO."
+          "viewCount": 724
         },
         {
           "id": "2062484363091063092",
@@ -3051,31 +3075,9 @@
           "bookmarkCount": 0,
           "retweetCount": 0,
           "replyCount": 0,
-          "viewCount": 185,
+          "viewCount": 202,
           "thumbnailUrl": "https://pbs.twimg.com/media/HJ9qbkRW0AAFZaC.png",
-          "aiAnalysis": "The tweet underperformed due to weak emotional hooks and unclear value proposition—it reads like a technical announcement rather than a compelling reason to engage, and the specific metrics (1:1 peg, $588M TVL) lack context about why users should care or what action they should take. The \"Asset Focus\" format appears to be educational/informational content that doesn't trigger urgency, FOMO, or community excitement compared to performance claims or opportunity-driven narratives."
-        },
-        {
-          "id": "2061947169049854434",
-          "fullText": "xStocks are available 24/7 on Kamino Swap, with:\n\n- Market status indicators \n- CEX price comparisons \n- Zero fees  \n\nSettled in seconds, exactly when you need it",
-          "createdAt": "Tue Jun 02 23:04:48 +0000 2026",
-          "twitterUrl": "https://twitter.com/kamino_swap/status/2061947169049854434",
-          "likeCount": 29,
-          "bookmarkCount": 3,
-          "retweetCount": 1,
-          "replyCount": 5,
-          "viewCount": 2872
-        },
-        {
-          "id": "2061867579866526043",
-          "fullText": "Need to close your position fast?\n\nKamino's Repay With Collateral function is powered by Kamino Swap\n\nThat means you can instantly settle your borrows using your lend position - no extra funds needed\n\nWith the same Kamino Swap best in class execution across 11 venues &amp; Zero Fees",
-          "createdAt": "Tue Jun 02 17:48:33 +0000 2026",
-          "twitterUrl": "https://twitter.com/kamino_swap/status/2061867579866526043",
-          "likeCount": 9,
-          "bookmarkCount": 1,
-          "retweetCount": 0,
-          "replyCount": 1,
-          "viewCount": 252
+          "aiAnalysis": "The tweet underperformed due to weak emotional hooks and unclear value proposition—it reads as a feature announcement rather than actionable opportunity, and the specific metric ($588M TVL) lacks context to signal either significance or urgency. The educational framing (\"Asset Focus\") positions it as informational content rather than something that creates FOMO or immediate engagement incentive."
         }
       ]
     },
@@ -3086,31 +3088,33 @@
       "profilePicture": "https://pbs.twimg.com/profile_images/1999402728242528257/Ix3W_1ik_normal.jpg",
       "tvl": 0,
       "tvlHistory": [],
-      "aiSummary": "Kamino Liquidity highlights 12.8% yields on ezSOL-JitoSOL through trading fees, incentives, and staking. Key advantages: yields independent of borrow demand, stablecoin pools earning during downturns, $42M in generated fees, and concentrated liquidity strategies minimizing impermanent loss across correlated pairs.",
+      "aiSummary": "Kamino Liquidity offers yield strategies on Solana without leverage or borrow dependency. Key products include ezSOL-JitoSOL (12.8% yields via fees, JTO incentives, staking), stablecoin pools generating fees during market volatility, and correlated-pair positions minimizing impermanent loss. Platform has generated $42M+ in fees since 2022.",
       "tweets": [
         {
           "id": "2064295631238103384",
           "fullText": "12.8% - looping sized yields, zero leverage required\n\nezSOL-JitoSOL depositors capture triple yield:\n\n- trading fees from pool volume\n- JTO incentives\n- native staking &amp; restaking yield\n\nThe most efficient way to yield on SOL right now is Kamino Liquidity https://t.co/o8W0Q5Jzom",
           "createdAt": "Tue Jun 09 10:36:45 +0000 2026",
           "twitterUrl": "https://twitter.com/kamino_liq/status/2064295631238103384",
-          "likeCount": 4,
-          "bookmarkCount": 0,
+          "likeCount": 12,
+          "bookmarkCount": 1,
           "retweetCount": 0,
           "replyCount": 0,
-          "viewCount": 215,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HKXZu3dWkAABdJl.jpg"
+          "viewCount": 679,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKXZu3dWkAABdJl.jpg",
+          "aiAnalysis": "The tweet underperforms because it leads with a headline metric (12.8%) without immediate context or comparison, making the claim feel abstract rather than compelling—combined with dense, feature-focused copy that explains *what* the product does rather than *why* it matters, it reads more like a product spec sheet than a conviction take that invites engagement or shares."
         },
         {
           "id": "2063967837668966905",
           "fullText": "Yield on Kamino Liquidity doesn't rely on borrow demand\n\nIn lending markets APY depends on utilisation. If borrowers exit, yield drops\n\nLiquidity is different\n\n- Instant withdrawal with no utilisation cap\n- Incentives regardless of volume\n- Trading fees that scale with volatility https://t.co/W3JUt3LtrE",
           "createdAt": "Mon Jun 08 12:54:13 +0000 2026",
           "twitterUrl": "https://twitter.com/kamino_liq/status/2063967837668966905",
-          "likeCount": 8,
+          "likeCount": 9,
           "bookmarkCount": 0,
           "retweetCount": 0,
           "replyCount": 0,
-          "viewCount": 176,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HKSvtdiXQAAWgjq.jpg"
+          "viewCount": 186,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HKSvtdiXQAAWgjq.jpg",
+          "aiAnalysis": "The tweet's poor performance stems from weak emotional hooks and abstract positioning—it makes a comparative claim (\"liquidity is different\") without concrete metrics, urgency, or a specific outcome that would compel engagement, and the educational tone lacks the novelty angle needed to stand out in a saturated market of protocol explanations."
         },
         {
           "id": "2062892100039905544",
@@ -3121,7 +3125,7 @@
           "bookmarkCount": 0,
           "retweetCount": 1,
           "replyCount": 0,
-          "viewCount": 156,
+          "viewCount": 158,
           "thumbnailUrl": "https://pbs.twimg.com/media/HKDdbOAXkAAmZzz.jpg"
         },
         {
@@ -3133,9 +3137,8 @@
           "bookmarkCount": 1,
           "retweetCount": 4,
           "replyCount": 9,
-          "viewCount": 2164,
-          "thumbnailUrl": "https://pbs.twimg.com/media/HJ-TTj8XYAADb2j.jpg",
-          "aiAnalysis": "The tweet underperformed due to generic positioning and lack of narrative tension—it's a straightforward milestone announcement without a specific hook (no \"first to,\" \"record,\" or comparative claim) and relies on dated credibility (\"since 2022\") rather than recent momentum or breaking news that would create urgency to engage."
+          "viewCount": 2186,
+          "thumbnailUrl": "https://pbs.twimg.com/media/HJ-TTj8XYAADb2j.jpg"
         },
         {
           "id": "2062192066621305311",
@@ -3146,7 +3149,7 @@
           "bookmarkCount": 0,
           "retweetCount": 1,
           "replyCount": 2,
-          "viewCount": 2607,
+          "viewCount": 2624,
           "thumbnailUrl": "https://pbs.twimg.com/media/HJ5gqz8XUAA4sv2.jpg"
         }
       ]
@@ -3154,19 +3157,19 @@
   ],
   "highlights": {
     "mostLiked": {
-      "twitterHandle": "deficarrot",
-      "tweetIndex": 1,
-      "likeCount": 826
+      "twitterHandle": "morpho",
+      "tweetIndex": 3,
+      "likeCount": 1023
     },
     "mostBookmarked": {
-      "twitterHandle": "deficarrot",
-      "tweetIndex": 1,
-      "bookmarkCount": 119
+      "twitterHandle": "morpho",
+      "tweetIndex": 3,
+      "bookmarkCount": 138
     },
     "mostInteresting": {
       "twitterHandle": "@morpho",
       "tweetIndex": 3,
-      "reason": "Morpho Association raised $175M for its open credit network with participation from major institutional investors (Paradigm, a16z, Ribbit Capital, Apollo Global, VanEck, Circle, Ledger). This is a significant competitive threat to Kamino as it signals major capital and institutional backing for an alternative lending/credit protocol that could scale rapidly and capture market share in the DeFi lending space."
+      "reason": "Morpho Association raising $175M with major institutional backing (Paradigm, a16z, Ribbit Capital, Apollo Global, VanEck, Circle) to build an 'open credit network' represents a significant competitive threat. This signals major capital mobilization and institutional validation for a competing lending protocol, which is strategically important for Kamino to monitor regarding market positioning and institutional adoption."
     }
   }
 }
